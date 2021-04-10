@@ -1,4 +1,4 @@
-# Group Contract
+# Team Working Agreement
 ### Spring 2021
 ### Created 4/10/2021
 

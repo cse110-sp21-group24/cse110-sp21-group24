@@ -1,6 +1,6 @@
 Team 24 - Kickoff Meeting
 
-Members Present: Aneesha, Vardhan, Emma, Prashanth, Nicholas, Younghoon
+Members Present: Aneesha, Vardhan, Emma, Prashanth, Nicholas, Younghyun
 
 Members Absent: Shane
 

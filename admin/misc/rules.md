@@ -1,0 +1,3 @@
+Developers - When a team member works on a feature, it should be created on a new branch and approved by two team members before merging into master.
+Leaders - Should make sure there is clear communication between the team as well as between the team and faculty. Leaders should also make sure that there are clear task assignments and keep up to date with progress.
+Designers - Should communicate with developers in the process of designing.

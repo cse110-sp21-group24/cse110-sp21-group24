@@ -38,6 +38,7 @@ We are the Good Mighty Engineers (GME)
   * 2nd Year
   * Computer Science
   * Marshall College
+  * [Personal Page](https://github.com/nmasumot)
 * Prashanth Rajan (Dev)
   * 2nd Year
   * Computer Science

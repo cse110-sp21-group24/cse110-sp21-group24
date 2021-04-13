@@ -48,3 +48,4 @@ We are the Good Mighty Engineers (GME)
   * 2nd Year
   * Computer Science
   * Sixth College
+  * [Personal Page](https://www.linkedin.com/in/vardhanagarwal/)

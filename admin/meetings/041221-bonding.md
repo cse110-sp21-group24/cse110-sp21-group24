@@ -11,7 +11,7 @@
 **Decisions**:
 - Decided on GME (Good Might Engineers) as the team name, black and red as team colors, and a rocket as the team mascot
 - Assigned Prashanth to work on the team page with assistance from team members if needed
-   * Reasoning: Prashanth volunteered
+   * *Reasoning*: Prashanth volunteered
 
 **Action Items**:
 - Upload signed group contracts (by Thurs 4/15)

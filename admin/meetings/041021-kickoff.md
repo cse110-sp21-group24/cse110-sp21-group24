@@ -12,8 +12,10 @@
 - Group contract (communication, scheduling meetings, responsibilities, etc.)
 
 **Decisions**:
-- Check Slack at least once a day for annoucements and updates and give a weekly update on your task; we made this decision for team communication purposes
-- Use when2meet to schedule availability and meetings and Trello for assigning tasks; we made this decision for organization and convenience purposes
+- Check Slack at least once a day for annoucements and updates and give a weekly update on your task
+   * *Reasoning*: to improve team communication and keep track of the team's progress 
+- Use when2meet to schedule availability and meetings and Trello for assigning tasks
+   * *Reasoning*: to keep the team better organized and for convenience purposes
 
 **Action Items**:
 - Plan and hold group bonding event (by Thurs 4/15)

@@ -34,6 +34,9 @@ We are the Good Mighty Engineers (GME)
   * 2nd Year
   * Computer Science
   * Warren College
+  * Fun Fact: I have drank 100+ bubble teas in 2020
+  * Hobbies: hiking, video games, shopping, exploring new food places
+  * [Personal Page](https://www.linkedin.com/in/lynguyxn/)
 * Nicholas Masumoto (Dev)
   * 2nd Year
   * Computer Science

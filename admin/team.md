@@ -52,4 +52,5 @@ We are the Good Mighty Engineers (GME)
   * 2nd Year
   * Computer Science
   * Sixth College
+  * Hobbies: hiking, philately, table tennis, cricket, lawn tennis
   * [Personal Page](https://www.linkedin.com/in/vardhanagarwal/)

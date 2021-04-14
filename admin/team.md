@@ -49,6 +49,7 @@ We are the Good Mighty Engineers (GME)
   * 2nd Year
   * Computer Science
   * Marshall College
+  * Hobbies: Tennis, biking, TV shows, dogs
   * [Personal Page](http://linkedin.com/in/rajanprashanth/)
 * **Vardhan Agarwal** (Developer)
   * 2nd Year

@@ -22,6 +22,8 @@ We are the Good Mighty Engineers (GME)
   * 2nd Year
   * Computer Science
   * Muir College
+  * Hobbies: painting, piano, hiking, cats
+  * [Personal Page](https://www.linkedin.com/in/aneesha-ramaswamy/)
 * **Younghyun Kim** (Designer)
   * 3rd Year
   * Computer Science

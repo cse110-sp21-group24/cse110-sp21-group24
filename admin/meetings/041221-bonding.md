@@ -15,6 +15,6 @@
 
 **Action Items**:
 - Upload signed group contracts (by Thurs 4/15)
-- Create group page and change Slack workspace icon (by Thurs 4/15)
+- Create group page (by Thurs 4/15)
 
 ### Meeting finished at 4PM

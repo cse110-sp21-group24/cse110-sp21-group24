@@ -18,6 +18,8 @@ We are the Good Mighty Engineers (GME)
   * 2nd Year
   * Computer Engineering
   * Warren College
+  * Hobbies: Drawing, Basketball, Reading, Hiking, Gym
+  * [Personal Page](https://github.com/ShaneVal)
 * **Aneesha Ramaswamy** (Leader)
   * 2nd Year
   * Computer Science

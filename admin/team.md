@@ -1,8 +1,8 @@
-# <img src="./imgs/logo.png" height="40px" width="40px"> **G**ood **M**ighty **E**ngineers **(GME)** 
+# <img src="./branding/slackicon.png" height="40px" width="40px"> **G**ood **M**ighty **E**ngineers **(GME)** 
 
 We are the Good Mighty Engineers (GME)
 
-![Group Photo](./imgs/teamphoto.png)
+![Group Photo](./images/teamphoto.png)
 
 ## Goals
 1. Take this project to the Moon!

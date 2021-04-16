@@ -29,7 +29,9 @@ We are the Good Mighty Engineers (GME)
 * **Younghyun Kim** (Designer)
   * 3rd Year
   * Computer Science
-  * Revelle
+  * Revelle College
+  * Hobbies: Cooking, Watching Seahawks and Sounders games, Playing soccer
+  * [Personal Page](https://www.linkedin.com/in/younghyun-k)
 * **Emma Yuan** (Developer)
   * 2nd Year
   * Math-CS

@@ -34,6 +34,7 @@ We are the Good Mighty Engineers (GME)
   * 2nd Year
   * Math-CS
   * Warren College
+  * Hobbies: animes, dogs, biking
   * [Personal Page](https://www.linkedin.com/in/emma-yuan/)
 * **Ly Nguyen** (Developer)
   * 2nd Year

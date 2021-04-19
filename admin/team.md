@@ -20,7 +20,13 @@ We are the Good Mighty Engineers (GME)
   * Warren College
   * Hobbies: Drawing, Basketball, Reading, Hiking, Gym
   * [Personal Page](https://github.com/ShaneVal)
-* **Aneesha Ramaswamy** (Leader)
+* **Vardhan Agarwal** (Leader, Developer)
+  * 2nd Year
+  * Computer Science
+  * Sixth College
+  * Hobbies: hiking, philately, table tennis, cricket, lawn tennis
+  * [Personal Page](https://www.linkedin.com/in/vardhanagarwal/)
+* **Aneesha Ramaswamy** (Documentation Person)
   * 2nd Year
   * Computer Science
   * Muir College
@@ -56,9 +62,4 @@ We are the Good Mighty Engineers (GME)
   * Marshall College
   * Hobbies: Tennis, biking, TV shows, dogs
   * [Personal Page](http://linkedin.com/in/rajanprashanth/)
-* **Vardhan Agarwal** (Developer)
-  * 2nd Year
-  * Computer Science
-  * Sixth College
-  * Hobbies: hiking, philately, table tennis, cricket, lawn tennis
-  * [Personal Page](https://www.linkedin.com/in/vardhanagarwal/)
+

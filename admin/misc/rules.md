@@ -29,10 +29,10 @@ Members should complete tasks on time or ask for help/extension in the team Slac
 ### Rules
 Members are expected to follow the above rules and if they are consistently not being followed, they and one of the leaders will have a conversation to figure out specific steps to resolve any issues. If the issue continues, further steps can be discussed as a group.
 ### Member Roles
-* Aneesha Ramaswamy - Leader
+* Vardhan Agarwal - Leader, Developer
+* Aneesha Ramaswamy - Documentation Person
 * Shane Valderrama - Leader
 * Younghyun Kim - Designer
-* Vardhan Agarwal - Developer
 * Prashanth Rajan - Developer
 * Nicholas Masumoto - Developer
 * Emma Yuan - Developer

@@ -13,7 +13,9 @@ The core utilities of bullet journals are:
 
 ## Local Development
 
-All html, css, and js files will be located in the `public` directory. To test locally:
+First, install the Firebase CLI [here](https://firebase.google.com/docs/cli#install_the_firebase_cli).
+
+All website files will be located in the `public` directory. To test locally, run:
 
 ```
 firebase serve

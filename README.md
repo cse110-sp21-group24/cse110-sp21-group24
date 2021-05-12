@@ -10,3 +10,23 @@ The core utilities of bullet journals are:
 - **logs** (to-do lists)
 - **collections** (organizing information by content)
 - **migration** (periodically updating lists to new lists)
+
+## Local Development
+
+All html, css, and js files will be located in the `public` directory. To test locally:
+
+```
+firebase serve
+```
+
+Website will then run at http://localhost:5000
+
+## Deployment
+
+To deploy:
+
+```
+firebase deploy
+```
+
+Deployment will then be updated at https://team-24-gme-bujo.firebaseapp.com/

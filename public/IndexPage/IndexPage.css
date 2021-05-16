@@ -1,105 +1,105 @@
 @font-face {
-    font-family: 'Sansita One';
-    src: url('fonts/SansitaOne.ttf');
+  font-family: 'Sansita One';
+  src: url('fonts/SansitaOne.ttf');
 }
 
 @font-face {
-    font-family: 'Mansalva';
-    src: url('fonts/Mansalva-Regular.ttf');
+  font-family: 'Mansalva';
+  src: url('fonts/Mansalva-Regular.ttf');
 }
 
 
 ul{
-    list-style-type: none;
+  list-style-type: none;
 }
 
 h1 {
-    font-family: 'Sansita One';
-    color: #1D8ECE;
-    font-size: 64px;
-    left:50%;
-    text-align:center;
+  font-family: 'Sansita One';
+  color: #1D8ECE;
+  font-size: 64px;
+  left:50%;
+  text-align:center;
 }
 
 #testLink {
-    color: black;
+  color: black;
 }
 
 .hover:hover{
-    color: rgb(71, 166, 197);
+  color: rgb(71, 166, 197);
 }
 
 .hyperLinks {
-    width: 500px;
-    height: auto;
-    padding: 10px;
-    margin: auto;
-    border-style: solid;
-    border-radius: 10px;
-    border-color: black;
-    font-size: 38px;
-    float:left;
+  width: 500px;
+  height: auto;
+  padding: 10px;
+  margin: auto;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: black;
+  font-size: 38px;
+  float:left;
 }
 
 .legend {
-    font-family: 'Mansalva';
-    width:250px;
-    max-height:auto;
-    padding:10px;
-    margin:10px;
-    border-style: solid;
-    border-radius: 10px;
-    border-color:black;
-    font-size:20px;
-    border-width: 2px;
-    background-color: #1D8ECE;
-    color: white;
-    float:left;
-    margin-top: 125px;
+  font-family: 'Mansalva';
+  width:250px;
+  max-height:auto;
+  padding:10px;
+  margin:10px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color:black;
+  font-size:20px;
+  border-width: 2px;
+  background-color: #1D8ECE;
+  color: white;
+  float:left;
+  margin-top: 125px;
 }
 
 h2{
-    color: white;
-    padding-left:80px;
-    font-family: 'Sansita One';
+  color: white;
+  padding-left:80px;
+  font-family: 'Sansita One';
 }
 
 .task-list {
-    list-style-image: none;
-    background: url('images/task.png') no-repeat 0 0.3em;
-    background-size: 1em;
-    padding-left: 1.5em;
+  list-style-image: none;
+  background: url('images/task.png') no-repeat 0 0.3em;
+  background-size: 1em;
+  padding-left: 1.5em;
 }
 
 .event-list {
-    list-style-image: none;
-    background: url('images/event.png') no-repeat 0 0.3em;
-    background-size: 1em;
-    padding-left: 1.5em;
+  list-style-image: none;
+  background: url('images/event.png') no-repeat 0 0.3em;
+  background-size: 1em;
+  padding-left: 1.5em;
 }
 
 .important-list {
-    list-style-image: none;
-    background: url('images/important.png') no-repeat 0 0.3em;
-    background-size: 1em;
-    padding-left: 1.5em;
+  list-style-image: none;
+  background: url('images/important.png') no-repeat 0 0.3em;
+  background-size: 1em;
+  padding-left: 1.5em;
 }
 
 .inspiration-list {
-    list-style-image: none;
-    background: url('images/inspiration.png') no-repeat 0 0.3em;
-    background-size: 1em;
-    padding-left: 1.5em;
+  list-style-image: none;
+  background: url('images/inspiration.png') no-repeat 0 0.3em;
+  background-size: 1em;
+  padding-left: 1.5em;
 }
 
 .note-list {
-    list-style-image: none;
-    background: url('images/note.png') no-repeat 0 0.3em;
-    background-size: 1em;
-    padding-left: 1.5em;
+  list-style-image: none;
+  background: url('images/note.png') no-repeat 0 0.3em;
+  background-size: 1em;
+  padding-left: 1.5em;
 }
 
 body{
-    max-width: 850px;
-    margin: auto;
+  max-width: 850px;
+  margin: auto;
 }

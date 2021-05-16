@@ -9,10 +9,6 @@
 }
 
 
-ul{
-  list-style-type: none;
-}
-
 h1 {
   font-family: 'Sansita One';
   color: #1D8ECE;
@@ -65,6 +61,7 @@ h2{
 }
 
 .task-list {
+  list-style-type: none;
   list-style-image: none;
   background: url('images/task.png') no-repeat 0 0.3em;
   background-size: 1em;
@@ -72,6 +69,7 @@ h2{
 }
 
 .event-list {
+  list-style-type: none;
   list-style-image: none;
   background: url('images/event.png') no-repeat 0 0.3em;
   background-size: 1em;
@@ -79,6 +77,7 @@ h2{
 }
 
 .important-list {
+  list-style-type: none;
   list-style-image: none;
   background: url('images/important.png') no-repeat 0 0.3em;
   background-size: 1em;
@@ -86,6 +85,7 @@ h2{
 }
 
 .inspiration-list {
+  list-style-type: none;
   list-style-image: none;
   background: url('images/inspiration.png') no-repeat 0 0.3em;
   background-size: 1em;
@@ -93,10 +93,15 @@ h2{
 }
 
 .note-list {
+  list-style-type: none;
   list-style-image: none;
   background: url('images/note.png') no-repeat 0 0.3em;
   background-size: 1em;
   padding-left: 1.5em;
+}
+
+.noBullets {
+  list-style-type: none;
 }
 
 body{

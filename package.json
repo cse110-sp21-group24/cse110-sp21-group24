@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/cse110-sp21-group24/cse110-sp21-group24#readme",
   "devDependencies": {
+    "eslint": "^7.26.0",
     "jest": "^26.6.3"
   }
 }

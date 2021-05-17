@@ -14,9 +14,6 @@ jobs:
       
       - name: switchBranch
         run: git switch -c newBranch
-
-      - name: gitPull
-        run: git pull origin newBranch
       
       - name: Build
         uses: andstor/jsdoc-action@v1

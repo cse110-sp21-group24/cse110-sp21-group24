@@ -33,3 +33,14 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: "newBranch"
+
+      - name: mergeBranch
+        uses: everlytic/branch-merge@1.1.0
+        with:
+          github_token: ${{ github.token }}
+          source_ref: 'newBranch'
+          target_branch: 'Index-Page'
+          commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
+
+      - name: deleteBranch
+        run: git push origin --delete newBranch

@@ -15,9 +15,6 @@ jobs:
       - name: switchBranch
         run: git switch -c Documentation
       
-      - name: pullInfo
-        run: git pull Documentation
-      
       - name: Build
         uses: andstor/jsdoc-action@v1
         with:

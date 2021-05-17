@@ -15,6 +15,6 @@ jobs:
       - name: Build
         uses: andstor/jsdoc-action@v1
         with:
-          source_dir: ./public
+          source_dir: ./public/scripts
           output_dir: ./out
           front_page: README.md

@@ -32,3 +32,9 @@ firebase deploy
 ```
 
 Deployment will then be updated at https://team-24-gme-bujo.firebaseapp.com/
+
+
+## Linter
+```
+npx eslint yourfile.js
+```

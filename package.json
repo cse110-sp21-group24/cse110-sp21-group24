@@ -1,0 +1,21 @@
+{
+    "name": "cse110-sp21-group24",
+    "version": "1.0.0",
+    "description": "[Team Page](./admin/team.md)",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "echo 'build script executed'" 
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/cse110-sp21-group24/cse110-sp21-group24.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/cse110-sp21-group24/cse110-sp21-group24/issues"
+    },
+    "homepage": "https://github.com/cse110-sp21-group24/cse110-sp21-group24#readme"
+}

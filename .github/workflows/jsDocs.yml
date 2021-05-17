@@ -39,8 +39,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: everlytic/branch-merge-1.1.0
-      - with:
-        github_token: ${{ github.token }}
-        source_ref: "Documentation"
-        target_branch: 'Index-Page'
-        commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
+        with:
+          github_token: ${{ github.token }}
+          source_ref: "Documentation"
+          target_branch: 'Index-Page'
+          commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'

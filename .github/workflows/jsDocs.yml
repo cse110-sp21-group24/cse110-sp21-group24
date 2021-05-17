@@ -18,4 +18,7 @@ jobs:
           source_dir: ./public/scripts
           output_dir: ./out
           front_page: README.md
-          
+
+      - name: jsdocs
+        run: npm install -g jsdoc
+        run: jsdoc public/scripts/test.js

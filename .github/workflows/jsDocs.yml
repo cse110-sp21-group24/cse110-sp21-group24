@@ -22,3 +22,4 @@ jobs:
       - name: jsdocs
         run: npm install -g jsdoc
         run: jsdoc public/scripts/test.js
+

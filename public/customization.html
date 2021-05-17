@@ -12,34 +12,33 @@
 
   <body>
     <div id="dropBody" ondragover="allowDrop(event)">
-      <div class="customization">
-        <div class="customizationBtn">
-          <button type="button" class="btn btn-elegant" id="openBtn" onclick="openSticker()">
-            <i class="bi bi-paperclip"></i>
-          </button>
-          <button type="button" class="btn btn-elegant" id="closeBtn" onclick="closeSticker()" hidden>
-            <i class="bi bi-paperclip"></i>
-          </button>
-        </div>
-        <div id="customContainer">
-          <section>
-            <form id="customForm" onsubmit="createCustom(event)">
-              <input type="file" id="newImg" name="newImg" accept="image/png, image/jpeg">
-              <input type="submit">
-            </form>
-            <div id="stickerBox">
-              <img id="sticker1" src="https://i.pinimg.com/originals/d9/d7/57/d9d757f08bdf79a991372d101742ad44.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
-              <img id="sticker2" src="https://www.line-stickers.com/wp-content/uploads/2020/10/Sanrio-Characters-LittlePopcorn-.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
-              <img id="sticker3" src="https://sdl-stickershop.line.naver.jp/products/0/0/6/1026/android/stickers/16649.png;compress=true" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
-            </div>
-            <div id="washiBox">
-              <img id="washi1" src="./images/washi1.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
-              <img id="washi2" src="./images/washi2.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
-            </div>
-            <div id="customBox">
-            </div>
-          </section>
-        </div>
+      <!-- Customization -->
+      <div class="customizationBtn">
+        <button type="button" class="btn btn-elegant" id="openBtn" onclick="openSticker()">
+          <i class="bi bi-paperclip"></i>
+        </button>
+        <button type="button" class="btn btn-elegant" id="closeBtn" onclick="closeSticker()" hidden>
+          <i class="bi bi-paperclip"></i>
+        </button>
+      </div>
+      <div id="customContainer">
+        <section>
+          <form id="customForm" onsubmit="createCustom(event)">
+            <input type="file" id="newImg" name="newImg" accept="image/png, image/jpeg">
+            <input type="submit">
+          </form>
+          <div id="stickerBox">
+            <img id="sticker1" src="https://i.pinimg.com/originals/d9/d7/57/d9d757f08bdf79a991372d101742ad44.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+            <img id="sticker2" src="https://www.line-stickers.com/wp-content/uploads/2020/10/Sanrio-Characters-LittlePopcorn-.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+            <img id="sticker3" src="https://sdl-stickershop.line.naver.jp/products/0/0/6/1026/android/stickers/16649.png;compress=true" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+          </div>
+          <div id="washiBox">
+            <img id="washi1" src="./images/washi1.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+            <img id="washi2" src="./images/washi2.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+          </div>
+          <div id="customBox">
+          </div>
+        </section>
       </div>
       <!-- Page Body -->
     </div>

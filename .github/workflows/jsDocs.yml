@@ -1,0 +1,21 @@
+name: jsDocs
+
+on: 
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Build
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./public/scripts
+          output_dir: ./out
+          front_page: README.md
+

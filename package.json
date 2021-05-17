@@ -1,7 +1,7 @@
 {
   "name": "cse110-sp21-group24",
   "version": "1.0.0",
-  "description": "[Team Page](./admin/team.md)",
+  "description": "Bullet Journal",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

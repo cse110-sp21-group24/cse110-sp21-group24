@@ -16,8 +16,11 @@ h1 {
   font-size: 64px;
   left:50%;
   text-align:center;
+  margin-bottom: 10px;
+  width: 625px;
+  position:relative;
+  left: 10px;
 }
-
 
 #testLink {
   color: black;
@@ -30,11 +33,28 @@ h1 {
 
 /*** Styling of Hyper Links***/
 .hyperLinks {
-  width: 500px;
+  width: 525px;
+  height: auto;
+  padding-left: 10px;
+  padding-right: 75px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 60px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: black;
+  font-size: 38px;
+  float: left;
+}
+
+/*** Connecting Title to HyperLinks Box ***/
+.connect {
+  width: 525px;
   height: auto;
   padding: 10px;
-  margin: auto;
-  border-style: solid;
+  margin-right: 66px;
+  margin-bottom: auto;
   border-radius: 10px;
   border-color: black;
   font-size: 38px;
@@ -47,7 +67,8 @@ h1 {
   width:250px;
   max-height:auto;
   padding:10px;
-  margin:10px;
+  margin-top:100px;
+  margin-left: 10px;
   border-style: solid;
   border-radius: 10px;
   border-color:black;
@@ -56,7 +77,9 @@ h1 {
   background-color: #1D8ECE;
   color: white;
   float:left;
-  margin-top: 125px;
+  position: relative;
+  left: 100px;
+  top: 175px;
 }
 
 /*** Styling of Legend Header ***/
@@ -118,6 +141,18 @@ h2{
 
 /*** Center Body ***/
 body{
-  max-width: 850px;
+  max-width: 1000px;
   margin: auto;
+}
+
+/*** Moving All Elements ***/
+
+.allElements {
+  position: relative;
+  top: 150px;
+}
+
+.legendList li{
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

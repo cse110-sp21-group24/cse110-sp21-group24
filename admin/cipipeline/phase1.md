@@ -51,4 +51,4 @@
 
 ---
 
-![CI PipeLine Diagram](phase1.png)
+![CI PipeLine Diagram](phase1.drawio.png)

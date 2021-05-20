@@ -9,7 +9,12 @@ function closeNav() {
 }
 
 function collectionAdd() {
-  document.getElementsById("cinput").style.display = "inline";
+  const x = document.getElementById("cinputline");
+  if (x.style.display == "block"){
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
 }
 
 
@@ -41,7 +46,7 @@ collectionInput.addEventListener("keyup", function(event) {
 function addCollectionRow() {
   const collectionRow = document.createElement('p');
   const inputVal = document.getElementById("cinput").value;
-  collectionRow.innerHTML = element;
+  collectionRow.innerHTML = inputVal;
 
   document.getElementById('collection-list').appendChild(collectionRow);
 }

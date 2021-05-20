@@ -149,7 +149,10 @@ li a:hover:not(.active, .closebtn) {
   background: transparent;
   border-bottom: 1px solid black;
   width: 200px;
-  display: inline;
+}
+
+.cinputline {
+  display: none;
 }
 
 .collection-submit-button,

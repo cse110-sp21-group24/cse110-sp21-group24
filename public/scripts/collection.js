@@ -57,4 +57,5 @@ function addCollectionRow() {
        document.querySelector(".collection-title h1").innerHTML = collectionList[i].textContent;
      });
   }
+  document.getElementById('cinput').value = '';
 }

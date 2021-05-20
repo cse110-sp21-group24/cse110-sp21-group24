@@ -3,7 +3,7 @@ name: jsDocs
 on: 
   pull_request:
     branches:
-      - main
+      - JSDocsPreview
 
 jobs:
   deploy:
@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with: 
-          ref: JSDocsPreview
       
       - name: switchBranch
         run: git switch -c newBranch

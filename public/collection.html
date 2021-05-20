@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Team 24 - Bujo</title>
+
+  <link rel="stylesheet" href="collection.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Sansita+One" />
+</head>
+
+<body>
+  <div class="navigation" id="navigation">
+    <ul>
+      <li>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+      </li>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#index">Index</a></li>
+      <li><a href="#calendar">Calendar</a></li>
+      <li><a href="#daily logs">Daily Logs</a></li>
+      <li><a href="#monthly logs">Monthly Logs</a></li>
+      <li><a href="#future logs">Future Logs</a></li>
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#settings">Settings</a></li>
+    </ul>
+  </div>
+
+  <div class="collection-background" id="main">
+    <button class="openbtn" onclick="openNav()">☰</button>
+
+    <div class="collection-title" id="collection-title">
+      <h1 class="ctitle" id="ctitle"></h1>
+    </div>
+
+    <div class="content-box">
+
+      <ul class="collection-subcontent" style="list-style-type: disc">
+        <p>Body measurement 3/30</p>
+        <li>weight - 120lbs</li>
+        <li>right arm - 20in</li>
+      </ul>
+    </div>
+
+    <div class="list-box">
+      <div class="collection-edit">
+        <button class="edit-button" id="edit-button" onclick="collectionAdd()">
+          <img src="./images/edit_button.png" width="48" height="48" />
+        </button>
+      </div>
+      <div class="collection-list" id="collection-list">
+        <p>Fitness Tracker</p>
+        <p>Christmas Present</p>
+      </div>
+      <div class="collection-input-section">
+        <form>
+          <div class="cinputline" id="cinputline">
+            <input type="text" class="collection-input" id="cinput" name="cinput"></input>
+          </div>
+          <button type="submit" class="collection-submit-button" id="csubmit-button"
+            onclick="addCollectionRow();"></button>
+          <button type="reset" class="collection-reset-button" id="creset-button"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./scripts/index.js"></script>
+</body>
+
+</html>

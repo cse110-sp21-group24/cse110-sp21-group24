@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with: 
-          ref: JSDocsPreview
       
       - name: switchBranch
         run: git switch -c newBranch
@@ -41,7 +39,7 @@ jobs:
         with:
           github_token: ${{ github.token }}
           source_ref: 'newBranch'
-          target_branch: 'JSDocsPreview'
+          target_branch: 'main'
           commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
 
       - name: deleteBranch

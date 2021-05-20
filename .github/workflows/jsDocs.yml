@@ -1,7 +1,7 @@
 name: jsDocs
 
 on: 
-  push:
+  pull-request:
     branches:
       - main
 

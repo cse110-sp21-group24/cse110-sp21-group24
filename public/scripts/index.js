@@ -47,6 +47,6 @@ function addCollectionRow() {
   const collectionRow = document.createElement('p');
   const inputVal = document.getElementById("cinput").value;
   collectionRow.innerHTML = inputVal;
-
   document.getElementById('collection-list').appendChild(collectionRow);
+  collectionAdd();
 }

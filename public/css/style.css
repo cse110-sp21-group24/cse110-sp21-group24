@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 html {
-  background-image: url('../images/bujo-background.png');
+  background-image: url('images/bujo-background.png');
   background-size: cover; 
 }
 

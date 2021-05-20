@@ -43,6 +43,3 @@ jobs:
           source_ref: 'newBranch'
           target_branch: 'JSDocsPreview'
           commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
-
-      - name: deleteBranch
-        run: git push origin --delete newBranch

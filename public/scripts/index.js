@@ -32,6 +32,7 @@ for (let i = 0; i < collectionList.length; i++) {
 }
 
 
+
 var collectionInput = document.getElementById("cinput");
 
 collectionInput.addEventListener("keyup", function(event) {
@@ -49,4 +50,11 @@ function addCollectionRow() {
   collectionRow.innerHTML = inputVal;
   document.getElementById('collection-list').appendChild(collectionRow);
   collectionAdd();
+  collectionList = document.querySelectorAll(".collection-list p");
+  for (let i = 0; i < collectionList.length; i++) { 
+     collectionList[i].addEventListener("click", function() {
+       //collectionList[i].style.textDecoration = 'underline';
+       document.querySelector(".collection-title h1").innerHTML = collectionList[i].textContent;
+     });
+  }
 }

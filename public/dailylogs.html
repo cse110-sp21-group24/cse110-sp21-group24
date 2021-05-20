@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Daily Logs</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.body {
+    background-color: white;
+}
+.day {
+  /*border: 5px outset black;*/
+  text-align: center;
+  margin: 5px;
+  height: 300px;
+  flex-basis: 250px;
+  color: #2E77BB;
+}
+.dayContent {
+  text-align: left;
+  background-color: #9BD4F5;
+  border: 5px solid #9BD4F5;
+  border-radius: 20px;
+  font: 15px sans-serif;
+  height: 250px;
+  color: black;
+}
+.daily {
+  background-color: white;
+}
+
+.row-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.goals {
+  border: 5px solid black;
+  flex-basis: 200px;
+  height: 300px;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.notes {
+  border: 5px solid black;
+  flex-basis: 475px;
+  height: 250px;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+</style>
+</head>
+<body>
+    <div class="navigation" id="navigation">
+      <ul>
+        <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#index">Index</a></li>
+        <li><a href="#calendar">Calendar</a></li>
+        <li><a href="#daily logs">Daily Logs</a></li>
+        <li><a href="#monthly logs">Monthly Logs</a></li>
+        <li><a href="#future logs">Future Logs</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#settings">Settings</a></li>
+      </ul>
+    </div>
+    <div class="daily" id="main">
+        <button class="openbtn" onclick="openNav()" style="background-color: white;">☰</button>  
+
+        <h1 style="text-align: center;">Week of dates</h1>
+        <div class="row-flex-container">
+            <div class="day" id="mon">
+                <h2>Monday</h2>
+                <div class="dayContent" contenteditable="true">
+                    <h3>edit</h3>
+                </div>
+            </div>
+            <div class="day" id="tue">
+                <h2>Tuesday</h2>
+                <div class="dayContent" contenteditable="true">
+                    <h3>edit</h3>
+                </div>
+            </div>
+            <div class="day" id="wed">
+                <h2>Wednesday</h2>
+                <div class="dayContent" contenteditable="true">
+                    <h3>edit</h3>
+                </div>
+            </div>
+            <div class="day" id="thu">
+                <h2>Thursday</h2>
+                <div class="dayContent" contenteditable="true">
+                    <h3>edit</h3>
+                </div>
+            </div>
+            <div class="goals">
+                <h1>GOALS</h1>
+            </div>
+        </div>
+        <div class="row-flex-container">
+            <div class="day" id="fri">
+                <div class="dayContent" contenteditable="true">
+                    <h3>edit</h3>
+                </div>
+                <h2>Friday</h2>
+            </div>
+            <div class="day" id="sat">
+                <div class="dayContent" contenteditable="true">
+                    <h3>edit</h3>
+                </div>
+                <h2>Saturday</h2>
+            </div>
+            <div class="day" id="sun">
+                <div class="dayContent" contenteditable="true">
+                    <h3>edit</h3>
+                </div>
+                <h2>Sunday</h2>
+            </div>
+            <div class="notes">
+                <h1>notes</h1>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Scripts -->
+    <script src="./scripts/index.js"></script>
+</body>
+</html>

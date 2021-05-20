@@ -1,7 +1,7 @@
 name: jsDocs
 
 on: 
-  push:
+  pull_request:
     branches:
       - main
 
@@ -11,10 +11,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with: 
+          ref: JSDocsPreview
       
       - name: switchBranch
         run: git switch -c newBranch
-      
+
       - name: Build
         uses: andstor/jsdoc-action@v1
         with:

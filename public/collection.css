@@ -70,6 +70,10 @@ li a:hover:not(.active, .closebtn) {
 }
 
 /* collection page styling */
+.collection-title {
+  margin-left: 200px;
+}
+
 .collection-title > h1 {
   font-family: "Sansita One";
   font-size: 23px;

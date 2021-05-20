@@ -20,7 +20,7 @@ dailyLink2.addEventListener('click', () => {
 
 var monthlyLink1 = document.getElementById("monthly1");
 monthlyLink1.addEventListener('click', () => {
-  //location.href="otherpages/newpage.html";
+  location.href="calendar.html";
 });
 
 var monthlyLink2 = document.getElementById("monthly2");

@@ -1,0 +1,158 @@
+/*** Adding Fonts***/
+@font-face {
+  font-family: 'Sansita One';
+  src: url('fonts/SansitaOne.ttf');
+}
+
+@font-face {
+  font-family: 'Mansalva';
+  src: url('fonts/Mansalva-Regular.ttf');
+}
+
+/*** Header Styleing ***/
+h1 {
+  font-family: 'Sansita One';
+  color: #1D8ECE;
+  font-size: 64px;
+  left:50%;
+  text-align:center;
+  margin-bottom: 10px;
+  width: 625px;
+  position:relative;
+  left: 10px;
+}
+
+#testLink {
+  color: black;
+}
+
+/*** Changed Clickable Links When Hovered ***/
+.hover:hover{
+  color: rgb(71, 166, 197);
+}
+
+/*** Styling of Hyper Links***/
+.hyperLinks {
+  width: 525px;
+  height: auto;
+  padding-left: 10px;
+  padding-right: 75px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 60px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: black;
+  font-size: 38px;
+  float: left;
+}
+
+/*** Connecting Title to HyperLinks Box ***/
+.connect {
+  width: 525px;
+  height: auto;
+  padding: 10px;
+  margin-right: 66px;
+  margin-bottom: auto;
+  border-radius: 10px;
+  border-color: black;
+  font-size: 38px;
+  float:left;
+}
+
+/*** Styling of Legend ***/
+.legend {
+  font-family: 'Mansalva';
+  width:250px;
+  max-height:auto;
+  padding:10px;
+  margin-top:100px;
+  margin-left: 10px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color:black;
+  font-size:20px;
+  border-width: 2px;
+  background-color: #1D8ECE;
+  color: white;
+  float:left;
+  position: relative;
+  left: 100px;
+  top: 175px;
+}
+
+/*** Styling of Legend Header ***/
+h2{
+  color: white;
+  padding-left:80px;
+  font-family: 'Sansita One';
+}
+
+/*** Task Bullet Point ***/
+.task-list {
+  list-style-type: none;
+  list-style-image: none;
+  background: url('images/task.png') no-repeat 0 0.3em;
+  background-size: 1em;
+  padding-left: 1.5em;
+}
+
+/*** Event Bullet Point ***/
+.event-list {
+  list-style-type: none;
+  list-style-image: none;
+  background: url('images/event.png') no-repeat 0 0.3em;
+  background-size: 1em;
+  padding-left: 1.5em;
+}
+
+/*** Important Bullet Point ***/
+.important-list {
+  list-style-type: none;
+  list-style-image: none;
+  background: url('images/important.png') no-repeat 0 0.3em;
+  background-size: 1em;
+  padding-left: 1.5em;
+}
+
+/*** Inspiration Bullet Point ***/
+.inspiration-list {
+  list-style-type: none;
+  list-style-image: none;
+  background: url('images/inspiration.png') no-repeat 0 0.3em;
+  background-size: 1em;
+  padding-left: 1.5em;
+}
+
+/*** Note Bullet Point ***/
+.note-list {
+  list-style-type: none;
+  list-style-image: none;
+  background: url('images/note.png') no-repeat 0 0.3em;
+  background-size: 1em;
+  padding-left: 1.5em;
+}
+
+/*** Make Unordered List Not Have Regular Bullet Points ***/
+.noBullets {
+  list-style-type: none;
+}
+
+/*** Center Body ***/
+body{
+  max-width: 1000px;
+  margin: auto;
+}
+
+/*** Moving All Elements ***/
+
+.allElements {
+  position: relative;
+  top: 150px;
+}
+
+.legendList li{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

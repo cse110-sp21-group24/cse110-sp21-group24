@@ -3,7 +3,7 @@ name: jsDocs
 on: 
   pull_request:
     branches:
-      - JSDocsPreview
+      - main
 
 jobs:
   deploy:

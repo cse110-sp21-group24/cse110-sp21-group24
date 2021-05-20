@@ -20,7 +20,7 @@ jobs:
       - name: Build
         uses: andstor/jsdoc-action@v1
         with:
-          source_dir: ./public/scripts
+          source_dir: ./public/scripts/test2.js
           recurse: true
           output_dir: ./out
       
@@ -43,3 +43,6 @@ jobs:
           source_ref: 'newBranch'
           target_branch: 'JSDocsPreview'
           commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
+
+      - name: deleteBranch
+        run: git push origin --delete newBranch

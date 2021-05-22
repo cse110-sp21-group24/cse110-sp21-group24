@@ -45,7 +45,7 @@ li a:hover:not(.active, .closebtn) {
 
 /* Set the formatting of the button to close the menu */
 .navigation .closebtn {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 /* Set general formatting and transition speed of menu closing  */
@@ -61,12 +61,18 @@ li a:hover:not(.active, .closebtn) {
 
 /* Set the formatting of the hamburger menu icon */
 .openbtn {
-  font-size: 30px;
+  font-size: 20px;
   cursor: pointer;
-  background-color: white;
+  background-color: transparent;
   color: black;
   border: none;
   outline: none;
+}
+
+/* Set general formatting and transition speed of background moving  */
+.collection-background {
+  transition: margin-left .5s;
+  padding:10px 16px;
 }
 
 /* collection page styling */

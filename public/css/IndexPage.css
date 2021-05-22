@@ -152,6 +152,11 @@ body{
   top: 150px;
 }
 
+/* Resetting background color because nav bar messes with it */
+.legendList {
+  background-color: #1D8ECE;
+}
+
 .legendList li{
   margin-top: 5px;
   margin-bottom: 5px;

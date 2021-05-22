@@ -6,6 +6,7 @@
   <!-- <link rel="stylesheet" href="style.css"> -->
   <script src="https://kit.fontawesome.com/8ad7c88927.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/navigation.css">
   <script src="./scripts/futurelogs.js" type="module"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -67,8 +68,8 @@
       padding-left: 10px;
       font-size: 21px;
     }
-        
-    a {
+    
+    .round {
       text-decoration: none;
       display: inline-block;
       padding: 8px 16px;
@@ -76,9 +77,6 @@
       color: #2E77BB;
       border: 1px solid #2E77BB;
       position: fixed;
-    }
-    
-    .round {
       border-radius: 50%;
     }
     
@@ -140,6 +138,19 @@
 </head>
 
 <body>
+  <div class="navigation" id="navigation">
+    <ul>
+      <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="indexPage.html">Index</a></li>
+      <li><a href="dailylogs.html">Daily Logs</a></li>
+      <li><a href="calendar.html">Monthly Logs</a></li>
+      <li><a class="active" href="futurelogs.html">Future Logs</a></li>
+      <li><a href="collection.html">Collections</a></li>
+      <li><a href="#settings">Settings</a></li>
+    </ul>
+  </div>
+  <button class="openbtn" onclick="openNav(this)">☰</button>  
   <header>
     <h1>2021 Future Log</h1>
   </header>

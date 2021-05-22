@@ -8,7 +8,7 @@ ul {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.9);
   height: 100%;
 }
 
@@ -50,6 +50,7 @@ li a:hover:not(.active, .closebtn) {
   transition: 0.5s;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
+  z-index: 1;
 }
 
 /* Set the formatting of the hamburger menu icon */

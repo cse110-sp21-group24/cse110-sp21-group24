@@ -2,7 +2,7 @@ let imgInput = document.getElementById("newImg");
 let newSticker;
 let count = 1;
 
-imgInput.onchange = (event) => {
+imgInput.onchange = () => {
   if (imgInput.files && imgInput.files[0]) {
     let reader = new FileReader();
 

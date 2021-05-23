@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="./css/settings.css">
   </head>
   <body>
+    <h1>Settings</h1>
+    <p>Upload an image to choose your journal’s color scheme</p>
     <div class="imgUpload">
       <div class="upload">
         <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
-        <label for="file" style="cursor: pointer;">Upload Image</label>
+        <div class="uploadBtn"><label class="center" for="file" style="cursor: pointer;">upload image</label></div>
       </div>
       <br/>
       <img id="output"/>
@@ -34,5 +36,7 @@
     <!-- Scripts -->
     <script type="module" src="./scripts/settings.js"></script>
 
+    <!-- Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </body>
 </html>

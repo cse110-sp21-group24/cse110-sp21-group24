@@ -1,3 +1,51 @@
+@font-face {
+  font-family: 'Sansita One';
+  src: url('fonts/SansitaOne.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat Medium';
+  src: url('fonts/Montserrat-Medium.ttf');
+}
+
+h1 {
+  font-family: 'Sansita One';
+  color: #1D8ECE;
+  font-size: 64px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0em;
+}
+
+p {
+  font-family: 'Montserrat Medium';
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+}
+
+.center {
+  width: 10em;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.uploadBtn {
+  color: white;
+  font-family: 'Montserrat Medium';
+  background-color: #9EB3C2;
+  width: 175px;
+  height: 50px;
+  left: -45%;
+  position: relative;
+  text-align: center;
+  border-radius: 15px;
+}
+
 .palette {
   margin: 2em;
   display: flex;
@@ -5,6 +53,7 @@
 }
 
 .color {
+  margin: 0.5em;
   height: 100px;
   width: 100px;
   background-color: #bbb;
@@ -23,8 +72,4 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-body {
-  justify-content: center;
 }

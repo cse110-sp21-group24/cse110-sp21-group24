@@ -3,7 +3,7 @@
 /*** Navigation Bar Styling ***/
 
 /* Set the general formatting for list as a whole */
-ul {
+.menu-items {
   list-style-type: none;
   margin: 0;
   padding: 0;

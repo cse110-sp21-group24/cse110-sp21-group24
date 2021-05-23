@@ -141,8 +141,6 @@ h2{
 
 /*** Center and Moving All Elements ***/
 .allElements {
-  margin: auto;
-  max-width: 1000px;
   position: relative;
   display: flex;
   justify-content: center;

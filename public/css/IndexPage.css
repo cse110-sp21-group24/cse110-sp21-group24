@@ -139,15 +139,11 @@ h2{
   list-style-type: none;
 }
 
-/*** Center Body ***/
-body{
-  max-width: 1000px;
-  margin: auto;
-}
-
-/*** Moving All Elements ***/
+/*** Center and Moving All Elements ***/
 
 .allElements {
+  margin: auto;
+  max-width: 1000px;
   position: relative;
   top: 150px;
 }
@@ -160,4 +156,9 @@ body{
 .legendList li{
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.openbtn{
+  max-width: none;
+  margin: 0;
 }

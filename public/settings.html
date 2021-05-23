@@ -5,9 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Settings</title>
 
+    <link rel="stylesheet" href="./css/navigation.css">
     <link rel="stylesheet" href="./css/settings.css">
   </head>
   <body>
+    <div class="navigation" id="navigation">
+      <ul class="menu-items">
+        <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="indexPage.html">Index</a></li>
+        <li><a href="dailylogs.html">Daily Logs</a></li>
+        <li><a href="calendar.html">Monthly Logs</a></li>
+        <li><a href="futurelogs.html">Future Logs</a></li>
+        <li><a href="collection.html">Collections</a></li>
+        <li><a class="active" href="settings.html">Settings</a></li>
+      </ul>
+    </div>
+    <button class="openbtn" onclick="openNav(this)">☰</button>
     <h1>Settings</h1>
     <p>Upload an image to choose your journal’s color scheme</p>
     <div class="imgUpload">
@@ -35,6 +49,8 @@
 
     <!-- Scripts -->
     <script type="module" src="./scripts/settings.js"></script>
+    <script src="./scripts/index.js"></script>
+
 
     <!-- Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

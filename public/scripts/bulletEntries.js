@@ -1,15 +1,15 @@
 
 /**
- * This function changes the icon from the current to the next of
- * the given element
+ * 
  * @param { any } element event.target
- * @param { String } currentIcon class name of current icon
- * @param { string } nextIcon class name of icon being changed to
- *  
+ * @param { String } currentIcon String of current class name for icon
+ * @param { String } nextIcon String of next class name for icon
+ * @returns changed element
  */
 function changeBulletIcon(element,currentIcon,nextIcon){
   element.classList.add(nextIcon);
   element.classList.remove(currentIcon);
+  return element;
 }
 
 /**
@@ -18,4 +18,5 @@ function changeBulletIcon(element,currentIcon,nextIcon){
  */
 function deleteBulletIcon(element){
   element.remove();
+  return element;
 }

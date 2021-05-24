@@ -1,14 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Regular.ttf');
+}
+
+/* Changing color scheme */
+:root {
+  --first-color: #9EB3C2;
+  --second-color: #9BD4F5;
+  --third-color: #1D8ECE;
+  --fourth-color: #2E77BB;
+}
+
 /* collection page styling */
 .collection-title > h1 {
   font-family: "Sansita One";
-  font-size: 23px;
+  font-size: 64px;
   font-style: normal;
   font-variant: normal;
   font-weight: 700;
   line-height: 23px;
   text-align: center;
-  color: #9bd4f5;
+  color: var(--third-color);
   position: absolute;
   left: 540px;
   top: 60px;
@@ -18,7 +32,7 @@
   cursor: pointer;
   position: absolute;
   border-radius: 15px;
-  border: 2px solid #9bd4f5;
+  border: 2px solid black;
   padding: 50px;
   width: 730px;
   height: 400px;
@@ -29,6 +43,7 @@
 }
 
 .content-box > .collection-subcontent {
+  list-style-type: disc;
   cursor: text;
 }
 
@@ -37,8 +52,8 @@
   width: 200px;
   left: 1136px;
   padding: 100px;
-  position: absolute;
-  background-color: #9bd4f5;
+  position: relative;
+  background-color: var(--second-color);
 }
 
 .collection-list > p {

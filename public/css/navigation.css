@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
+/* Changing color scheme */
+:root {
+  --first-color: #9EB3C2;
+  --second-color: #9BD4F5;
+  --third-color: #1D8ECE;
+  --fourth-color: #2E77BB;
+}
+
 /*** Navigation Bar Styling ***/
 
 /* Set the general formatting for list as a whole */
@@ -22,7 +30,7 @@ li a {
 
 /* Set the color of the item currently selected */
 li a.active {
-  background-color: #2E77BB;
+  background-color: var(--fourth-color);
   color: white;
 }
 

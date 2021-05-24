@@ -8,6 +8,7 @@
   src: url('fonts/Montserrat-Medium.ttf');
 }
 
+/* Changing color scheme */
 :root {
   --first-color: #9EB3C2;
   --second-color: #9BD4F5;
@@ -63,9 +64,24 @@ p {
   margin: 0.5em;
   height: 100px;
   width: 100px;
-  background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
+}
+
+#color1 {
+  background-color: var(--first-color);
+}
+
+#color2 {
+  background-color: var(--second-color);
+}
+
+#color3 {
+  background-color: var(--third-color);
+}
+
+#color4 {
+  background-color: var(--fourth-color);
 }
 
 .upload {
@@ -79,4 +95,19 @@ p {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.reset {
+  display: flex;
+  justify-content: center;
+}
+
+#resetBtn {
+  font-family: 'Montserrat Medium';
+  font-size: 12px;
+  background-color: gray;
+  border-radius: 5px;
+  color: white;
+  width: 80px;
+  height: 30px;
 }

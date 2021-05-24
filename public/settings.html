@@ -26,18 +26,13 @@
     <p>Upload an image to choose your journal’s color scheme</p>
     <div class="imgUpload">
       <div class="upload">
-        <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
-        <div class="uploadBtn"><label class="center" for="file" style="cursor: pointer;">upload image</label></div>
+        <input type="file"  accept="image/*" name="image" id="file" style="display: none;">
+        <div class="uploadBtn">
+          <label class="center" for="file" style="cursor: pointer;">upload image</label>
+        </div>
       </div>
       <br/>
       <img id="output"/>
-
-      <script>
-        var loadFile = function(event) {
-          var image = document.getElementById('output');
-          image.src = URL.createObjectURL(event.target.files[0]);
-        };
-      </script>
     </div>
     
     <div class="palette" id="palette">
@@ -46,11 +41,13 @@
       <div class="color" id="color3"></div>
       <div class="color" id="color4"></div>
     </div>
+    <div class="reset">
+      <button id="resetBtn">Reset</button>
+    </div>
 
     <!-- Scripts -->
     <script type="module" src="./scripts/settings.js"></script>
     <script src="./scripts/index.js"></script>
-
 
     <!-- Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -9,10 +9,18 @@
   src: url('fonts/Mansalva-Regular.ttf');
 }
 
+/* Changing color scheme */
+:root {
+  --first-color: #9EB3C2;
+  --second-color: #9BD4F5;
+  --third-color: #1D8ECE;
+  --fourth-color: #2E77BB;
+}
+
 /*** Header Styleing ***/
 h1 {
   font-family: 'Sansita One';
-  color: #1D8ECE;
+  color: var(--third-color);
   font-size: 64px;
   left:50%;
   text-align:center;
@@ -28,7 +36,7 @@ h1 {
 
 /*** Changed Clickable Links When Hovered ***/
 .hover:hover{
-  color: rgb(71, 166, 197);
+  color: var(--second-color);
 }
 
 /*** Styling of Hyper Links***/
@@ -42,9 +50,10 @@ h1 {
   margin-bottom: 10px;
   margin-right: 60px;
   border-style: solid;
-  border-radius: 10px;
+  border-radius: 15px;
   border-color: black;
-  font-size: 38px;
+  border-width: 2px;
+  font-size: 30px;
   float: left;
 }
 
@@ -55,9 +64,9 @@ h1 {
   padding: 10px;
   margin-right: 66px;
   margin-bottom: auto;
-  border-radius: 10px;
+  border-radius: 15px;
   border-color: black;
-  font-size: 38px;
+  font-size: 30px;
   float:left;
 }
 
@@ -67,14 +76,12 @@ h1 {
   width:250px;
   max-height: 300px;
   padding:10px;
-  margin-top:100px;
+  margin-top: 60px;
   margin-left: 10px;
-  border-style: solid;
-  border-radius: 10px;
-  border-color:black;
+  border-radius: 15px;
   font-size:20px;
   border-width: 2px;
-  background-color: #1D8ECE;
+  background-color: var(--third-color);
   color: white;
   float:left;
   position: relative;
@@ -93,7 +100,7 @@ h2{
 .task-list {
   list-style-type: none;
   list-style-image: none;
-  background: url('../images/task.png') no-repeat 0 0.3em;
+  background: url('../images/icons/task.png') no-repeat 0 0.3em;
   background-size: 1em;
   padding-left: 1.5em;
 }
@@ -102,7 +109,7 @@ h2{
 .event-list {
   list-style-type: none;
   list-style-image: none;
-  background: url('../images/event.png') no-repeat 0 0.3em;
+  background: url('../images/icons/event.png') no-repeat 0 0.3em;
   background-size: 1em;
   padding-left: 1.5em;
 }
@@ -111,7 +118,7 @@ h2{
 .important-list {
   list-style-type: none;
   list-style-image: none;
-  background: url('../images/important.png') no-repeat 0 0.3em;
+  background: url('../images/icons/important.png') no-repeat 0 0.3em;
   background-size: 1em;
   padding-left: 1.5em;
 }
@@ -120,7 +127,7 @@ h2{
 .inspiration-list {
   list-style-type: none;
   list-style-image: none;
-  background: url('../images/inspiration.png') no-repeat 0 0.3em;
+  background: url('../images/icons/inspiration.png') no-repeat 0 0.3em;
   background-size: 1em;
   padding-left: 1.5em;
 }
@@ -129,7 +136,7 @@ h2{
 .note-list {
   list-style-type: none;
   list-style-image: none;
-  background: url('../images/note.png') no-repeat 0 0.3em;
+  background: url('../images/icons/note.png') no-repeat 0 0.3em;
   background-size: 1em;
   padding-left: 1.5em;
 }
@@ -148,8 +155,7 @@ h2{
 
 /* Resetting background color because nav bar messes with it */
 .legendList {
-  background-color: #1D8ECE;
-  margin-left: 1em;
+  background-color: var(--third-color);
   max-width: 90%;
   max-height: 220px;
 }

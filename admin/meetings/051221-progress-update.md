@@ -10,8 +10,8 @@
 - See what else needs to be done on setting up CI/CD pipeline
 - Update everyone of progress on each component
 
-**Decisions**:
-- 
+**Decisions**:  
+N/A
 
 **Action Items**:
 - Keep working on setting up pipeline (by Mon 5/17)

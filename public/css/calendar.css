@@ -1,13 +1,22 @@
+/* Changing color scheme */
+:root {
+  --first-color: #9EB3C2;
+  --second-color: #9BD4F5;
+  --third-color: #1D8ECE;
+  --fourth-color: #2E77BB;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Sansita";
+    font-family: 'Montserrat', sans-serif;
 }
 
 html {
     font-size: 62.5%;
 }
+
 .container {
     width: 100%;
     height: 100vh;
@@ -26,14 +35,14 @@ html {
 .calendar {
     width: 1000px;
     height: 643.75px;
-    background-color: #9BD4F5;
+    background-color: var(--second-color);
     box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 }
 
 .month {
     width: 100%;
     height: 12rem;
-    background-color: #167e56;
+    background-color: var(--third-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -107,5 +116,5 @@ html {
 }
 
 .today {
-    background-color: #167e56;
+    background-color: var(--third-color);
 }

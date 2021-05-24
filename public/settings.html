@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Settings</title>
+
+    <link rel="stylesheet" href="./css/navigation.css">
+    <link rel="stylesheet" href="./css/settings.css">
+  </head>
+  <body>
+    <div class="navigation" id="navigation">
+      <ul class="menu-items">
+        <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="indexPage.html">Index</a></li>
+        <li><a href="dailylogs.html">Daily Logs</a></li>
+        <li><a href="calendar.html">Monthly Logs</a></li>
+        <li><a href="futurelogs.html">Future Logs</a></li>
+        <li><a href="collection.html">Collections</a></li>
+        <li><a class="active" href="settings.html">Settings</a></li>
+      </ul>
+    </div>
+    <button class="openbtn" onclick="openNav(this)">☰</button>
+    <h1>Settings</h1>
+    <p>Upload an image to choose your journal’s color scheme</p>
+    <div class="imgUpload">
+      <div class="upload">
+        <input type="file"  accept="image/*" name="image" id="file" style="display: none;">
+        <div class="uploadBtn">
+          <label class="center" for="file" style="cursor: pointer;">upload image</label>
+        </div>
+      </div>
+      <br/>
+      <img id="output"/>
+    </div>
+    
+    <div class="palette" id="palette">
+      <div class="color" id="color1"></div>
+      <div class="color" id="color2"></div>
+      <div class="color" id="color3"></div>
+      <div class="color" id="color4"></div>
+    </div>
+    <div class="reset">
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="./scripts/settings.js"></script>
+    <script src="./scripts/index.js"></script>
+
+    <!-- Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>

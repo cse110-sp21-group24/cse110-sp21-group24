@@ -4,34 +4,48 @@
     <title>BuJo Index Page</title>
       <meta charset="UTF-8">
       <meta name="description" content="IndexPage">
+      <link rel="stylesheet" href="css/navigation.css">
       <link rel="stylesheet" href="css/IndexPage.css">
   </head>
   <body>
+    <div class="navigation" id="navigation">
+      <ul class="menu-items">
+        <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="indexPage.html">Index</a></li>
+        <li><a href="dailylogs.html">Daily Logs</a></li>
+        <li><a href="calendar.html">Monthly Logs</a></li>
+        <li><a href="futurelogs.html">Future Logs</a></li>
+        <li><a href="collection.html">Collections</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </div>
+    <button class="openbtn" onclick="openNav(this)">☰</button>  
     <main class = 'allElements'>
       <section class = 'connect'>
       <h1>Index</h1>
       <section class="hyperLinks">
         
         <ul class = "noBullets">
-          <li class="hover" id="calendar">Home .......................................</li>
+          <li class="hover" id="calendar">Home</li>
           <li>Daily Logs</li>
           <ul>
-            <li class="hover" id="daily1">May 3 - May 9 .....................</li>
-            <li class="hover" id="daily2">May 10 - May 16 .................</li>
+            <li class="hover" id="daily1">May 3 - May 9</li>
+            <li class="hover" id="daily2">May 10 - May 16</li>
           </ul>
           <li>Monthly Logs</li>
           <ul>
-            <li class="hover" id="monthly1">April .....................................</li>
-            <li class="hover" id="monthly2">May ......................................</li>
+            <li class="hover" id="monthly1">April</li>
+            <li class="hover" id="monthly2">May</li>
           </ul>
           <li>Future Logs</li>
           <ul>
-            <li class="hover" id="future1">July - December 2020 ..........</li>
-            <li class="hover" id="future2">January - June 2021..............</li>
+            <li class="hover" id="future1">July - December 2020</li>
+            <li class="hover" id="future2">January - June 2021</li>
           </ul>
           <li>Collections</li>
           <ul>
-            <li class="hover" id="collections1">Fitness Tracker ....................</li>
+            <li class="hover" id="collections1">Fitness Tracker</li>
           </ul>
           </ul>
       </section>
@@ -48,6 +62,8 @@
       </section>
 
       <script src="scripts/indexPage.js"></script>
+      <script src="scripts/index.js"></script>
+
     </main>
   </body>
 </html>

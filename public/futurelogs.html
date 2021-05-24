@@ -6,140 +6,26 @@
   <!-- <link rel="stylesheet" href="style.css"> -->
   <script src="https://kit.fontawesome.com/8ad7c88927.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/futurelogs.css">
   <script src="./scripts/futurelogs.js" type="module"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    
-    .column {
-      float: left;
-      width: 16.667%;
-      padding: 10px;
-      height: 550px;
-    }
-    
-    .content {
-      background-color: #9BD4F5;
-      height: 450px;
-      border-radius: 20px;
-      padding: 10px;
-    }
-    
-    @media screen and (max-width: 600px) {
-      .column {
-        width: 100%;
-      }
-      .entry {
-        width: 100%;
-      }
-    }
-        
-    h1 {
-      color: #1D8ECE;
-      text-align: center;
-      font-family: "Sansita One";
-    }
-        
-    h2 {
-      color: #2E77BB;
-      text-align: center;
-      font-family: "Montserrat";
-      margin-top: 0px;
-      margin-bottom: 20px;
-    }
-    
-    .entry {
-      margin: 15px;
-    }
-        
-    .material-icons {
-      display: inline-flex;
-      vertical-align: top;
-    }
-    
-    #text {
-      color: black;
-      position: sticky;
-      font-family: "Roboto";
-      padding-left: 10px;
-      font-size: 21px;
-    }
-        
-    a {
-      text-decoration: none;
-      display: inline-block;
-      padding: 8px 16px;
-      background-color: white;
-      color: #2E77BB;
-      border: 1px solid #2E77BB;
-      position: fixed;
-    }
-    
-    .round {
-      border-radius: 50%;
-    }
-    
-    .previous {
-      bottom: 20px;
-      left: 20px;
-    }
-    
-    .next {
-      bottom: 20px;
-      right: 20px;
-    }
-    
-    .dropbtn {
-      background-color: #9BD4F5;
-      color: #9BD4F5;
-      padding: 16px;
-      font-size: 16px;
-      border: none;
-      padding: 0px;
-      margin: 0px;
-    }
-        
-    .dropdown {
-      position: relative;
-      display: inline-block;
-      margin: 0px;
-      padding: 0px;
-    }
-    
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f1f1f1;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-    }
-    
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    
-    .dropdown-content a:hover {
-      background-color: #ddd;
-    }
-    
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    
-    .dropdown:hover .dropbtn {
-      background-color: #2E77BB;
-    }
-    </style>
 </head>
 
 <body>
+  <div class="navigation" id="navigation">
+    <ul class="menu-items">
+      <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="indexPage.html">Index</a></li>
+      <li><a href="dailylogs.html">Daily Logs</a></li>
+      <li><a href="calendar.html">Monthly Logs</a></li>
+      <li><a class="active" href="futurelogs.html">Future Logs</a></li>
+      <li><a href="collection.html">Collections</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+  </div>
+  <button class="openbtn" onclick="openNav(this)">☰</button>  
   <header>
     <h1>2021 Future Log</h1>
   </header>

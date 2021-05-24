@@ -3,56 +3,11 @@
 <head>
 <title>Daily Logs</title>
 <link rel="stylesheet" href="css/dailyLog.css">
-<style>
-.body {
-    background-color: white;
-}
-.day {
-  /*border: 5px outset black;*/
-  text-align: center;
-  margin: 5px;
-  height: 300px;
-  flex-basis: 250px;
-  color: #2E77BB;
-}
-.dayContent {
-  text-align: left;
-  background-color: #9BD4F5;
-  border: 5px solid #9BD4F5;
-  border-radius: 20px;
-  font: 15px sans-serif;
-  height: 250px;
-  color: black;
-}
-.daily {
-  background-color: white;
-}
-
-.row-flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.goals {
-  border: 5px solid black;
-  flex-basis: 200px;
-  height: 300px;
-  margin-top: 30px;
-  margin-left: 10px;
-}
-
-.notes {
-  border: 5px solid black;
-  flex-basis: 475px;
-  height: 250px;
-  margin-top: 30px;
-  margin-left: 10px;
-}
-</style>
+<link rel="stylesheet" href="css/navigation.css">
 </head>
 <body>
     <div class="navigation" id="navigation">
-      <ul>
+      <ul class="menu-items">
         <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
         <li><a href="index.html">Home</a></li>
         <li><a href="indexPage.html">Index</a></li>
@@ -60,12 +15,11 @@
         <li><a href="calendar.html">Monthly Logs</a></li>
         <li><a href="futurelogs.html">Future Logs</a></li>
         <li><a href="collection.html">Collections</a></li>
-        <li><a href="#settings">Settings</a></li>
+        <li><a href="settings.html">Settings</a></li>
       </ul>
     </div>
-    <div class="daily" id="main">
-        <button class="openbtn" onclick="openNav()" style="background-color: white;">☰</button>  
-
+    <button class="openbtn" onclick="openNav(this)" style="background-color: white;">☰</button>  
+    <div class="daily">
         <h1 style="text-align: center;">Week of dates</h1>
         <div class="row-flex-container">
             <div class="day" id="mon">

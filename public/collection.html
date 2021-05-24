@@ -7,12 +7,14 @@
   <title>Team 24 - Bujo</title>
 
   <link rel="stylesheet" href="css/collection.css" />
+  <link rel="stylesheet" href="css/navigation.css" />
+
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Sansita+One" />
 </head>
 
 <body>
   <div class="navigation" id="navigation">
-    <ul>
+    <ul class="menu-items">
       <li>
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
       </li>
@@ -22,20 +24,18 @@
       <li><a href="calendar.html">Monthly Logs</a></li>
       <li><a href="futurelogs.html">Future Logs</a></li>
       <li><a class="active" href="collection.html">Collections</a></li>
-      <li><a href="#settings">Settings</a></li>
+      <li><a href="settings.html">Settings</a></li>
     </ul>
   </div>
-
-  <div class="collection-background" id="main">
-    <button class="openbtn" onclick="openNav()">☰</button>
-
+  <div class="collection-background">
+    <button class="openbtn" onclick="openNav(this)">☰</button>
     <div class="collection-title" id="collection-title">
       <h1 class="ctitle" id="ctitle"></h1>
     </div>
 
     <div class="content-box">
 
-      <ul class="collection-subcontent" style="list-style-type: disc">
+      <ul class="collection-subcontent">
         <p>Body measurement 3/30</p>
         <li>weight - 120lbs</li>
         <li>right arm - 20in</li>
@@ -45,7 +45,7 @@
     <div class="list-box">
       <div class="collection-edit">
         <button class="edit-button" id="edit-button" onclick="collectionAdd()">
-          <img src="./images/edit_button.png" width="48" height="48" />
+          <img src="./images/icons/edit_button.png" width="48" height="48" />
         </button>
       </div>
       <div class="collection-list" id="collection-list">

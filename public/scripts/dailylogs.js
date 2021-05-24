@@ -17,6 +17,8 @@ window.onclick = function(event) {
     deleteBulletIcon(event.target);
   }else if(event.target.classList == 'note-list' && (event.altKey)){
     deleteBulletIcon(event.target);
+  }else if(event.target.classList == 'checkMark-list' && event.altKey){
+    deleteBulletIcon(event.target);
   }
   if(event.target.classList == 'task-list' && event.ctrlKey){
     changeBulletIcon(event.target,'task-list','event-list');
@@ -28,5 +30,14 @@ window.onclick = function(event) {
     changeBulletIcon(event.target,'inspiration-list','note-list');
   }else if(event.target.classList == 'note-list' && event.ctrlKey){
     changeBulletIcon(event.target,'note-list','task-list');
+  }else if(event.target.classList == 'checkMark-list' && event.ctrlKey){
+    changeBulletIcon(event.target,'checkMark-list','event-list');
   } 
+
+  if(event.target.classList == 'task-list' && event.shiftKey){
+    changeBulletIcon(event.target, 'task-list', 'checkMark-list');
+  }else if(event.target.classList == 'checkMark-list' && event.shiftKey){
+    changeBulletIcon(event.target,'checkMark-list','task-list');
+  }
+
 }

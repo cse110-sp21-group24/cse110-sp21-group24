@@ -10,8 +10,11 @@
 .day {
   /*border: 5px outset black;*/
   text-align: center;
-  margin: 5px;
-  height: 300px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 330px;
   flex-basis: 250px;
   color: #2E77BB;
 }
@@ -19,10 +22,12 @@
   text-align: left;
   background-color: #9BD4F5;
   border: 5px solid #9BD4F5;
-  border-radius: 20px;
+  border-radius: 15px;
   font: 15px sans-serif;
   height: 250px;
   color: black;
+  padding: 10px;
+  align-items: center;
 }
 .daily {
   background-color: white;
@@ -48,6 +53,25 @@
   margin-top: 30px;
   margin-left: 10px;
 }
+
+li {
+    font-size: 14px;
+    margin-left: 10px;
+    list-style-type: circle;
+}
+
+.add {
+    border-radius: 50%;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: white;
+    color: #2E77BB;
+    border: 1px solid #2E77BB;
+    position: relative;
+    margin-left: 40%;
+}
+
 </style>
 </head>
 <body>
@@ -68,56 +92,67 @@
         <button class="openbtn" onclick="openNav()" style="background-color: white;">☰</button>  
 
         <h1 style="text-align: center;">Week of dates</h1>
+
         <div class="row-flex-container">
-            <div class="day" id="mon">
+            <div class="day">
                 <h2>Monday</h2>
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
+                <div  id="mon" class="dayContent">
+                    <ul>
+                    </ul>
+                    <a href="#" id="mon-add" class="add">&#x2b;</a>
                 </div>
             </div>
-            <div class="day" id="tue">
+            <div class="day">
                 <h2>Tuesday</h2>
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
+                <div id="tue" class="dayContent">
+                    <ul>
+                    </ul>
                 </div>
             </div>
-            <div class="day" id="wed">
+            <div class="day">
                 <h2>Wednesday</h2>
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
+                <div id="wed" class="dayContent">
+                    <ul>
+                    </ul>
                 </div>
             </div>
-            <div class="day" id="thu">
+            <div class="day">
                 <h2>Thursday</h2>
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
+                <div id="thu" class="dayContent">
+                    <ul>
+                    </ul>
                 </div>
             </div>
             <div class="goals">
                 <h1>GOALS</h1>
+                <p contenteditable="true"></p>
             </div>
         </div>
         <div class="row-flex-container">
-            <div class="day" id="fri">
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
+            <div class="day">
+                <div id="fri" class="dayContent">
+                    <ul>
+                    </ul>
                 </div>
                 <h2>Friday</h2>
             </div>
-            <div class="day" id="sat">
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
+            <div class="day">
+                <div id="sat" class="dayContent">
+                    <ul>
+                    </ul>
                 </div>
                 <h2>Saturday</h2>
             </div>
-            <div class="day" id="sun">
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
+            <div class="day">
+                <div id="sun" class="dayContent">
+                    <ul>
+                    </ul>
                 </div>
                 <h2>Sunday</h2>
             </div>
             <div class="notes">
                 <h1>notes</h1>
+                <p contenteditable="true"></p>
             </div>
         </div>
 
@@ -125,5 +160,6 @@
     
     <!-- Scripts -->
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/dailylogs.js"></script>
 </body>
 </html>

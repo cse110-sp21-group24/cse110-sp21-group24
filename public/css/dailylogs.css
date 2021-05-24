@@ -1,0 +1,47 @@
+.task-list {
+    list-style-type: none;
+    list-style-image: none;
+    background: url('../images/taskB.png') no-repeat;
+    background-size: 1em;
+    padding-left: 1.5em;
+    padding-bottom: 5px;
+  }
+/*** Event Bullet Point ***/
+.event-list {
+    list-style-type: none;
+    list-style-image: none;
+    background: url('../images/eventB.png') no-repeat;
+    background-size: 1em;
+    padding-left: 1.5em;
+    padding-bottom: 5px;
+  }
+  
+  /*** Important Bullet Point ***/
+  .important-list {
+    list-style-type: none;
+    list-style-image: none;
+    background: url('../images/importantB.png') no-repeat;
+    background-size: 1em;
+    padding-left: 1.5em;
+    padding-bottom: 5px;
+  }
+  
+  /*** Inspiration Bullet Point ***/
+  .inspiration-list {
+    list-style-type: none;
+    list-style-image: none;
+    background: url('../images/inspirationB.png') no-repeat;
+    background-size: 1em;
+    padding-left: 1.5em;
+    padding-bottom: 5px;
+  }
+  
+  /*** Note Bullet Point ***/
+  .note-list {
+    list-style-type: none;
+    list-style-image: none;
+    background: url('../images/noteB.png') no-repeat;
+    background-size: 1em;
+    padding-left: 1.5em;
+    padding-bottom: 5px;
+  }

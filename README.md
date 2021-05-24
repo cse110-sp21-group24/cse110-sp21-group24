@@ -13,7 +13,13 @@ The core utilities of bullet journals are:
 
 ## Local Development
 
-First, install the Firebase CLI [here](https://firebase.google.com/docs/cli#install_the_firebase_cli).
+Install or update npm packages.
+
+```
+npm install
+```
+
+Install the Firebase CLI [here](https://firebase.google.com/docs/cli#install_the_firebase_cli).
 
 All website files will be located in the `public` directory. To test locally, run:
 
@@ -32,3 +38,9 @@ firebase deploy
 ```
 
 Deployment will then be updated at https://team-24-gme-bujo.firebaseapp.com/
+
+
+## Linter
+```
+npx eslint yourfile.js
+```

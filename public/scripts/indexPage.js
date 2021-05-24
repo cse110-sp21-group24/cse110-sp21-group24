@@ -25,7 +25,7 @@ calendarLink.addEventListener('click', () => {
 
 var dailyLink1 = document.getElementById("daily1");
 dailyLink1.addEventListener('click', () => {
-  location.href="dailylogs.html";
+  location.href="dailyLog.html";
 });
 
 var dailyLink2 = document.getElementById("daily2");
@@ -45,7 +45,7 @@ monthlyLink2.addEventListener('click', () => {
 
 var futureLink1 = document.getElementById("future1");
 futureLink1.addEventListener('click', () => {
-  location.href="futurelogs.html";
+  location.href="futureLog.html";
 });
 
 var futureLink2 = document.getElementById("future2");

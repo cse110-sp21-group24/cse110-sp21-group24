@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Regular.ttf');
+}
+
+/* Changing color scheme */
+:root {
+  --first-color: #9EB3C2;
+  --second-color: #9BD4F5;
+  --third-color: #1D8ECE;
+  --fourth-color: #2E77BB;
+}
+
+/* collection page styling */
+.collection-title > h1 {
+  font-family: "Sansita One";
+  font-size: 64px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+  color: var(--third-color);
+  position: absolute;
+  left: 540px;
+  top: 60px;
+}
+
+.content-box {
+  cursor: pointer;
+  position: absolute;
+  border-radius: 15px;
+  border: 2px solid black;
+  padding: 50px;
+  width: 730px;
+  height: 400px;
+  left: 250px;
+  right: 430px;
+  top: 152px;
+  bottom: 112px;
+}
+
+.content-box > .collection-subcontent {
+  list-style-type: disc;
+  cursor: text;
+}
+
+.list-box {
+  height: 510px;
+  width: 200px;
+  left: 1136px;
+  padding: 100px;
+  position: relative;
+  background-color: var(--second-color);
+}
+
+.collection-list > p {
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+}
+
+.edit-button {
+  cursor: pointer;
+  height: 0px;
+  width: 0px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  vertical-align: top;
+}
+
+.collection-edit {
+  position: absolute;
+  top: 20px;
+  left: 298px;
+}
+
+.collection-input-section {
+  position: static;
+}
+
+.collection-input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+  width: 200px;
+  display: inline;
+}
+
+.collection-submit-button,
+.collection-reset-button {
+  position: static;
+  display: none;
+}

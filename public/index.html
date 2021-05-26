@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Team 24 - Bujo</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/index.css">
   </head>
   <body>
     <div class="navigation" id="navigation">
       <ul>
         <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
         <li><a class="active" href="#home">Home</a></li>
-        <li><a href="#index">Index</a></li>
-        <li><a href="#calendar">Calendar</a></li>
-        <li><a href="#daily logs">Daily Logs</a></li>
-        <li><a href="#monthly logs">Monthly Logs</a></li>
-        <li><a href="#future logs">Future Logs</a></li>
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#settings">Settings</a></li>
+        <li><a href="indexPage.html">Index</a></li>
+        <li><a href="dailyLog.html">Daily Logs</a></li>
+        <li><a href="calendar.html">Monthly Logs</a></li>
+        <li><a href="futureLog.html">Future Logs</a></li>
+        <li><a href="collection.html">Collections</a></li>
+        <li><a href="settings.html">Settings</a></li>
       </ul>
     </div>
     
@@ -28,7 +27,7 @@
           <div class="book">
             <div class="front">
               <div class="cover">
-                <img height=100% width=100% src=images/bujo-cover.png>
+                <img id="toIndex" height=100% width=100% src=images/bujo-cover.png>
               </div>
             </div>
             <div class="left-side">
@@ -39,5 +38,6 @@
 
     <!-- Scripts -->
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/homePage.js"></script>
   </body>
 </html>

@@ -6,10 +6,10 @@
  * @param { String } nextIcon String of next class name for icon
  * @returns changed element
  */
-function changeBulletIcon(element,currentIcon,nextIcon){
-  element.classList.add(nextIcon);
-  element.classList.remove(currentIcon);
-  return element;
+function changeBulletIcon(element,nextIcon){
+  let elementToChange = element.parentElement.parentElement.childNodes[0];
+  elementToChange.className = nextIcon;
+  return elementToChange;
 }
 
 /**
@@ -17,6 +17,15 @@ function changeBulletIcon(element,currentIcon,nextIcon){
  * @param { any } element event.target
  */
 function deleteBulletIcon(element){
-  element.remove();
-  return element;
+  let elementToChange = element.parentElement.parentElement;
+  elementToChange.remove();
+  return elementToChange;
 }
+
+/**
+ * This function toggles the drop down menu of entries
+ */
+function toggleDrop(){
+  document.getElementById('myDropDown').classList.toggle('show');
+}
+

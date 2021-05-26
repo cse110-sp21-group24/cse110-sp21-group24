@@ -3,41 +3,92 @@ document.getElementById("mon-add").addEventListener('click', () => {
   item.contentEditable = "true";
   item.innerHTML = "ADD ENTRY";
   item.classList.add('task-list');
-  document.getElementById("mon").getElementsByTagName('ul')[0].appendChild(item);
+  let dropDown = document.createElement('div');
+  dropDown.style.width = '215px';
+  dropDown.classList.add('dropDown');
+  let myDropDown = document.createElement('div');
+  myDropDown.classList.add('dropDown-content');
+  myDropDown.setAttribute('id','myDropDown');
+  let taskList = document.createElement('img');
+  taskList.src = 'images/taskB.png';
+  taskList.className = 'taskImage';
+  myDropDown.appendChild(taskList);
+  let eventList = document.createElement('img');
+  eventList.src = 'images/eventB.png';
+  eventList.className = 'eventImage';
+  myDropDown.appendChild(eventList);
+  let importantList = document.createElement('img');
+  importantList.src = 'images/importantB.png';
+  importantList.className = 'importantImage';
+  myDropDown.appendChild(importantList);
+  let inspirationList = document.createElement('img');
+  inspirationList.src = 'images/inspirationB.png';
+  inspirationList.className = 'inspirationImage';
+  myDropDown.appendChild(inspirationList);
+  let noteList = document.createElement('img');
+  noteList.src = 'images/noteB.png';
+  noteList.className = 'noteImage';
+  myDropDown.appendChild(noteList);
+  let checkMarkList = document.createElement('img');
+  checkMarkList.src = 'images/checkMark.png';
+  checkMarkList.className = 'checkMarkImage';
+  myDropDown.appendChild(checkMarkList);
+  let deleteList = document.createElement('img');
+  deleteList.src = 'images/trash.png';
+  deleteList.className = 'deleteImage';
+  myDropDown.appendChild(deleteList);
+  dropDown.appendChild(item);
+  dropDown.appendChild(myDropDown);
+  document.getElementById("mon").getElementsByTagName('ul')[0].appendChild(dropDown);
 });
 
 window.onclick = function(event) {
-  if(event.target.classList == 'task-list' && (event.altKey)){
-    deleteBulletIcon(event.target);
-  }else if(event.target.classList == 'event-list' && (event.altKey)){
-    deleteBulletIcon(event.target);
-  }else if(event.target.classList == 'important-list' && (event.altKey)){
-    deleteBulletIcon(event.target);
-  }else if(event.target.classList == 'inspiration-list' && (event.altKey)){
-    deleteBulletIcon(event.target);
-  }else if(event.target.classList == 'note-list' && (event.altKey)){
-    deleteBulletIcon(event.target);
-  }else if(event.target.classList == 'checkMark-list' && event.altKey){
-    deleteBulletIcon(event.target);
+  if (!event.target.matches('.dropBtn')) {
+    var dropdowns = document.getElementsByClassName("dropDown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
   }
-  if(event.target.classList == 'task-list' && event.ctrlKey){
-    changeBulletIcon(event.target,'task-list','event-list');
-  }else if(event.target.classList == 'event-list' && event.ctrlKey){
-    changeBulletIcon(event.target,'event-list','important-list');
-  }else if(event.target.classList == 'important-list' && event.ctrlKey){
-    changeBulletIcon(event.target,'important-list','inspiration-list');
-  }else if(event.target.classList == 'inspiration-list' && event.ctrlKey){
-    changeBulletIcon(event.target,'inspiration-list','note-list');
-  }else if(event.target.classList == 'note-list' && event.ctrlKey){
-    changeBulletIcon(event.target,'note-list','task-list');
-  }else if(event.target.classList == 'checkMark-list' && event.ctrlKey){
-    changeBulletIcon(event.target,'checkMark-list','event-list');
-  } 
-
-  if(event.target.classList == 'task-list' && event.shiftKey){
-    changeBulletIcon(event.target, 'task-list', 'checkMark-list');
-  }else if(event.target.classList == 'checkMark-list' && event.shiftKey){
-    changeBulletIcon(event.target,'checkMark-list','task-list');
+  
+  if(event.target.classList == 'task-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'event-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'important-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'inspiration-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'note-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'checkMark-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
   }
 
+  if(event.target.classList == 'taskImage'){
+    changeBulletIcon(event.target, 'task-list');
+  }else if(event.target.classList == 'eventImage'){
+    changeBulletIcon(event.target, 'event-list');
+  }else if(event.target.classList == 'importantImage'){
+    changeBulletIcon(event.target, 'important-list');
+  }else if(event.target.classList == 'inspirationImage'){
+    changeBulletIcon(event.target, 'inspiration-list');
+  }else if(event.target.classList == 'noteImage'){
+    changeBulletIcon(event.target, 'note-list');
+  }else if(event.target.classList == 'checkMarkImage'){
+    changeBulletIcon(event.target, 'checkMark-list');
+  }else if(event.target.classList == 'deleteImage'){
+    deleteBulletIcon(event.target);
+  }
+
+  
 }

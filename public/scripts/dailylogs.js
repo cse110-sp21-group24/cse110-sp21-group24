@@ -9,6 +9,7 @@ document.getElementById("mon-add").addEventListener('click', () => {
   let myDropDown = document.createElement('div');
   myDropDown.classList.add('dropDown-content');
   myDropDown.setAttribute('id','myDropDown');
+  myDropDown.style.margin = "0px 0px 0px 10px";
   let taskList = document.createElement('img');
   taskList.src = 'images/taskB.png';
   taskList.className = 'taskImage';

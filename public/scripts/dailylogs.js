@@ -93,3 +93,26 @@ window.onclick = function(event) {
 
   
 }
+
+var days = document.getElementsByTagName('h2');
+
+var day = document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0];
+
+days[0].addEventListener('click', () => {
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("mon"));
+  document.getElementById("monCurr").classList.add("current");
+  day.innerHTML = "Monday";
+});
+
+days[1].addEventListener('click', () => {
+
+  if (day.innerHTML == "Monday") {
+    document.getElementById("monContainer").appendChild(document.getElementById("mon"));
+    document.getElementById("monCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  day.innerHTML = "Tuesday";
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("tue"));
+  document.getElementById("tueCurr").classList.add("current");
+  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Tuesday";
+});

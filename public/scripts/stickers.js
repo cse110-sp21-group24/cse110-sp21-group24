@@ -31,11 +31,10 @@ function allowDrop(event) {
 }
 
 function drag(event) {
-  console.log(event.target);
   let img = document.getElementById(event.target.id);
   document.getElementById("dropBody").appendChild(img);
   $(img).draggable({ containment:'#dropBody' });
-  img.style = "position: relative;";
+  img.style = "position: absolute; top: 5%; left: 5%;";
 }
 
 function deleteSticker(event) {
@@ -51,7 +50,6 @@ function deleteSticker(event) {
     } else {
       document.getElementById("customBox").appendChild(img);
     }
-    console.log(document);
   }
 }
 
@@ -65,7 +63,6 @@ function createCustom(event) {
   custom.height = "80";
   document.getElementById("customBox").appendChild(custom);
   count++;
-  console.log(document);
 }
 
 document.addEventListener('contextmenu', event => event.preventDefault());

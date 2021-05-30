@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/customization.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Customization</title>
   </head>
 
@@ -14,15 +13,15 @@
     <div id="dropBody" ondragover="allowDrop(event)">
       <!-- Customization -->
       <div class="customizationBtn">
-        <button type="button" class="btn btn-elegant" id="openBtn" onclick="openSticker()">
-          <i class="bi bi-paperclip"></i>
+        <button type="button" class="stickerBtn" id="openBtn" onclick="openSticker()" sty>
+          <img src="images/icons/paperclip.png">
         </button>
-        <button type="button" class="btn btn-elegant" id="closeBtn" onclick="closeSticker()" hidden>
-          <i class="bi bi-paperclip"></i>
+        <button type="button" class="stickerBtn" id="closeBtn" onclick="closeSticker()" hidden>
+          <img src="images/icons/paperclip.png">
         </button>
       </div>
       <div id="customContainer">
-        <section>
+        <section class="scrollBox">
           <form id="customForm" onsubmit="createCustom(event)">
             <input type="file" id="newImg" name="newImg" accept="image/png, image/jpeg">
             <input type="submit">

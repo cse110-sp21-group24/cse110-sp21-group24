@@ -29,7 +29,26 @@ let first, last, firstDay, lastDay;
 
   document.getElementById("datesHeader").innerHTML = `week of ${firstFormat} - ${lastFormat}`;
 
-  let stickers = Array.from(document.querySelectorAll("img")).filter(elem => elem.id.startsWith("sticker") || elem.id.startsWith("washi"));
+  // retrieve custom stickers
+  let results = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+      if (key.startsWith("custom")) {
+          results.push(JSON.parse(localStorage.getItem(key)));
+      }
+  }
+  results.forEach(elem => {
+    let loadCustom = document.createElement("img");
+    loadCustom.id = elem.id
+    loadCustom.src = elem.src;
+    loadCustom.setAttribute("ondragstart", "drag(event)");
+    loadCustom.setAttribute("onmousedown", "deleteSticker(event)");
+    loadCustom.height = "80";
+    document.getElementById("customBox").appendChild(loadCustom);
+  })
+  
+  // retrieve stickers placmenet
+  let stickers = Array.from(document.querySelectorAll("img")).filter(elem => elem.id.startsWith("sticker") || elem.id.startsWith("washi") || elem.id.startsWith("custom"));
   stickers.forEach((elem) => {
     let key = path.concat("/" + elem.id)
     if (localStorage.getItem(`${key}`) !== null) {
@@ -46,10 +65,11 @@ let first, last, firstDay, lastDay;
       let parent = "stickerBox";
       if (elem.id.startsWith("washi")) {
         parent = "washiBox";
+      } else if (elem.id.startsWith("custom")) {
+        parent = "customBox";
       }
       document.getElementById(parent).removeChild(elem);
       document.getElementById("dropBody").appendChild(load);
-      // <img id="sticker1" src="" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80" style="position: absolute; inset: 630.844px auto auto 868.594px; width: 88.1719px; height: 80px;" class="ui-draggable ui-draggable-handle">
     }
   })
 });

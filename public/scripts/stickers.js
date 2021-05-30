@@ -1,7 +1,6 @@
 let path = this.location.pathname;
 let imgInput = document.getElementById("newImg");
 let newSticker;
-let count = 1;
 
 imgInput.onchange = () => {
   if (imgInput.files && imgInput.files[0]) {
@@ -70,13 +69,20 @@ function deleteSticker(event) {
 function createCustom(event) {
   event.preventDefault();
   let custom = document.createElement("img");
-  custom.id = "custom".concat(count.toString());
+  let uniqueId = Date.now();
+  custom.id = "custom".concat(uniqueId.toString());
   custom.src = newSticker;
   custom.setAttribute("ondragstart", "drag(event)");
   custom.setAttribute("onmousedown", "deleteSticker(event)");
   custom.height = "80";
   document.getElementById("customBox").appendChild(custom);
-  count++;
+
+  // store into local storage
+  let imgJSON = {
+    id: custom.id,
+    src: custom.src,
+  };
+  localStorage.setItem(`${imgJSON.id}`, JSON.stringify(imgJSON));
 }
 
 document.addEventListener('contextmenu', event => event.preventDefault());

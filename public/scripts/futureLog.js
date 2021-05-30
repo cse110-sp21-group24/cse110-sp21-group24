@@ -17,7 +17,7 @@
   ];
 
   let today = new Date().getMonth();
-  let count = 0;
+  let count = 1;
 
   document.querySelectorAll("h2").forEach(month => {
     let curr = today + count;

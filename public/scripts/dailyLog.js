@@ -1,13 +1,8 @@
-const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
-let curr = new Date;
-let first, last, firstDay, lastDay;
-
 /**
  * Update colors based on current color scheme
  */
  window.addEventListener('load', () => {
+  // retrieve color scheme
   const color1 = localStorage.getItem("color1");
   const color2 = localStorage.getItem("color2");
   const color3 = localStorage.getItem("color3");
@@ -19,10 +14,14 @@ let first, last, firstDay, lastDay;
   document.documentElement.style.setProperty('--fourth-color', color4);
 
   // get the dates of the current week
-  first = curr.getDate() - curr.getDay();
-  last = first + 6;
-  firstDay = new Date(curr.setDate(first));
-  lastDay = new Date(curr.setDate(last));
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  let curr = new Date;
+  let first = curr.getDate() - curr.getDay();
+  let last = first + 6;
+  let firstDay = new Date(curr.setDate(first));
+  let lastDay = new Date(curr.setDate(last));
 
   let firstFormat = `${monthNames[firstDay.getMonth()]} ${firstDay.getDate()}`
   let lastFormat = `${monthNames[lastDay.getMonth()]} ${lastDay.getDate()}`

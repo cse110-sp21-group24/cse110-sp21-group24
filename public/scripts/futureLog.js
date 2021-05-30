@@ -2,6 +2,7 @@
  * Update colors based on current color scheme
  */
  window.addEventListener('load', () => {
+  // retrieve color scheme
   const color1 = localStorage.getItem("color1");
   const color2 = localStorage.getItem("color2");
   const color3 = localStorage.getItem("color3");

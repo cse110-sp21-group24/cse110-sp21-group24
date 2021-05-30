@@ -99,6 +99,43 @@ var days = document.getElementsByTagName('h2');
 var day = document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0];
 
 days[0].addEventListener('click', () => {
+
+  if (day.innerHTML == "Monday") {
+    document.getElementById("monContainer").appendChild(document.getElementById("mon"));
+    document.getElementById("monCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Tuesday") {
+    document.getElementById("tueContainer").appendChild(document.getElementById("tue"));
+    document.getElementById("tueCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Wednesday") {
+    document.getElementById("wedContainer").appendChild(document.getElementById("wed"));
+    document.getElementById("wedCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Thursday") {
+    document.getElementById("thuContainer").appendChild(document.getElementById("thu"));
+    document.getElementById("thuCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Friday") {
+    document.getElementById("friContainer").appendChild(document.getElementById("fri"));
+    document.getElementById("friCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Saturday") {
+    document.getElementById("satContainer").appendChild(document.getElementById("sat"));
+    document.getElementById("satCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Sunday") {
+    document.getElementById("sunContainer").appendChild(document.getElementById("sun"));
+    document.getElementById("sunCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+
   document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("mon"));
   document.getElementById("monCurr").classList.add("current");
   day.innerHTML = "Monday";
@@ -111,8 +148,253 @@ days[1].addEventListener('click', () => {
     document.getElementById("monCurr").classList.remove("current");
     day.innerHTML = "";
   }
+  else if (day.innerHTML == "Tuesday") {
+    document.getElementById("tueContainer").appendChild(document.getElementById("tue"));
+    document.getElementById("tueCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Wednesday") {
+    document.getElementById("wedContainer").appendChild(document.getElementById("wed"));
+    document.getElementById("wedCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Thursday") {
+    document.getElementById("thuContainer").appendChild(document.getElementById("thu"));
+    document.getElementById("thuCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Friday") {
+    document.getElementById("friContainer").appendChild(document.getElementById("fri"));
+    document.getElementById("friCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Saturday") {
+    document.getElementById("satContainer").appendChild(document.getElementById("sat"));
+    document.getElementById("satCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Sunday") {
+    document.getElementById("sunContainer").appendChild(document.getElementById("sun"));
+    document.getElementById("sunCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
   day.innerHTML = "Tuesday";
   document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("tue"));
   document.getElementById("tueCurr").classList.add("current");
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Tuesday";
+});
+
+days[2].addEventListener('click', () => {
+
+  if (day.innerHTML == "Monday") {
+    document.getElementById("monContainer").appendChild(document.getElementById("mon"));
+    document.getElementById("monCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Tuesday") {
+    document.getElementById("tueContainer").appendChild(document.getElementById("tue"));
+    document.getElementById("tueCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Wednesday") {
+    document.getElementById("wedContainer").appendChild(document.getElementById("wed"));
+    document.getElementById("wedCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Thursday") {
+    document.getElementById("thuContainer").appendChild(document.getElementById("thu"));
+    document.getElementById("thuCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Friday") {
+    document.getElementById("friContainer").appendChild(document.getElementById("fri"));
+    document.getElementById("friCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Saturday") {
+    document.getElementById("satContainer").appendChild(document.getElementById("sat"));
+    document.getElementById("satCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Sunday") {
+    document.getElementById("sunContainer").appendChild(document.getElementById("sun"));
+    document.getElementById("sunCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  day.innerHTML = "Wednesday";
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("wed"));
+  document.getElementById("wedCurr").classList.add("current");
+  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Wednesday";
+});
+
+days[3].addEventListener('click', () => {
+
+  if (day.innerHTML == "Monday") {
+    document.getElementById("monContainer").appendChild(document.getElementById("mon"));
+    document.getElementById("monCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Tuesday") {
+    document.getElementById("tueContainer").appendChild(document.getElementById("tue"));
+    document.getElementById("tueCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Wednesday") {
+    document.getElementById("wedContainer").appendChild(document.getElementById("wed"));
+    document.getElementById("wedCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Thursday") {
+    document.getElementById("thuContainer").appendChild(document.getElementById("thu"));
+    document.getElementById("thuCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Friday") {
+    document.getElementById("friContainer").appendChild(document.getElementById("fri"));
+    document.getElementById("friCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Saturday") {
+    document.getElementById("satContainer").appendChild(document.getElementById("sat"));
+    document.getElementById("satCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Sunday") {
+    document.getElementById("sunContainer").appendChild(document.getElementById("sun"));
+    document.getElementById("sunCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  day.innerHTML = "Thursday";
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("thu"));
+  document.getElementById("thuCurr").classList.add("current");
+  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Thursday";
+});
+
+days[4].addEventListener('click', () => {
+
+  if (day.innerHTML == "Monday") {
+    document.getElementById("monContainer").appendChild(document.getElementById("mon"));
+    document.getElementById("monCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Tuesday") {
+    document.getElementById("tueContainer").appendChild(document.getElementById("tue"));
+    document.getElementById("tueCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Wednesday") {
+    document.getElementById("wedContainer").appendChild(document.getElementById("wed"));
+    document.getElementById("wedCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Thursday") {
+    document.getElementById("thuContainer").appendChild(document.getElementById("thu"));
+    document.getElementById("thuCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Friday") {
+    document.getElementById("friContainer").appendChild(document.getElementById("fri"));
+    document.getElementById("friCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Saturday") {
+    document.getElementById("satContainer").appendChild(document.getElementById("sat"));
+    document.getElementById("satCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Sunday") {
+    document.getElementById("sunContainer").appendChild(document.getElementById("sun"));
+    document.getElementById("sunCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  day.innerHTML = "Friday";
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("fri"));
+  document.getElementById("friCurr").classList.add("current");
+  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Friday";
+});
+
+days[5].addEventListener('click', () => {
+
+  if (day.innerHTML == "Monday") {
+    document.getElementById("monContainer").appendChild(document.getElementById("mon"));
+    document.getElementById("monCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Tuesday") {
+    document.getElementById("tueContainer").appendChild(document.getElementById("tue"));
+    document.getElementById("tueCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Wednesday") {
+    document.getElementById("wedContainer").appendChild(document.getElementById("wed"));
+    document.getElementById("wedCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Thursday") {
+    document.getElementById("thuContainer").appendChild(document.getElementById("thu"));
+    document.getElementById("thuCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Friday") {
+    document.getElementById("friContainer").appendChild(document.getElementById("fri"));
+    document.getElementById("friCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Saturday") {
+    document.getElementById("satContainer").appendChild(document.getElementById("sat"));
+    document.getElementById("satCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Sunday") {
+    document.getElementById("sunContainer").appendChild(document.getElementById("sun"));
+    document.getElementById("sunCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  day.innerHTML = "Saturday";
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sat"));
+  document.getElementById("satCurr").classList.add("current");
+  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Saturday";
+});
+
+days[6].addEventListener('click', () => {
+
+  if (day.innerHTML == "Monday") {
+    document.getElementById("monContainer").appendChild(document.getElementById("mon"));
+    document.getElementById("monCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Tuesday") {
+    document.getElementById("tueContainer").appendChild(document.getElementById("tue"));
+    document.getElementById("tueCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Wednesday") {
+    document.getElementById("wedContainer").appendChild(document.getElementById("wed"));
+    document.getElementById("wedCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Thursday") {
+    document.getElementById("thuContainer").appendChild(document.getElementById("thu"));
+    document.getElementById("thuCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Friday") {
+    document.getElementById("friContainer").appendChild(document.getElementById("fri"));
+    document.getElementById("friCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Saturday") {
+    document.getElementById("satContainer").appendChild(document.getElementById("sat"));
+    document.getElementById("satCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  else if (day.innerHTML == "Sunday") {
+    document.getElementById("sunContainer").appendChild(document.getElementById("sun"));
+    document.getElementById("sunCurr").classList.remove("current");
+    day.innerHTML = "";
+  }
+  day.innerHTML = "Sunday";
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sun"));
+  document.getElementById("sunCurr").classList.add("current");
+  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Sunday";
 });

@@ -34,6 +34,7 @@ body {
   color: black;
   padding: 10px;
   align-items: center;
+  overflow: scroll;
 }
 .daily {
   background-color: white;
@@ -81,7 +82,8 @@ body {
 }
 
 .bigDayContent {
-  text-align: left;
+  text-align: center;
+  color: #2E77BB;
   background-color: #9BD4F5;
   border: 5px solid #9BD4F5;
   border-radius: 15px;
@@ -109,10 +111,9 @@ body {
 
 ul {
   background-color: #9BD4F5;
-  width: 100%;
 }
 
-li {
+/* li {
   width: 100%;
   font-size: 14px;
   margin-left: 10px;
@@ -121,7 +122,9 @@ li {
 
 .bigDayContent div {
   width: 100%;
-}
+  height: 80%;
+  margin-top: 50px;
+} */
 
 </style>
 </head>
@@ -145,7 +148,7 @@ li {
         
         <div id="single-day" class="bigDay">
           <div class="bigDayContent">
-            <h1>biG Dayyyy</h1>
+            <h1 style="color: #2E77BB; text-align: center;">biG Dayyyy</h1>
           </div>
           <div class="goals">
             <h1>GOALS</h1>
@@ -176,43 +179,48 @@ li {
                   </div>
                   <div id="tueCurr"></div>
               </div>
-              <div class="day">
+              <div class="day" id="wedContainer">
                   <h2>Wednesday</h2>
                   <div id="wed" class="dayContent">
                       <ul>
                       </ul>
                   </div>
+                  <div id="wedCurr"></div>
               </div>
-              <div class="day">
+              <div class="day" id="thuContainer">
                   <h2>Thursday</h2>
                   <div id="thu" class="dayContent">
                       <ul>
                       </ul>
                   </div>
+                  <div id="thuCurr"></div>
               </div>
               
           <!-- </div>
           <div class="row-flex-container"> -->
-              <div class="day">
+              <div class="day" id="friContainer">
                 <h2>Friday</h2>
                 <div id="fri" class="dayContent">
                     <ul>
                     </ul>
                 </div>
+                <div id="friCurr"></div>
               </div>
-              <div class="day">
+              <div class="day" id="satContainer">
                 <h2>Saturday</h2>
                 <div id="sat" class="dayContent">
                     <ul>
                     </ul>
                 </div>
+                <div id="satCurr"></div>
               </div>
-              <div class="day">
+              <div class="day" id="sunContainer">
                 <h2>Sunday</h2>
                 <div id="sun" class="dayContent">
                     <ul>
                     </ul>
                 </div>
+                <div id="sunCurr"></div>
               </div>
               
           </div>

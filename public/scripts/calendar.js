@@ -11,6 +11,30 @@
   document.documentElement.style.setProperty('--second-color', color2);
   document.documentElement.style.setProperty('--third-color', color3);
   document.documentElement.style.setProperty('--fourth-color', color4);
+
+  let stickers = Array.from(document.querySelectorAll("img")).filter(elem => elem.id.startsWith("sticker") || elem.id.startsWith("washi"));
+  stickers.forEach((elem) => {
+    let key = path.concat("/" + elem.id)
+    if (localStorage.getItem(`${key}`) !== null) {
+      let img = JSON.parse(localStorage.getItem(`${key}`));
+      let load = document.createElement("img");
+      load.id = img.id;
+      load.src = img.src;
+      load.setAttribute("ondragstart", "drag(event)");
+      load.setAttribute("onmousedown", "deleteSticker(event)");
+      load.class = "ui-draggable ui-draggable-handle";
+      load.height = "80";
+      load.style.position = img.style.position;
+      load.style.inset = img.style.inset;
+      let parent = "stickerBox";
+      if (elem.id.startsWith("washi")) {
+        parent = "washiBox";
+      }
+      document.getElementById(parent).removeChild(elem);
+      document.getElementById("dropBody").appendChild(load);
+      // <img id="sticker1" src="" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80" style="position: absolute; inset: 630.844px auto auto 868.594px; width: 88.1719px; height: 80px;" class="ui-draggable ui-draggable-handle">
+    }
+  })
 });
 
 const date = new Date();

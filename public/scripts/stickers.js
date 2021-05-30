@@ -1,3 +1,4 @@
+let path = this.location.pathname;
 let imgInput = document.getElementById("newImg");
 let newSticker;
 let count = 1;
@@ -33,13 +34,26 @@ function allowDrop(event) {
 function drag(event) {
   let img = document.getElementById(event.target.id);
   document.getElementById("dropBody").appendChild(img);
-  $(img).draggable({ containment:'#dropBody' });
   img.style = "position: absolute; top: 5%; left: 5%;";
+  $(img).draggable({ containment:'#dropBody',
+  stop: function(event, ui) {
+    let imgJSON = {
+      id: img.id,
+      src: img.src,
+      style: img.style,
+    };
+    let key = path.concat("/" + imgJSON.id);
+    localStorage.setItem(`${key}`, JSON.stringify(imgJSON));
+  } });
 }
 
 function deleteSticker(event) {
   if (event.button == 2) {
     let img = document.getElementById(event.target.id);
+    let key = path.concat("/" + img.id);
+    if (localStorage.getItem(`${key}`) !== null) {
+      localStorage.removeItem(`${key}`);
+    }
     document.getElementById("dropBody").removeChild(img);
     img.removeAttribute("class");
     img.removeAttribute("style");

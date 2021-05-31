@@ -1,6 +1,6 @@
+let path = this.location.pathname;
 let imgInput = document.getElementById("newImg");
 let newSticker;
-let count = 1;
 
 imgInput.onchange = () => {
   if (imgInput.files && imgInput.files[0]) {
@@ -31,16 +31,28 @@ function allowDrop(event) {
 }
 
 function drag(event) {
-  console.log(event.target);
   let img = document.getElementById(event.target.id);
   document.getElementById("dropBody").appendChild(img);
-  $(img).draggable({ containment:'#dropBody' });
-  img.style = "position: relative;";
+  img.style = "position: absolute; top: 5%; left: 5%;";
+  $(img).draggable({ containment:'#dropBody',
+  stop: function(event, ui) {
+    let imgJSON = {
+      id: img.id,
+      src: img.src,
+      style: img.style,
+    };
+    let key = path.concat("/" + imgJSON.id);
+    localStorage.setItem(`${key}`, JSON.stringify(imgJSON));
+  } });
 }
 
 function deleteSticker(event) {
   if (event.button == 2) {
     let img = document.getElementById(event.target.id);
+    let key = path.concat("/" + img.id);
+    if (localStorage.getItem(`${key}`) !== null) {
+      localStorage.removeItem(`${key}`);
+    }
     document.getElementById("dropBody").removeChild(img);
     img.removeAttribute("class");
     img.removeAttribute("style");
@@ -51,21 +63,26 @@ function deleteSticker(event) {
     } else {
       document.getElementById("customBox").appendChild(img);
     }
-    console.log(document);
   }
 }
 
 function createCustom(event) {
   event.preventDefault();
   let custom = document.createElement("img");
-  custom.id = "custom".concat(count.toString());
+  let uniqueId = Date.now();
+  custom.id = "custom".concat(uniqueId.toString());
   custom.src = newSticker;
   custom.setAttribute("ondragstart", "drag(event)");
   custom.setAttribute("onmousedown", "deleteSticker(event)");
   custom.height = "80";
   document.getElementById("customBox").appendChild(custom);
-  count++;
-  console.log(document);
+
+  // store into local storage
+  let imgJSON = {
+    id: custom.id,
+    src: custom.src,
+  };
+  localStorage.setItem(`${imgJSON.id}`, JSON.stringify(imgJSON));
 }
 
 document.addEventListener('contextmenu', event => event.preventDefault());

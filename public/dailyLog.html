@@ -2,151 +2,63 @@
 <html>
 <head>
 <title>Daily Logs</title>
-<link rel = "stylesheet" href="css/dailyLog.css">
-<link rel = "stylesheet" href="css/navigation.css">
-<link rel = "stylesheet" href="css/bulletEntries.css">
-<link rel = "stylesheet" href="css/dropDown.css">
-<style>
 
-body {
-    background-color: white;
-}
-.day {
-  /*border: 5px outset black;*/
-  text-align: center;
-  margin-right: 5px;
-  margin-left: 5px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  height: 330px;
-  flex-basis: 250px;
-  color: #2E77BB;
-  padding: 20px;
-}
-.dayContent {
-  text-align: left;
-  background-color: #9BD4F5;
-  border: 5px solid #9BD4F5;
-  border-radius: 15px;
-  font: 15px sans-serif;
-  height: 250px;
-  width: 100%;
-  color: black;
-  padding: 10px;
-  align-items: center;
-  overflow: scroll;
-}
-.daily {
-  background-color: white;
-}
+<link rel="stylesheet" href="css/navigation.css">
+<link rel="stylesheet" href="css/bulletEntries.css">
+<link rel="stylesheet" href="css/dropDown.css">
+<link rel="stylesheet" href="css/dailyLog.css">
+<link rel="stylesheet" href="css/stickers.css">
 
-.row-flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.goals {
-  border: 5px solid black;
-  flex-basis: 200px;
-  height: 300px;
-  margin-top: 30px;
-  margin-left: 10px;
-}
-
-.notes {
-  border: 5px solid black;
-  flex-basis: 475px;
-  height: 250px;
-  margin-top: 30px;
-  margin-left: 10px;
-}
-
-
-.add {
-  border-radius: 50%;
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px 12px;
-  background-color: white;
-  color: #2E77BB;
-  border: 1px solid #2E77BB;
-  position: relative;
-  margin-left: 40%;
-}
-
-.bigDay {
-  float: left;
-  width: 30%;
-  margin-right: 20%;
-  margin-left: 20px;
-}
-
-.bigDayContent {
-  text-align: center;
-  color: #2E77BB;
-  background-color: #9BD4F5;
-  border: 5px solid #9BD4F5;
-  border-radius: 15px;
-  font: 15px sans-serif;
-  height: 500px;
-  width: 100%;
-  color: black;
-  padding: 10px;
-  align-items: center;
-  overflow: scroll;
-}
-
-.current {
-  background-color: #9BD4F5;
-  opacity: 0.3;
-  text-align: left;
-  border: 5px solid #9BD4F5;
-  border-radius: 15px;
-  font: 15px sans-serif;
-  height: 250px;
-  color: black;
-  padding: 10px;
-  align-items: center;
-}
-
-ul {
-  background-color: #9BD4F5;
-  overflow: scroll;
-}
-
-/* li {
-  width: 100%;
-  font-size: 14px;
-  margin-left: 10px;
-  list-style-type: circle;
-}
-
-.bigDayContent div {
-  width: 100%;
-  height: 80%;
-  margin-top: 50px;
-} */
-
-</style>
 </head>
 <body>
-  <div class="navigation" id="navigation">
-    <ul class="menu-items">
-      <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="indexPage.html">Index</a></li>
-      <li><a class="active" href="dailyLog.html">Daily Logs</a></li>
-      <li><a href="calendar.html">Monthly Logs</a></li>
-      <li><a href="futureLog.html">Future Logs</a></li>
-      <li><a href="collection.html">Collections</a></li>
-      <li><a href="settings.html">Settings</a></li>
-    </ul>
-  </div>
-    <div class="daily" id="main">
-        <button class="openbtn" onclick="openNav()" style="background-color: white;">☰</button>  
-
-        <h1 style="text-align: center;">Week of dates</h1>
-        
+    <!-- Area for draggable stickers -->
+    <div id="dropBody" ondragover="allowDrop(event)">
+      <!-- Navigation -->
+      <div class="navigation" id="navigation">
+        <ul class="menu-items">
+          <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="indexPage.html">Index</a></li>
+          <li><a class="active" href="dailyLog.html">Daily Logs</a></li>
+          <li><a href="calendar.html">Monthly Logs</a></li>
+          <li><a href="futureLog.html">Future Logs</a></li>
+          <li><a href="collection.html">Collections</a></li>
+          <li><a href="settings.html">Settings</a></li>
+        </ul>
+      </div>
+      <button class="openbtn" onclick="openNav(this)" style="background-color: white;">☰</button>
+      <!-- Sticker Customization -->
+      <div class="customizationBtn">
+        <button type="button" class="stickerBtn" id="openBtn" onclick="openSticker()" sty>
+          <img src="images/icons/paperclip.png">
+        </button>
+        <button type="button" class="stickerBtn" id="closeBtn" onclick="closeSticker()" hidden>
+          <img src="images/icons/paperclip.png">
+        </button>
+      </div>
+      <div id="customContainer">
+        <section class="scrollBox">
+          <form id="customForm" onsubmit="createCustom(event)">
+            <input type="file" id="newImg" name="newImg" accept="image/png, image/jpeg">
+            <input type="submit">
+          </form>
+          <div id="stickerBox">
+            <img id="sticker1" src="https://i.pinimg.com/originals/d9/d7/57/d9d757f08bdf79a991372d101742ad44.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+            <img id="sticker2" src="https://www.line-stickers.com/wp-content/uploads/2020/10/Sanrio-Characters-LittlePopcorn-.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+            <img id="sticker3" src="https://sdl-stickershop.line.naver.jp/products/0/0/6/1026/android/stickers/16649.png;compress=true" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+          </div>
+          <div id="washiBox">
+            <img id="washi1" src="./images/washi1.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+            <img id="washi2" src="./images/washi2.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+          </div>
+          <div id="customBox">
+          </div>
+        </section>
+      </div>
+      <!-- Page Body -->
+      <div class="daily">
+        <h1 id="datesHeader" style="text-align: center;">week of dates</h1>
+  
         <div id="single-day" class="bigDay">
           <div class="bigDayContent">
             <h1 style="color: #2E77BB; text-align: center;"></h1>
@@ -226,12 +138,19 @@ ul {
               
           </div>
         </div>
-
+      </div>  
     </div>
-    
+
     <!-- Scripts -->
     <script src="./scripts/index.js"></script>
-    <script src="./scripts/bulletEntries.js"></script>
+    <script src="./scripts/stickers.js"></script>
+    <script src="./scripts/dailyLog.js"></script>
     <script src="./scripts/dailylogs.js"></script>
-</body>
+    <script src="./scripts/bulletEntries.js"></script>
+    
+    <!-- Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+  
+  </body>
 </html>

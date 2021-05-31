@@ -66,10 +66,10 @@ html {
 
 .monthly-reminders {
   border: 5px solid black;
-  flex-basis: 200px;
-  width: 1000px;
+  /* flex-basis: 200px; */
+  width: 30%;
   height: 644.75px;
-  width: auto;
+  /* width: auto; */
   margin-left: 100px;
   border-radius: 20px;
 }

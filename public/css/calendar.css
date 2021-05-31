@@ -1,3 +1,10 @@
+/* Changing color scheme */
+:root {
+  --first-color: #9EB3C2;
+  --second-color: #9BD4F5;
+  --third-color: #1D8ECE;
+  --fourth-color: #2E77BB;
+}
 
 * {
   margin: 0;
@@ -29,7 +36,7 @@ html {
 .calendar {
   width: 1000px;
   height: 643.75px;
-  background-color: #9BD4F5;
+  background-color: var(--third-color);
   border-radius: 20px;
   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 }
@@ -37,7 +44,7 @@ html {
 .month {
   width: 100%;
   height: 12rem;
-  background-color: #1259b6;
+  background-color: var(--fourth-color);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   display: flex;
@@ -125,7 +132,7 @@ html {
 
 /* on hover on dates (except today), change the background of that date*/
 .days div:hover:not(.today) {
-  background-color: #3e6daa;
+  background-color: var(--fourth-color);
   border: 0.2rem solid #777;
   cursor: pointer;
 }
@@ -135,6 +142,5 @@ html {
 }
 
 .today {
-  background-color: #9BD4F5;
-  background-color: #064ca7;
+  background-color: var(--third-color);
 }

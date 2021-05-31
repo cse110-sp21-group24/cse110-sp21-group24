@@ -2,81 +2,155 @@
 <html>
 <head>
 <title>Daily Logs</title>
-<link rel="stylesheet" href="css/dailyLog.css">
+
 <link rel="stylesheet" href="css/navigation.css">
+<link rel="stylesheet" href="css/bulletEntries.css">
+<link rel="stylesheet" href="css/dropDown.css">
+<link rel="stylesheet" href="css/dailyLog.css">
+<link rel="stylesheet" href="css/stickers.css">
+
 </head>
 <body>
-    <div class="navigation" id="navigation">
-      <ul class="menu-items">
-        <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="indexPage.html">Index</a></li>
-        <li><a class="active" href="dailyLog.html">Daily Logs</a></li>
-        <li><a href="calendar.html">Monthly Logs</a></li>
-        <li><a href="futureLog.html">Future Logs</a></li>
-        <li><a href="collection.html">Collections</a></li>
-        <li><a href="settings.html">Settings</a></li>
-      </ul>
-    </div>
-    <button class="openbtn" onclick="openNav(this)" style="background-color: white;">☰</button>  
-    <div class="daily">
-        <h1 style="text-align: center;">Week of dates</h1>
-        <div class="row-flex-container">
-            <div class="day" id="mon">
-                <h2>Monday</h2>
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
-                </div>
-            </div>
-            <div class="day" id="tue">
-                <h2>Tuesday</h2>
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
-                </div>
-            </div>
-            <div class="day" id="wed">
-                <h2>Wednesday</h2>
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
-                </div>
-            </div>
-            <div class="day" id="thu">
-                <h2>Thursday</h2>
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
-                </div>
-            </div>
-            <div class="goals">
-                <h1>GOALS</h1>
-            </div>
-        </div>
-        <div class="row-flex-container">
-            <div class="day" id="fri">
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
-                </div>
-                <h2>Friday</h2>
-            </div>
-            <div class="day" id="sat">
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
-                </div>
-                <h2>Saturday</h2>
-            </div>
-            <div class="day" id="sun">
-                <div class="dayContent" contenteditable="true">
-                    <h3>edit</h3>
-                </div>
-                <h2>Sunday</h2>
-            </div>
-            <div class="notes">
-                <h1>notes</h1>
-            </div>
+    <!-- Area for draggable stickers -->
+    <div id="dropBody" ondragover="allowDrop(event)">
+      <!-- Navigation -->
+      <div class="navigation" id="navigation">
+        <ul class="menu-items">
+          <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="indexPage.html">Index</a></li>
+          <li><a class="active" href="dailyLog.html">Daily Logs</a></li>
+          <li><a href="calendar.html">Monthly Logs</a></li>
+          <li><a href="futureLog.html">Future Logs</a></li>
+          <li><a href="collection.html">Collections</a></li>
+          <li><a href="settings.html">Settings</a></li>
+        </ul>
+      </div>
+      <button class="openbtn" onclick="openNav(this)" style="background-color: white;">☰</button>
+      <!-- Sticker Customization -->
+      <div class="customizationBtn">
+        <button type="button" class="stickerBtn" id="openBtn" onclick="openSticker()" sty>
+          <img src="images/icons/paperclip.png">
+        </button>
+        <button type="button" class="stickerBtn" id="closeBtn" onclick="closeSticker()" hidden>
+          <img src="images/icons/paperclip.png">
+        </button>
+      </div>
+      <div id="customContainer">
+        <section class="scrollBox">
+          <form id="customForm" onsubmit="createCustom(event)">
+            <input type="file" id="newImg" name="newImg" accept="image/png, image/jpeg">
+            <input type="submit">
+          </form>
+          <div id="stickerBox">
+            <img id="sticker1" src="https://i.pinimg.com/originals/d9/d7/57/d9d757f08bdf79a991372d101742ad44.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+            <img id="sticker2" src="https://www.line-stickers.com/wp-content/uploads/2020/10/Sanrio-Characters-LittlePopcorn-.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+            <img id="sticker3" src="https://sdl-stickershop.line.naver.jp/products/0/0/6/1026/android/stickers/16649.png;compress=true" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+          </div>
+          <div id="washiBox">
+            <img id="washi1" src="./images/washi1.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+            <img id="washi2" src="./images/washi2.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+          </div>
+          <div id="customBox">
+          </div>
+        </section>
+      </div>
+      <!-- Page Body -->
+      <div class="daily">
+        <h1 id="datesHeader" style="text-align: center;">week of dates</h1>
+  
+        <div id="single-day" class="bigDay">
+          <div class="bigDayContent">
+            <h1 style="color: #2E77BB; text-align: center;"></h1>
+          </div>
+          <div class="goals">
+            <h1>GOALS</h1>
+            <p contenteditable="true"></p>
+          </div>
+          <div class="notes">
+            <h1>notes</h1>
+            <p contenteditable="true"></p>
+          </div>
         </div>
 
+        <div id="week">
+          <div class="row-flex-container">
+            <div class="day" id="monContainer">
+                <h2>Monday</h2>
+                <div  id="mon" class="dayContent">
+                    <ul>
+                    </ul>
+                    <a href="#" id="mon-add" class="add">&#x2b;</a>
+                </div>
+                <div id="monCurr"></div>
+              </div>
+              <div class="day" id="tueContainer">
+                  <h2>Tuesday</h2>
+                  <div id="tue" class="dayContent">
+                      <ul>
+                      </ul>
+                  </div>
+                  <div id="tueCurr"></div>
+              </div>
+              <div class="day" id="wedContainer">
+                  <h2>Wednesday</h2>
+                  <div id="wed" class="dayContent">
+                      <ul>
+                      </ul>
+                  </div>
+                  <div id="wedCurr"></div>
+              </div>
+              <div class="day" id="thuContainer">
+                  <h2>Thursday</h2>
+                  <div id="thu" class="dayContent">
+                      <ul>
+                      </ul>
+                  </div>
+                  <div id="thuCurr"></div>
+              </div>
+              
+          <!-- </div>
+          <div class="row-flex-container"> -->
+              <div class="day" id="friContainer">
+                <h2>Friday</h2>
+                <div id="fri" class="dayContent">
+                    <ul>
+                    </ul>
+                </div>
+                <div id="friCurr"></div>
+              </div>
+              <div class="day" id="satContainer">
+                <h2>Saturday</h2>
+                <div id="sat" class="dayContent">
+                    <ul>
+                    </ul>
+                </div>
+                <div id="satCurr"></div>
+              </div>
+              <div class="day" id="sunContainer">
+                <h2>Sunday</h2>
+                <div id="sun" class="dayContent">
+                    <ul>
+                    </ul>
+                </div>
+                <div id="sunCurr"></div>
+              </div>
+              
+          </div>
+        </div>
+      </div>  
     </div>
-    
+
     <!-- Scripts -->
     <script src="./scripts/index.js"></script>
-</body>
+    <script src="./scripts/stickers.js"></script>
+    <script src="./scripts/dailyLog.js"></script>
+    <script src="./scripts/dailylogs.js"></script>
+    <script src="./scripts/bulletEntries.js"></script>
+    
+    <!-- Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+  
+  </body>
 </html>

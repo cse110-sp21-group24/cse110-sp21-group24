@@ -8,183 +8,224 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="css/navigation.css">
   <link rel="stylesheet" href="css/futureLog.css">
+  <link rel="stylesheet" href="css/stickers.css">
   <script src="./scripts/futureLog.js" type="module"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  <div class="navigation" id="navigation">
-    <ul class="menu-items">
-      <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="indexPage.html">Index</a></li>
-      <li><a href="dailyLog.html">Daily Logs</a></li>
-      <li><a href="calendar.html">Monthly Logs</a></li>
-      <li><a class="active" href="futureLog.html">Future Logs</a></li>
-      <li><a href="collection.html">Collections</a></li>
-      <li><a href="settings.html">Settings</a></li>
-    </ul>
+  <!-- Area for draggable stickers -->
+  <div id="dropBody" ondragover="allowDrop(event)">
+    <!-- Navigation -->
+    <div class="navigation" id="navigation">
+      <ul class="menu-items">
+        <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="indexPage.html">Index</a></li>
+        <li><a href="dailyLog.html">Daily Logs</a></li>
+        <li><a href="calendar.html">Monthly Logs</a></li>
+        <li><a class="active" href="futureLog.html">Future Logs</a></li>
+        <li><a href="collection.html">Collections</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </div>
+    <button class="openbtn" onclick="openNav(this)">☰</button>  
+    <!-- Sticker Customization -->
+    <div class="customizationBtn">
+      <button type="button" class="stickerBtn" id="openBtn" onclick="openSticker()" sty>
+        <img src="images/icons/paperclip.png">
+      </button>
+      <button type="button" class="stickerBtn" id="closeBtn" onclick="closeSticker()" hidden>
+        <img src="images/icons/paperclip.png">
+      </button>
+    </div>
+    <div id="customContainer">
+      <section class="scrollBox">
+        <form id="customForm" onsubmit="createCustom(event)">
+          <input type="file" id="newImg" name="newImg" accept="image/png, image/jpeg">
+          <input type="submit">
+        </form>
+        <div id="stickerBox">
+          <img id="sticker1" src="https://i.pinimg.com/originals/d9/d7/57/d9d757f08bdf79a991372d101742ad44.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+          <img id="sticker2" src="https://www.line-stickers.com/wp-content/uploads/2020/10/Sanrio-Characters-LittlePopcorn-.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+          <img id="sticker3" src="https://sdl-stickershop.line.naver.jp/products/0/0/6/1026/android/stickers/16649.png;compress=true" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+        </div>
+        <div id="washiBox">
+          <img id="washi1" src="./images/washi1.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+          <img id="washi2" src="./images/washi2.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
+        </div>
+        <div id="customBox">
+        </div>
+      </section>
+    </div>
+    <!-- Page Body -->
+    <header>
+      <h1>2021 Future Log</h1>
+    </header>
+    <div class="row">
+      <div class="column">
+        <h2>Jan</h2>
+        <div class="content">
+
+          <div class="entry">
+            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">bookmark_border</i><span id="text">event</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">folder_open</i><span id="text">important</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <h2>Feb</h2>
+        <div class="content">
+
+          <div class="entry">
+            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">bookmark_border</i><span id="text">event</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">folder_open</i><span id="text">important</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <h2>Mar</h2>
+        <div class="content">
+
+          <div class="entry">
+            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">bookmark_border</i><span id="text">event</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">folder_open</i><span id="text">important</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <h2>Apr</h2>
+        <div class="content">
+          <div class="entry">
+            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">bookmark_border</i><span id="text">event</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">folder_open</i><span id="text">important</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <h2>May</h2>
+        <div class="content">
+
+          <div class="entry">
+            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">bookmark_border</i><span id="text">event</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">folder_open</i><span id="text">important</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <h2>Jun</h2>
+        <div class="content">
+          <div class="entry">
+            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">bookmark_border</i><span id="text">event</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">folder_open</i><span id="text">important</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
+          </div>
+          <div class="entry">
+            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
+          </div>
+        </div>
+        
+      
+      <!-- option 1
+      <div class="entry"> 
+        <select id="cd-dropdown" class="cd-select">
+        <option value="-1" selected>important</span></option>
+        <option value="1" class="material-icons">monkey</option>
+        <option value="2" class="icon-bear">Bear</option>
+        <option value="3" class="icon-squirrel">Squirrel</option>
+        <option value="4" class="icon-elephant">Elephant</option>
+      </select>
+      option 2
+      <select id="select_graphtype" class="fa">
+        <option value="fa fa-address-card"> &spades; </option>
+        <option value="fa fa-address-card"> &#8250; </option>
+      </select>
+      </div>
+      option 3
+      <div class="entry">
+        <div class="dropdown">
+          <button class="dropbtn"><i class="material-icons">check_box_outline_blank</i></button>
+          <div class="dropdown-content">
+            <i class="material-icons">folder_open</i>
+            <i class="material-icons">star_outline</i>
+            <i class="material-icons">check_box_outline_blank</i>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  
+    <a href="#" class="previous round">&#8249;</a>
+    <a href="#" class="next round">&#8250;</a>
   </div>
-  <button class="openbtn" onclick="openNav(this)">☰</button>  
-  <header>
-    <h1>2021 Future Log</h1>
-  </header>
-  <div class="row">
-    <div class="column">
-      <h2>Jan</h2>
-      <div class="content">
 
-        <div class="entry">
-          <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">bookmark_border</i><span id="text">event</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">folder_open</i><span id="text">important</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <h2>Feb</h2>
-      <div class="content">
-
-        <div class="entry">
-          <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">bookmark_border</i><span id="text">event</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">folder_open</i><span id="text">important</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <h2>Mar</h2>
-      <div class="content">
-
-        <div class="entry">
-          <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">bookmark_border</i><span id="text">event</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">folder_open</i><span id="text">important</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <h2>Apr</h2>
-      <div class="content">
-        <div class="entry">
-          <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">bookmark_border</i><span id="text">event</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">folder_open</i><span id="text">important</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <h2>May</h2>
-      <div class="content">
-
-        <div class="entry">
-          <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">bookmark_border</i><span id="text">event</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">folder_open</i><span id="text">important</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <h2>Jun</h2>
-      <div class="content">
-        <div class="entry">
-          <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">bookmark_border</i><span id="text">event</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">folder_open</i><span id="text">important</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-        </div>
-        <div class="entry">
-          <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-        </div>
-      </div>
-       
-    
-    <!-- option 1
-    <div class="entry"> 
-      <select id="cd-dropdown" class="cd-select">
-      <option value="-1" selected>important</span></option>
-      <option value="1" class="material-icons">monkey</option>
-      <option value="2" class="icon-bear">Bear</option>
-      <option value="3" class="icon-squirrel">Squirrel</option>
-      <option value="4" class="icon-elephant">Elephant</option>
-    </select>
-    option 2
-    <select id="select_graphtype" class="fa">
-      <option value="fa fa-address-card"> &spades; </option>
-      <option value="fa fa-address-card"> &#8250; </option>
-    </select>
-    </div>
-    option 3
-    <div class="entry">
-      <div class="dropdown">
-        <button class="dropbtn"><i class="material-icons">check_box_outline_blank</i></button>
-        <div class="dropdown-content">
-          <i class="material-icons">folder_open</i>
-          <i class="material-icons">star_outline</i>
-          <i class="material-icons">check_box_outline_blank</i>
-        </div>
-      </div>
-    </div> -->
-  </div>
-
-  <a href="#" class="previous round">&#8249;</a>
-  <a href="#" class="next round">&#8250;</a>
+  <!-- Scripts -->
   <script src="scripts/index.js"></script>
+  <script src="./scripts/stickers.js"></script>
+    
+  <!-- Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 </body>
 </html>

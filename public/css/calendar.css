@@ -72,6 +72,8 @@ html {
   /* width: auto; */
   margin-left: 100px;
   border-radius: 20px;
+  border: 2px solid black;
+  padding: 2em;
 }
 
 .monthly-goals h1 {

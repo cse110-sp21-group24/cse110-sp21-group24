@@ -1,144 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar</title>
-    <link rel="stylesheet" href="css/calendar.css">
-    <link rel="stylesheet" href="css/navigation.css">
-    <link rel="stylesheet" href="css/stickers.css">
-    
-    <!---Font Awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar</title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Sansita:ital@1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/calendar.css">
+  <link rel="stylesheet" href="css/navigation.css">
+
+  <!---Font Awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sansita:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
 </head>
 <body>
-  <!-- Area for draggable stickers -->
-  <div id="dropBody" ondragover="allowDrop(event)">
-    <!-- Navigation -->
-    <div class="navigation" id="navigation">
-      <ul class="menu-items">
-        <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="indexPage.html">Index</a></li>
-        <li><a href="dailyLog.html">Daily Logs</a></li>
-        <li><a class="active" href="calendar.html">Monthly Logs</a></li>
-        <li><a href="futureLog.html">Future Logs</a></li>
-        <li><a href="collection.html">Collections</a></li>
-        <li><a href="settings.html">Settings</a></li>
-      </ul>
+  <div class="navigation" id="navigation">
+    <ul class="menu-items">
+      <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="indexPage.html">Index</a></li>
+      <li><a href="dailylogs.html">Daily Logs</a></li>
+      <li><a class="active" href="calendar.html">Monthly Logs</a></li>
+      <li><a href="futurelogs.html">Future Logs</a></li>
+      <li><a href="collection.html">Collections</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+  </div>
+  <button class="openbtn" onclick="openNav(this)">☰</button>  
+  
+  <div class="container">
+    <div class="calendar">
+      <!---Month-->
+      <div class="month">
+          <i class="fas fa-angle-left prev"></i>
+          <div class="date">
+              <h1></h1>
+              <p></p>
+          </div>
+          <i class="fas fa-angle-right next"></i>
+      </div>
+      <!---Assign weekdays-->
+      <div class="weekdays">
+        <div>Sunday</div>
+        <div>Monday</div>
+        <div>Tuesday</div>
+        <div>Wednesday</div>
+        <div>Thursday</div>
+        <div>Friday</div>
+        <div>Saturday</div>
+      </div>
+      <div class="days" id="days">
+        <div class="prev-date">25</div>
+        <div class="prev-date">26</div>
+        <div class="prev-date">27</div>
+        <div class="prev-date">28</div>
+        <div class="prev-date">29</div>
+        <div class="prev-date">30</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div class="today">12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+        <div>21</div>
+        <div>22</div>
+        <div>23</div>
+        <div>24</div>
+        <div>25</div>
+        <div>26</div>
+        <div>27</div>
+        <div>28</div>
+        <div>29</div>
+        <div>30</div>
+        <div>31</div>
+        <div class="next-date">1</div>
+        <div class="next-date">2</div>
+        <div class="next-date">3</div>
+        <div class="next-date">4</div>
+        <div class="next-date">5</div>
+      </div>  
     </div>
-    <button class="openbtn" onclick="openNav(this)">☰</button>
-    <!-- Sticker Customization -->
-    <div class="customizationBtn">
-      <button type="button" class="stickerBtn" id="openBtn" onclick="openSticker()" sty>
-        <img src="images/icons/paperclip.png">
-      </button>
-      <button type="button" class="stickerBtn" id="closeBtn" onclick="closeSticker()" hidden>
-        <img src="images/icons/paperclip.png">
-      </button>
-    </div>
-    <div id="customContainer">
-      <section class="scrollBox">
-        <form id="customForm" onsubmit="createCustom(event)">
-          <input type="file" id="newImg" name="newImg" accept="image/png, image/jpeg">
-          <input type="submit">
-        </form>
-        <div id="stickerBox">
-          <img id="sticker1" src="https://i.pinimg.com/originals/d9/d7/57/d9d757f08bdf79a991372d101742ad44.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
-          <img id="sticker2" src="https://www.line-stickers.com/wp-content/uploads/2020/10/Sanrio-Characters-LittlePopcorn-.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
-          <img id="sticker3" src="https://sdl-stickershop.line.naver.jp/products/0/0/6/1026/android/stickers/16649.png;compress=true" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
-        </div>
-        <div id="washiBox">
-          <img id="washi1" src="./images/washi1.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
-          <img id="washi2" src="./images/washi2.png" ondragstart="drag(event)" onmousedown="deleteSticker(event)" width="auto" height="80">
-        </div>
-        <div id="customBox">
-        </div>
-      </section>
-    </div>
-    <!-- Page Body -->
-    <div class="container">
-        <div class="calendar">
-            <!---Month-->
-            <div class="month">
-                <i class="fas fa-angle-left prev"></i>
-                <div class="date">
-                    <h1></h1>
-                    <p></p>
-                </div>
-                <i class="fas fa-angle-right next"></i>
-            </div>
-            <!---Assign weekdays-->
-            <div class="weekdays">
-                <div>Sunday</div>
-                <div>Monday</div>
-                <div>Tuesday</div>
-                <div>Wednesday</div>
-                <div>Thursday</div>
-                <div>Friday</div>
-                <div>Saturday</div>
-            </div>
-            <div class="days">
-                <div class="prev-date">25</div>
-                <div class="prev-date">26</div>
-                <div class="prev-date">27</div>
-                <div class="prev-date">28</div>
-                <div class="prev-date">29</div>
-                <div class="prev-date">30</div>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-                <div>10</div>
-                <div>11</div>
-                <div class="today">12</div>
-                <div>13</div>
-                <div>14</div>
-                <div>15</div>
-                <div>16</div>
-                <div>17</div>
-                <div>18</div>
-                <div>19</div>
-                <div>20</div>
-                <div>21</div>
-                <div>22</div>
-                <div>23</div>
-                <div>24</div>
-                <div>25</div>
-                <div>26</div>
-                <div>27</div>
-                <div>28</div>
-                <div>29</div>
-                <div>30</div>
-                <div>31</div>
-                <div class="next-date">1</div>
-                <div class="next-date">2</div>
-                <div class="next-date">3</div>
-                <div class="next-date">4</div>
-                <div class="next-date">5</div>
-            </div>
-        </div>
+    <div class="monthly-reminders">
+      <h1> REMINDERS </h1>
+      <div class="entry">
+        <i class="material-icons">check_box_outline_blank</i><span id="text">Apply for internships</span>
+      </div>
+      <div class="entry">
+        <i class="material-icons">star_outline</i><span id="text">April fools prank >:)</span>
+      </div>
+      <div class="entry">
+        <i class="material-icons">folder_open</i><span id="text">XYZ's Birthday</span>
       </div>
     </div>
+  </div>
 
-    <!-- Scripts -->
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/calendar.js"></script>
-    <script src="./scripts/stickers.js"></script>
-    
-    <!-- Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+<script src="./scripts/calendar.js"></script>
+<script src="./scripts/index.js"></script>
 </body>
 </html>

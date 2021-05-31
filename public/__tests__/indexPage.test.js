@@ -1,5 +1,8 @@
 const { afterAll, beforeAll } = require("@jest/globals");
 
+/* Tests indexPage.js. Tests that following the links from the index results in 
+ * landing on the correct page.
+*/
 describe('Navigate to logs from index', () => {
   beforeAll(async() => {
     // Enable JavaScript coverage
@@ -13,7 +16,7 @@ describe('Navigate to logs from index', () => {
   });
 
   // Navigate to home page
-  it('Should click on index link - then navigate to home page', async() => {
+  it('Test 1: Should click on index link - then navigate to home page', async() => {
     await Promise.all([
       page.$eval('a[href^="index.html"]', el => el.click()),
       page.waitForNavigation()
@@ -22,7 +25,7 @@ describe('Navigate to logs from index', () => {
   }, 10000);
 
   // Navigate to daily log page
-  it('Should click on daily log link - then navigate to daily log page', async() => {
+  it('Test 2: Should click on daily log link - then navigate to daily log page', async() => {
     await Promise.all([
       page.$eval('a[href^="dailyLog.html"]', el => el.click()),
       page.waitForNavigation()
@@ -31,7 +34,7 @@ describe('Navigate to logs from index', () => {
   }, 10000);
 
   // Navigate to calendar page
-  it('Should click on index link - then navigate to home page', async() => {
+  it('Test 3: Should click on index link - then navigate to home page', async() => {
     await Promise.all([
       page.$eval('a[href^="calendar.html"]', el => el.click()),
       page.waitForNavigation()
@@ -40,7 +43,7 @@ describe('Navigate to logs from index', () => {
   }, 10000);
 
   // Navigate to future log page
-  it('Should click on index link - then navigate to home page', async() => {
+  it('Test 4: Should click on index link - then navigate to home page', async() => {
     await Promise.all([
       page.$eval('a[href^="futureLog.html"]', el => el.click()),
       page.waitForNavigation()
@@ -49,7 +52,7 @@ describe('Navigate to logs from index', () => {
   }, 10000);
 
   // Navigate to collection page
-  it('Should click on index link - then navigate to home page', async() => {
+  it('Test 5: Should click on index link - then navigate to home page', async() => {
     await Promise.all([
       page.$eval('a[href^="collection.html"]', el => el.click()),
       page.waitForNavigation()

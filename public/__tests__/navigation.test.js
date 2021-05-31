@@ -1,5 +1,8 @@
 const { afterAll, beforeAll } = require("@jest/globals");
 
+/* Tests functionality of side navigation bar. Starting from the home page, 
+ * each page is navigated to and checked.
+ */
 describe('Use menu bar to navigate to pages from home', () => {
   beforeAll(async() => {
     // Enable JavaScript coverage
@@ -13,7 +16,7 @@ describe('Use menu bar to navigate to pages from home', () => {
   });
 
   // Navigate to index page 
-  it('should click menu bar item - then navigate to index', async () => {
+  it('Test 1: should click menu bar item - then navigate to index', async () => {
     //let btn = await page.click(".openbtn");
     //await page.$eval('.openbtn', el => el.click()),
     await Promise.all([
@@ -24,7 +27,7 @@ describe('Use menu bar to navigate to pages from home', () => {
   }, 10000);
 
   // Navigate to daily logs page 
-  it('should click menu bar item - then navigate to daily logs', async () => {
+  it('Test 2: should click menu bar item - then navigate to daily logs', async () => {
     await Promise.all([
       page.$eval('a[href^="dailyLog.html"]', el => el.click()),
       page.waitForNavigation()
@@ -33,7 +36,7 @@ describe('Use menu bar to navigate to pages from home', () => {
   }, 10000);
 
   // Navigate to monthly logs page 
-  it('should click menu bar item - then navigate to monthly logs', async () => {
+  it('Test 3: should click menu bar item - then navigate to monthly logs', async () => {
     await Promise.all([
       page.$eval('a[href^="calendar.html"]', el => el.click()),
       page.waitForNavigation()
@@ -42,7 +45,7 @@ describe('Use menu bar to navigate to pages from home', () => {
   }, 10000);
 
   // Navigate to future logs page 
-  it('should click menu bar item - then navigate to future logs', async () => {
+  it('Test 4: should click menu bar item - then navigate to future logs', async () => {
     await Promise.all([
       page.$eval('a[href^="futureLog.html"]', el => el.click()),
       page.waitForNavigation()
@@ -51,7 +54,7 @@ describe('Use menu bar to navigate to pages from home', () => {
   }, 10000);
 
   // Navigate to collections page 
-  it('should click menu bar item - then navigate to collections logs', async () => {
+  it('Test 5: should click menu bar item - then navigate to collections logs', async () => {
     await Promise.all([
       page.$eval('a[href^="collection.html"]', el => el.click()),
       page.waitForNavigation()
@@ -60,7 +63,7 @@ describe('Use menu bar to navigate to pages from home', () => {
   }, 10000);
   
   // Navigate to settings page 
-  it('should click menu bar item - then navigate to settings logs', async () => {
+  it('Test 6: should click menu bar item - then navigate to settings logs', async () => {
     await Promise.all([
       page.$eval('a[href^="settings.html"]', el => el.click()),
       page.waitForNavigation()

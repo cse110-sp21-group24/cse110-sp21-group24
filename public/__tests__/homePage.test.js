@@ -1,5 +1,9 @@
 const { afterAll } = require("@jest/globals");
 
+/* 
+ * Tests homePage.js. Tests navigation after clicking on journal cover on home page
+ * is correct.
+ */
 describe('Navigate from home to index', () => {
   beforeAll(async() => { 
     // Enable JavaScript coverage
@@ -10,7 +14,7 @@ describe('Navigate from home to index', () => {
   });
   
   // Navigate to index page 
-  it('should click journal cover - then navigate to index', async () => {
+  it('Test 1: should click journal cover - then navigate to index', async () => {
     await page.click('#toIndex');
 
 

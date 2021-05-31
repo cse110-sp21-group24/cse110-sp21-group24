@@ -1,6 +1,6 @@
-module.exports = {
+/*module.exports = {
   launch: {
-     headless: false,
-     slowMo: 500
-    }
-  }
+    headless: false,
+    slowMo: 500
+   }
+}*/

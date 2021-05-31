@@ -16,6 +16,7 @@ We need to choose a method to deploy our website, and want to choose the one tha
 ## Positive Consequences
 * There is a lot of documentation and resources associated with Firebase, which will make resolving any bugs or issues related to it easier.
 * Since there is a storage element that could be used with a Firebase, this will help us keep our options open as we have not yet decided on how to store user information.
+  * Note: The team ultimately decided to use local storage
 
 ## Negative Consequences
 * This could potentially add unnecessary complexity to the build process.

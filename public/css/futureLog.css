@@ -26,8 +26,8 @@
 }
 
 .column {
-  float: left;
-  width: 16.667%;
+  display: inline-block;
+  min-width: 16.45%;
   padding: 10px;
   height: 550px;
 }

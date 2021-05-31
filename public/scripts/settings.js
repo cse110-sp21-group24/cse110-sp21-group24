@@ -21,7 +21,6 @@ let input = document.querySelector("input");
 input.addEventListener('change', (event) => {
   let image = document.getElementById('output');
   image.src = URL.createObjectURL(event.target.files[0]);
-  console.log(image)
 });
 
 let img = document.getElementById("output");
@@ -64,7 +63,6 @@ reset.addEventListener('click', () => {
   // remove uploaded picture
   let image = document.getElementById('output');
   image.removeAttribute("src");
-  console.log(image);
   
   // set circles on Settings page to default palette
   document.getElementById("color1").style = `background-color: ${localStorage.getItem("color1")}`

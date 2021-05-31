@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Sansita One';
+  src: url('fonts/SansitaOne.ttf');
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 /* Changing color scheme */
@@ -201,6 +206,7 @@ color: black;
 }
 .daily {
 background-color: white;
+margin-left: 18em;
 }
 
 .row-flex-container {
@@ -224,4 +230,29 @@ flex-basis: 475px;
 height: 250px;
 margin-top: 30px;
 margin-left: 10px;
+}
+
+#datesHeader {
+  font-family: 'Montserrat';
+}
+
+.round {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: white;
+  color: var(--fourth-color);
+  border: 1px solid var(--fourth-color);
+  position: fixed;
+  border-radius: 50%;
+}
+
+.previous {
+  bottom: 20px;
+  left: 20px;
+}
+
+.next {
+  bottom: 20px;
+  right: 20px;
 }

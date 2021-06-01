@@ -11,6 +11,7 @@
   --second-color: #9bd4f5;
   --third-color: #1d8ece;
   --fourth-color: #2e77bb;
+  --fifth-color: #ffffff;
 }
 
 /* collection page styling */
@@ -35,7 +36,7 @@
   border: 2px solid black;
 
   text-align: left;
-  background-color: var(--second-color);
+  background-color: var(--fifth-color);
   border: 5px solid var(--second-color);
   color: black;
   align-items: center;
@@ -122,7 +123,6 @@ ul {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: var(--second-color);
   height: 100%;
 }
 

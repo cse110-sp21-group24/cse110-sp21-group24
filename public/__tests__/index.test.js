@@ -10,17 +10,42 @@ describe('Test opening and closing navigation bar', () => {
     await Promise.all([
       page.coverage.startJSCoverage(),
     ]);
-    await page.goto('http://127.0.0.1:5500/public/calendar.html');
+    await page.goto('http://127.0.0.1:5500/public/index.html');
   });
 
-  // Navigate to next month 
-  it('Test 1: should click next button - then navigate to next month', async () => {
-
+  // Open and close nav bar on home page
+  it('Test 1: should click open button on home - navigation bar should open', async () => {
+    await page.click('.openbtn');
+    let width = await page.evaluate(() => {
+      return document.querySelector('#navigation').style.width;
+    });
+    expect(width).toBe('250px');
   }, 20000);
 
-  // Navigate to previous month
-  it('Test 1: should click previous button - then navigate to previous month', async () => {
+  it('Test 2: should click close button on home - navigation bar should close', async () => {
+    let width = await page.evaluate(() => {
+      document.querySelector('.closebtn').click();
+      return document.querySelector('#navigation').style.width;
+    });
+    expect(width).toBe('0px');
+  }, 20000);
 
+  // Open and close nav bar not on the home page
+  it('Test 3: should click close button on settings - navigation bar should open', async () => {
+    await page.goto('http://127.0.0.1:5500/public/settings.html');
+    let width = await page.evaluate(() => {
+      document.querySelector('.openbtn').click();
+      return document.querySelector('#navigation').style.width;
+    });
+    expect(width).toBe('250px');
+  }, 20000);
+
+  it('Test 4: should click close button on settings - navigation bar should close', async () => {
+    let width = await page.evaluate(() => {
+      document.querySelector('.closebtn').click();
+      return document.querySelector('#navigation').style.width;
+    });
+    expect(width).toBe('0px');
   }, 20000);
 
   afterAll(async() => {

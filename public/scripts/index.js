@@ -22,7 +22,9 @@ function openNav(btn) {
   if (document.getElementById("main")) {
     document.getElementById("main").style.marginLeft = "250px";
   }
-  btn.style.marginLeft = "250px";
+  else {
+    btn.style.marginLeft = "250px";
+  }
 }
 
 /**

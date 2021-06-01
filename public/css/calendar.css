@@ -73,10 +73,8 @@ html {
 }
 
 .monthly-reminders {
-  /* flex-basis: 200px; */
-  width: 30%;
+  width: 30em;
   height: 644.75px;
-  /* width: auto; */
   margin-left: 100px;
   border-radius: 20px;
   border: 2px solid black;

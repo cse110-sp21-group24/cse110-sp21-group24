@@ -58,9 +58,25 @@ stickers.forEach((elem) => {
   })
 });
 
-function collectionAdd() {
-  document.getElementsById("cinput").style.display = "inline";
+function openNav() {
+  document.getElementById("navigation").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
 }
+
+function closeNav() {
+  document.getElementById("navigation").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+
+function collectionAdd() {
+  const x = document.getElementById("cinputline");
+  if (x.style.display == "block"){
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
 
 var collectionList = document.querySelectorAll(".collection-list p");
 
@@ -74,6 +90,8 @@ for (let i = 0; i < collectionList.length; i++) {
        document.querySelector(".collection-title h1").innerHTML = collectionList[i].textContent;
      });
 }
+
+
 
 var collectionInput = document.getElementById("cinput");
 
@@ -89,7 +107,15 @@ collectionInput.addEventListener("keyup", function(event) {
 function addCollectionRow() {
   const collectionRow = document.createElement('p');
   const inputVal = document.getElementById("cinput").value;
-  collectionRow.innerHTML = element;
-
+  collectionRow.innerHTML = inputVal;
   document.getElementById('collection-list').appendChild(collectionRow);
+  collectionAdd();
+  collectionList = document.querySelectorAll(".collection-list p");
+  for (let i = 0; i < collectionList.length; i++) { 
+     collectionList[i].addEventListener("click", function() {
+       //collectionList[i].style.textDecoration = 'underline';
+       document.querySelector(".collection-title h1").innerHTML = collectionList[i].textContent;
+     });
+  }
+  document.getElementById('cinput').value = '';
 }

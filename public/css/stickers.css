@@ -1,0 +1,55 @@
+/* Changing color scheme */
+:root {
+  --first-color: #9EB3C2;
+  --second-color: #9BD4F5;
+  --third-color: #1D8ECE;
+  --fourth-color: #2E77BB;
+}
+
+#dropBody {
+  width: auto;
+  height: auto;
+}
+
+.customizationBtn {
+  position: absolute;
+  top: 1.5em;
+  right: 4em;
+}
+
+#customContainer {
+  position: absolute;
+  top: 1.5em;
+  right: 6.5em;
+  border-radius: 15px;
+  background-color: var(--third-color);
+  opacity: 0.9;
+  display: none;
+  width: 350px;
+  height: 350px;
+  padding: 1em;
+  overflow-y: scroll;
+  text-align: center;
+  z-index: 2;
+}
+
+.scrollBox {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  height: auto;
+}
+
+#customForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
+  color: white;
+}
+
+.stickerBtn {
+  background-color: white;
+  border: none;
+}

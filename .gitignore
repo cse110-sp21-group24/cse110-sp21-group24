@@ -2,3 +2,5 @@
 admin/.DS_Store
 admin/misc/.DS_Store
 .firebase
+.env
+node_modules

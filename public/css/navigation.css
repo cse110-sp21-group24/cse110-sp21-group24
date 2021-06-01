@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+/* Changing color scheme */
+:root {
+  --first-color: #9EB3C2;
+  --second-color: #9BD4F5;
+  --third-color: #1D8ECE;
+  --fourth-color: #2E77BB;
+}
+
+/*** Navigation Bar Styling ***/
+
+/* Set the general formatting for list as a whole */
+.menu-items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 100%;
+}
+
+/* Set the general formatting for each item */
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Set the color of the item currently selected */
+li a.active {
+  background-color: var(--fourth-color);
+  color: white;
+}
+
+/* Change color of item when it is being hovered over */
+li a:hover:not(.active, .closebtn) {
+  background-color: #555;
+  color: white;
+}
+
+/** Opening and Closing Menu **/
+
+/* Set the formatting of the button to close the menu */
+.navigation .closebtn {
+  font-size: 25px;
+}
+
+/* Set general formatting and transition speed of menu closing  */
+.navigation {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 1;
+}
+
+/* Set the formatting of the hamburger menu icon */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  color: black;
+  border: none;
+  outline: none;
+  padding:10px 16px;
+  transition: 0.5s;
+}

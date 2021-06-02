@@ -13,10 +13,43 @@ describe('Navigate from home to index', () => {
     await page.goto('http://127.0.0.1:5500/public/collection.html');
   });
   
-  // Navigate to index page 
-  it('Test 1: should click journal cover - then navigate to index', async () => {
+  it('Test 1: should open popup - check that the open button is hidden', async () => {
+    await page.click('#openBtn');
+    let hidden = await page.evaluate(() => {
+      return document.querySelector('#openBtn').hidden;
+    });
+    expect(hidden).toBe(true);
+  }, 10000);
+
+  it('Test 2: should open popup - check that the close button is visible', async () => {
+    let hidden = await page.evaluate(() => {
+      return document.querySelector('#closeBtn').hidden;
+    });
+    expect(hidden).toBe(false);
+  }, 10000);
+
+  it('Test 3: should close popup - check that the close button is hidden', async () => {
+    await page.click('#closeBtn');
+    let hidden = await page.evaluate(() => {
+      return document.querySelector('#closeBtn').hidden;
+    });
+    expect(hidden).toBe(true);
+  }, 10000);
+
+  it('Test 4: should close popup - check that the open button is visible', async () => {
+    let hidden = await page.evaluate(() => {
+      return document.querySelector('#openBtn').hidden;
+    });
+    expect(hidden).toBe(false);
+  }, 10000);
+
+  it('Test 5: drag sticker onto page - check it was correctly stored in local storage', async () => {
     
-  }, 20000);
+  }, 10000);
+
+  it('Test 6: delete sticker - check it is no longer in local storage', async () => {
+    
+  }, 10000);
 
   afterAll(async() => {
     const [jsCoverage] = await Promise.all([

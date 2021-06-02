@@ -19,9 +19,8 @@
   ];
   let curr = new Date;
   let first = curr.getDate() - curr.getDay();
-  let last = first + 6;
   let firstDay = new Date(curr.setDate(first));
-  let lastDay = new Date(curr.setDate(last));
+  let lastDay = new Date(curr.setDate(curr.getDate() + 6));
 
   let firstFormat = `${monthNames[firstDay.getMonth()]} ${firstDay.getDate()}`
   let lastFormat = `${monthNames[lastDay.getMonth()]} ${lastDay.getDate()}`

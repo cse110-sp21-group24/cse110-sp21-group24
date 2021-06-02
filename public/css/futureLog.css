@@ -1,3 +1,5 @@
+/*** Import fonts ***/
+
 @font-face {
   font-family: 'Sansita One';
   src: url('fonts/SansitaOne.ttf');
@@ -47,6 +49,8 @@
     width: 100%;
   }
 }
+
+/*** Set general text and entry properties ***/
     
 h1 {
   color: var(--third-color);
@@ -99,6 +103,8 @@ h2 {
   bottom: 20px;
   right: 20px;
 }
+
+/*** Set properties of bullet dropdown bar ***/
 
 .dropbtn {
   background-color: var(--second-color);

@@ -1,3 +1,4 @@
+/*** Set general layout properties ***/
 
 * {
   margin: 0;
@@ -25,6 +26,7 @@ html {
   
 }
 
+/*** Set layout of calendar ***/
 
 .calendar {
   width: 1000px;
@@ -33,6 +35,7 @@ html {
   border-radius: 20px;
   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 }
+
 
 .month {
   width: 100%;
@@ -64,6 +67,8 @@ html {
   font-size: 1.6rem;
 }
 
+/*** Set layout of reminders box ***/
+
 .monthly-reminders {
   /* flex-basis: 200px; */
   width: 30%;
@@ -85,6 +90,8 @@ html {
   font-size: 1.5rem;
   
 }
+
+/*** Set layout of calendar ***/
 
 .weekdays {
   width: 100%;
@@ -123,7 +130,8 @@ html {
   transition: background-color 0.2s;
 }
 
-/* on hover on dates (except today), change the background of that date*/
+/*** On hover on dates (except today), change the background of that date ***/
+
 .days div:hover:not(.today) {
   background-color: #3e6daa;
   border: 0.2rem solid #777;

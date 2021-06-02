@@ -187,6 +187,9 @@ li a:hover:not(.active, .closebtn) {
 .body {
   background-color: white;
 }
+
+/*** Style each day in the weekly view ***/
+
 .day {
   /*border: 5px outset black;*/
   text-align: center;
@@ -199,6 +202,7 @@ li a:hover:not(.active, .closebtn) {
   color: var(--fourth-color);
   padding: 20px;
 }
+
 .dayContent {
   text-align: left;
   background-color: var(--second-color);
@@ -212,6 +216,7 @@ li a:hover:not(.active, .closebtn) {
   align-items: center;
   overflow: scroll;
 }
+
 .daily {
 background-color: white;
 margin-left: 18em;
@@ -222,6 +227,7 @@ display: flex;
 flex-wrap: wrap;
 }
 
+/* Style goals box */
 .goals {
 border: 2px solid black;
 border-radius: 15px;
@@ -231,6 +237,7 @@ margin-top: 30px;
 margin-left: 10px;
 }
 
+/* Style notes box */
 .notes {
 border: 2px solid black;
 border-radius: 15px;
@@ -239,7 +246,6 @@ height: 250px;
 margin-top: 30px;
 margin-left: 10px;
 }
-
 
 #datesHeader {
   font-family: 'Montserrat';
@@ -277,6 +283,8 @@ margin-left: 10px;
   bottom: 20px;
   right: 20px;
 }
+
+/*** Set layout of daily log section ***/
 
 .bigDay {
   float: left;

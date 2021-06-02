@@ -229,6 +229,7 @@ flex-basis: 200px;
 height: 300px;
 margin-top: 30px;
 margin-left: 10px;
+padding-left: 2em;
 }
 
 .notes {
@@ -238,6 +239,7 @@ flex-basis: 475px;
 height: 250px;
 margin-top: 30px;
 margin-left: 10px;
+padding-left: 2em;
 }
 
 

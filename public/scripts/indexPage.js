@@ -102,45 +102,52 @@ calendarLink.addEventListener('click', () => {
 });
 
 var dailyLink1 = document.getElementById("daily1");
-dailyLink1.innerHTML = getWeekTwo();
+let weekTwoDates = getWeekTwo();
+dailyLink1.innerHTML = weekTwoDates;
 dailyLink1.addEventListener('click', () => {
-  location.href="dailyLog.html";
+  location.href = "dailyLog.html#" + weekTwoDates;
 });
 
 var dailyLink2 = document.getElementById("daily2");
+let weekOneDates = getWeekOne();
 dailyLink2.innerHTML = getWeekOne();
 dailyLink2.addEventListener('click', () => {
-  location.href="dailyLog.html";
+  location.href="dailyLog.html#" + weekOneDates;
 });
 
 var monthlyLink1 = document.getElementById("monthly1");
-monthlyLink1.innerHTML = getMonths("one");
+let monthOneDate = getMonths("one");
+monthlyLink1.innerHTML = monthOneDate;
 monthlyLink1.addEventListener('click', () => {
-  location.href="calendar.html";
+  location.href="calendar.html#" + monthOneDate;
 });
 
 var monthlyLink2 = document.getElementById("monthly2");
-monthlyLink2.innerHTML = getMonths("two");
+let monthTwoDate = getMonths("two");
+monthlyLink2.innerHTML = monthTwoDate;
 monthlyLink2.addEventListener('click', () => {
-  location.href="calendar.html";
+  location.href="calendar.html#" + monthTwoDate;
 });
 
 var monthlyLink3 = document.getElementById("monthly3");
-monthlyLink3.innerHTML = getMonths("three");
+let monthThreeDate = getMonths("three");
+monthlyLink3.innerHTML = monthThreeDate;
 monthlyLink3.addEventListener('click', () => {
-  location.href="calendar.html";
+  location.href="calendar.html#" + monthThreeDate;
 });
 
 var futureLink1 = document.getElementById("future1");
-futureLink1.innerHTML = getFuture("first");
+let futureOne = getFuture("first");
+futureLink1.innerHTML = futureOne;
 futureLink1.addEventListener('click', () => {
-  location.href="futureLog.html";
+  location.href="futureLog.html#" + futureOne;
 });
 
 var futureLink2 = document.getElementById("future2");
-futureLink2.innerHTML = getFuture("second");
+let futureTwo = getFuture("second");
+futureLink2.innerHTML = futureTwo;
 futureLink2.addEventListener('click', () => {
-  location.href="futureLog.html";
+  location.href="futureLog.html#" + futureTwo;
 });
 
 var collectionLink1 = document.getElementById('collections1');

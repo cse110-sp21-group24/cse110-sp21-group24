@@ -1,4 +1,4 @@
-import ColorThief from '../colorthief/dist/color-thief.mjs'
+import ColorThief from './features/colorthief/dist/color-thief.mjs'
 
 const colorThief = new ColorThief();
 

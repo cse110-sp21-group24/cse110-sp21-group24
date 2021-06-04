@@ -6,6 +6,8 @@
   --fourth-color: #2E77BB;
 }
 
+/*** Style general layout of sticker dropdown ***/
+
 #dropBody {
   width: auto;
   height: auto;

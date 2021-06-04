@@ -2,20 +2,11 @@
  * Update colors based on current color scheme
  */
  window.addEventListener('load', () => {
-  // retrieve color scheme
-  const color1 = localStorage.getItem("color1");
-  const color2 = localStorage.getItem("color2");
-  const color3 = localStorage.getItem("color3");
-  const color4 = localStorage.getItem("color4");
-
-  document.documentElement.style.setProperty('--first-color', color1);
-  document.documentElement.style.setProperty('--second-color', color2);
-  document.documentElement.style.setProperty('--third-color', color3);
-  document.documentElement.style.setProperty('--fourth-color', color4);
-
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
+
+  getColors(); // retrieve color scheme
 
   // get week dates from url
   let urlDate = decodeURI(location.hash).substring(1);

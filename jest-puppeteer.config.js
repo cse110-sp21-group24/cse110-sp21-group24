@@ -7,7 +7,7 @@
 module.exports = {
   launch: {},
   server: {
-    command: "npm run serve",
+    command: "npm start",
     port: 5500,
     launchTimeout: 180000
   }

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "serve": "npm test",
     "build": "echo 'build script executed'"
   },
   "repository": {

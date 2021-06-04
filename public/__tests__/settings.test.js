@@ -11,7 +11,7 @@ describe('Test correct color settings by palette generator', () => {
     await Promise.all([
       page.coverage.startJSCoverage(),
     ]);
-    await page.goto('http://127.0.0.1:5500/public/settings.html', {waitUntil: 'load'});
+    await page.goto('http://localhost:5500/public/settings.html', {waitUntil: 'load'});
   });
 
   // Upload image and check colors were correctly set
@@ -21,7 +21,7 @@ describe('Test correct color settings by palette generator', () => {
     let src = await page.evaluate(() => {
       return document.querySelector('img').src;
     });
-    expect(src).toContain('blob:http://127.0.0.1:5500/');
+    expect(src).toContain('blob:http://localhost:5500/');
   });
 
   it('Test 2: Upload image - check first color is correct', async () => {

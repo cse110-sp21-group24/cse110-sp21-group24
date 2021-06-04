@@ -13,9 +13,28 @@
   document.documentElement.style.setProperty('--third-color', color3);
   document.documentElement.style.setProperty('--fourth-color', color4);
 
-  // retrieve week dates from url
-  const urlDate = decodeURI(location.hash).substring(1);
-  document.getElementById("datesHeader").innerHTML = `Week of ${urlDate}`;
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  // get week dates from url
+  let urlDate = decodeURI(location.hash).substring(1);
+  if (urlDate !== "") {
+    document.getElementById("datesHeader").innerHTML = `Week of ${urlDate}`;
+  }
+  // if clicked from nav bar, display current week
+  else {
+    let curr = new Date;
+    let first = curr.getDate() - curr.getDay() + 1;
+    let firstDay = new Date(curr.setDate(first));
+    let lastDay = new Date(curr.setDate(curr.getDate() + 6));
+
+    let firstFormat = `${monthNames[firstDay.getMonth()]} ${firstDay.getDate()}`;
+    let lastFormat = `${monthNames[lastDay.getMonth()]} ${lastDay.getDate()}`;
+
+    urlDate = firstFormat + " - " + lastFormat;
+    document.getElementById("datesHeader").innerHTML = `Week of ${urlDate}`;
+  }  
 
   // retrieve custom stickers
   let results = [];

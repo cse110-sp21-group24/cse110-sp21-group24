@@ -13,6 +13,8 @@ window.addEventListener('load', () => {
   document.documentElement.style.setProperty('--fourth-color', color4);
 });
 
+let today = new Date();
+
 /* List of months to correspond with index of getMonth */
  const months = [
   "January",
@@ -34,7 +36,6 @@ window.addEventListener('load', () => {
  * the daily log
  */
 function getWeekOne() {
-  let today = new Date();
   let startWeekOne = new Date();
   let endWeekOne = new Date();
   startWeekOne.setDate(today.getDate() - (today.getDay() + 6) % 7);
@@ -48,7 +49,6 @@ function getWeekOne() {
  * the daily log
  */
 function getWeekTwo() {
-  let today = new Date();
   let startWeekTwo = new Date();
   let endWeekTwo = new Date();
   startWeekTwo.setDate((today.getDate() - (today.getDay() + 6) % 7) - 7);
@@ -62,7 +62,6 @@ function getWeekTwo() {
  * log
  */
 function getMonths(month) {
-  let today = new Date();
   switch(month) {
     case "one":
       return monthOne = months[today.getMonth() - 2];
@@ -79,13 +78,12 @@ function getMonths(month) {
  * Get the last 2 sets of 6 months to display on the index as
  * the future log
  */
-function getFuture(option) {
-  let today = new Date();
+function getFuture(option, year) {
   switch(option) {
-    case "first":
-      return "January - June " + today.getFullYear();
-    case "second":
-      return "July - December " + (today.getFullYear() - 1);
+    case "jan-jun":
+      return "January - June " + year;
+    case "jul-dec":
+      return "July - December " + year;
     default:
       return "N/A";
   }
@@ -136,20 +134,41 @@ monthlyLink3.addEventListener('click', () => {
   location.href="calendar.html#" + monthThreeDate;
 });
 
+/**
+ * Get the current and next future logs according to
+ * the current month
+ */
 var futureLink1 = document.getElementById("future1");
-let futureOne = getFuture("first");
+var futureLink2 = document.getElementById("future2");
+let futureOne, futureTwo;
+// for curr month jan - may
+if (today.getMonth() >= 0 && today.getMonth() <= 4) {
+  futureOne = getFuture("jan-jun", today.getFullYear());
+  futureTwo = getFuture("jul-dec", today.getFullYear());
+}
+// for curr month jun - nov
+else if (today.getMonth() >= 5 && today.getMonth() <= 10) {
+  futureOne = getFuture("jul-dec", today.getFullYear());
+  futureTwo = getFuture("jan-jun", (today.getFullYear() + 1));
+}
+// for curr month dec
+else {
+  futureOne = getFuture("jan-jun", (today.getFullYear() + 1));
+  futureTwo = getFuture("jul-dec", (today.getFullYear() + 1));
+}
 futureLink1.innerHTML = futureOne;
 futureLink1.addEventListener('click', () => {
   location.href="futureLog.html#" + futureOne;
 });
 
-var futureLink2 = document.getElementById("future2");
-let futureTwo = getFuture("second");
 futureLink2.innerHTML = futureTwo;
 futureLink2.addEventListener('click', () => {
   location.href="futureLog.html#" + futureTwo;
 });
 
+/**
+ * Redirect to collections page from index
+ */
 var collectionLink1 = document.getElementById('collections1');
 collectionLink1.addEventListener('click', () =>{
   location.href="collection.html";

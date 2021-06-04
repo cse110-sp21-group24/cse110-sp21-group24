@@ -30,10 +30,13 @@ const months = [
   document.documentElement.style.setProperty('--third-color', color3);
   document.documentElement.style.setProperty('--fourth-color', color4);
 
+  // if clicked from index page, populate with correct month
   const urlMonth = decodeURI(location.hash).substring(1);
-  date.setMonth(months.indexOf(urlMonth));
-  renderCalendar();
-
+  if (urlMonth !== "") {
+    date.setMonth(months.indexOf(urlMonth));
+    renderCalendar();
+  }
+  
   // retrieve custom stickers
   let results = [];
   for (let i = 0; i < localStorage.length; i++) {

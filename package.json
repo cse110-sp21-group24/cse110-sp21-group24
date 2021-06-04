@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "npm start -- --port 5500",
     "build": "echo 'build script executed'"
   },
   "repository": {

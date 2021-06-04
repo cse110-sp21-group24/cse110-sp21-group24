@@ -1,5 +1,12 @@
 /* Dropdown Button */
 
+  /* Changing color scheme */
+  :root {
+    --first-color: #9EB3C2;
+    --second-color: #9BD4F5;
+    --third-color: #1D8ECE;
+    --fourth-color: #2E77BB;
+  }
   
   /* Dropdown button on hover & focus */
   .dropBtn:hover, .dropbtn:focus {
@@ -14,9 +21,11 @@
   
   /* Dropdown Content (Hidden by Default) */
   .dropDown-content {
+    border-radius: 15px;
+    padding: 0.4em;
     display: none;
     position: absolute;
-    background-color: #9BD4F5;
+    background-color: var(--third-color);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;

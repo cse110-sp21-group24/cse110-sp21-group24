@@ -1,5 +1,6 @@
 /**
- * Update colors based on current color scheme
+ * Update colors based on current color scheme, update week header, 
+ * and get stickers when the page loads
  */
  window.addEventListener('load', () => {
   const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -8,12 +9,12 @@
 
   getColors(); // retrieve color scheme
 
-  // get week dates from url
+  // Get week dates from url
   let urlDate = decodeURI(location.hash).substring(1);
   if (urlDate !== "") {
     document.getElementById("datesHeader").innerHTML = `Week of ${urlDate}`;
   }
-  // if clicked from nav bar, display current week
+  // If clicked from nav bar, display current week
   else {
     let curr = new Date;
     let first = curr.getDate() - curr.getDay() + 1;
@@ -27,12 +28,13 @@
     document.getElementById("datesHeader").innerHTML = `Week of ${urlDate}`;
   }  
 
-  // retrieve stickers
+  // Retrieve stickers
   path = urlDate;
   getCustomStickers();
   getSavedStickers();
 });
 
+/* When add button is pressed, add a new entry with corresponding bullet information */
 document.getElementById("mon-add").addEventListener('click', () => {
   let item = document.createElement('li');
   item.contentEditable = "true";
@@ -78,6 +80,7 @@ document.getElementById("mon-add").addEventListener('click', () => {
   document.getElementById("mon").getElementsByTagName('ul')[0].appendChild(dropDown);
 });
 
+/* When the dropdown is clicked, show different bullet options */
 window.onclick = function(event) {
   if (!event.target.matches('.dropBtn')) {
     var dropdowns = document.getElementsByClassName("dropDown-content");
@@ -90,6 +93,8 @@ window.onclick = function(event) {
     }
   }
   
+  /*** Show dropdown when bullet is selected ***/
+
   if(event.target.classList == 'task-list'){
     var dropDown = event.target.parentElement.childNodes[1];
     dropDown.classList.toggle('show');
@@ -109,6 +114,8 @@ window.onclick = function(event) {
     var dropDown = event.target.parentElement.childNodes[1];
     dropDown.classList.toggle('show');
   }
+
+  /*** Change bullet icon when one from dropdown is selected ***/
 
   if(event.target.classList == 'taskImage'){
     changeBulletIcon(event.target, 'task-list');
@@ -133,6 +140,7 @@ var days = document.getElementsByTagName('h2');
 
 var day = document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0];
 
+/* Function to remove the current day from the daily log section */
 function putBack(){
   if (day.innerHTML == "Monday") {
     document.getElementById("monContainer").appendChild(document.getElementById("mon"));
@@ -170,6 +178,8 @@ function putBack(){
     day.innerHTML = "";
   }
 }
+
+/*** Make a day the focus of the main daily log on click ***/
 
 days[0].addEventListener('click', () => {
 

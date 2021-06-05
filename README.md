@@ -44,6 +44,3 @@ Deployment will then be updated at https://team-24-gme-bujo.firebaseapp.com/
 ```
 npx eslint yourfile.js
 ```
-
-## Docs
-[Documentation](./out/index.html)

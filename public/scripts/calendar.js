@@ -131,6 +131,7 @@ window.onclick = function(event) {
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
       if (openDropdown.classList.contains('show')) {
+        saveBulletToLC(openDropdown.parentElement);
         openDropdown.classList.remove('show');
       }
     }

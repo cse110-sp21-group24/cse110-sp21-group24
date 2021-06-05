@@ -90,6 +90,7 @@ window.onclick = function(event) {
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
       if (openDropdown.classList.contains('show')) {
+        saveCollectionBulletToLC(openDropdown.parentElement);
         openDropdown.classList.remove('show');
       }
     }

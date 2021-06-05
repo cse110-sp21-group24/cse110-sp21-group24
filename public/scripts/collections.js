@@ -11,11 +11,6 @@
   addCollectionBulletsOnStart();
 });
 
-function openNav() {
-  document.getElementById("navigation").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-}
-
 function closeNav() {
   document.getElementById("navigation").style.width = "0";
   document.getElementById("main").style.marginLeft= "0";
@@ -58,7 +53,6 @@ function addCollectionRow() {
   const list = document.getElementById("collection-list");
   collectionRow.innerHTML = inputVal;
   document.getElementById('collection-list').appendChild(collectionRow);
-  collectionAdd();
   let collectionList = JSON.parse(localStorage.getItem("Collections"));
   if(collectionList == null){
     collectionList = {};

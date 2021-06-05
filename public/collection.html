@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Collections</title>
 
-  <link rel="stylesheet" href="css/collections.css" />
-  <link rel="stylesheet" href="css/bulletEntries.css" />
-  <link rel="stylesheet" href="css/dropDown.css" />
-  <link rel="stylesheet" href="css/navigation.css" />
-  <link rel="stylesheet" href="css/stickers.css">
+  <link rel="stylesheet" href="./css/collections.css" />
+  <link rel="stylesheet" href="./css/navigation.css" />
+  <link rel="stylesheet" href="./css/stickers.css">
+  <link rel="stylesheet" href="./css/bulletEntries.css">
+  <link rel="stylesheet" href="./css/dropDown.css">
 
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Sansita+One" />
 </head>
@@ -68,24 +68,33 @@
       <h1 class="ctitle" id="ctitle"></h1>
     </div>
 
-    <div class="content-box" id="content-box">
-      <ul></ul>
-      <a href="#" id="collection-add" class="collection-add">&#x2b;</a>
-    </div>
-
-    <div class="list-box">
-      <div class="collection-edit">
-        <button class="edit-button" id="edit-button" onclick="collectionAdd()">
-          <img src="./images/edit_button.png" width="48" height="48" />
-        </button>
-      </div>
-      <div class="collection-list" id="collection-list">
-        
+      <div class="content-box">
+        <div id = "collectionListArea" class="entry">
+          <ul class="collection-subcontent">
+          </ul>
+          <a id="collection-add" class="add">&#x2b;</a>
+        </div>
       </div>
       <div class="collection-input-section">
 
-        <div class="cinputline" id="cinputline">
-          <input type="text" class="collection-input" id="cinput" name="cinput"></input>
+      <div class="list-box">
+        <div class="collection-edit">
+          <button class="edit-button" id="edit-button" onclick="collectionAdd()">
+            <img src="./images/icons/edit_button.png" width="48" height="48" />
+          </button>
+        </div>
+        <div class="collection-list" id="collection-list">
+          <p>Note Pad</p>
+        </div>
+        <div class="collection-input-section">
+          <form>
+            <div class="cinputline" id="cinputline">
+              <input type="text" class="collection-input" id="cinput" name="cinput"></input>
+            </div>
+            <button type="submit" class="collection-submit-button" id="csubmit-button"
+              onclick="addCollectionRow();"></button>
+            <button type="reset" class="collection-reset-button" id="creset-button"></button>
+          </form>
         </div>
         <button type="submit" class="collection-submit-button" id="csubmit-button"
           onclick="addCollectionRow();"></button>

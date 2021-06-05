@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="./css/navigation.css">
   <link rel="stylesheet" href="./css/futureLog.css">
   <link rel="stylesheet" href="./css/stickers.css">
+  <link rel="stylesheet" href="./css/bulletEntries.css">
+  <link rel="stylesheet" href="./css/dropDown.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -63,127 +65,52 @@
     <div class="row">
       <div class="column">
         <h2>Jan</h2>
-        <div class="content">
-
-          <div class="entry">
-            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">bookmark_border</i><span id="text">event</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">folder_open</i><span id="text">important</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-          </div>
+        <div id="first" class="content">
+          <ul>
+          </ul>
+          <a id="first-add" class="add">&#x2b;</a>
         </div>
       </div>
       <div class="column">
         <h2>Feb</h2>
-        <div class="content">
-
-          <div class="entry">
-            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">bookmark_border</i><span id="text">event</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">folder_open</i><span id="text">important</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-          </div>
+        <div id="second" class="content">
+          <ul>
+          </ul>
+          <a id="second-add" class="add">&#x2b;</a>
         </div>
       </div>
       <div class="column">
         <h2>Mar</h2>
-        <div class="content">
-
-          <div class="entry">
-            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">bookmark_border</i><span id="text">event</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">folder_open</i><span id="text">important</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-          </div>
+        <div id="third" class="content">
+          <ul>
+          </ul>
+          <a id="third-add" class="add">&#x2b;</a>
         </div>
       </div>
       <div class="column">
         <h2>Apr</h2>
-        <div class="content">
-          <div class="entry">
-            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">bookmark_border</i><span id="text">event</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">folder_open</i><span id="text">important</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-          </div>
+        <div id="fourth" class="content">
+          <ul>
+          </ul>
+          <a id="fourth-add" class="add">&#x2b;</a>
         </div>
       </div>
       <div class="column">
         <h2>May</h2>
-        <div class="content">
-
-          <div class="entry">
-            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">bookmark_border</i><span id="text">event</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">folder_open</i><span id="text">important</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-          </div>
+        <div id="fifth" class="content">
+          <ul>
+          </ul>
+          <a id="fifth-add" class="add">&#x2b;</a>
         </div>
       </div>
       <div class="column">
         <h2>Jun</h2>
-        <div class="content">
-          <div class="entry">
-            <i class="material-icons">radio_button_unchecked</i><span id="text">task</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">bookmark_border</i><span id="text">event</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">folder_open</i><span id="text">important</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">star_outline</i><span id="text">inspiration</span>
-          </div>
-          <div class="entry">
-            <i class="material-icons">check_box_outline_blank</i><span id="text">note</span>
-          </div>
+        <div id="sixth" class="content">
+          <ul>
+          </ul>
+          <a id="sixth-add" class="add">&#x2b;</a>
         </div>
+      </div>
         
       
       <!-- option 1
@@ -221,7 +148,10 @@
   <!-- Scripts -->
   <script src="./scripts/futureLog.js" type="module"></script>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/features/colorscheme.js"></script>
   <script src="./scripts/features/stickers.js"></script>
+  <script src="./scripts/features/bulletEntries.js"></script>
+  <script src="./scripts/features/futureLogBullets.js"></script>
     
   <!-- Libraries -->
   <script src="https://kit.fontawesome.com/8ad7c88927.js" crossorigin="anonymous"></script>

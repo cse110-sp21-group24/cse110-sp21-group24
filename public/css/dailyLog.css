@@ -217,6 +217,11 @@ background-color: white;
 margin-left: 18em;
 }
 
+#dailyHeader {
+  color: var(--fourth-color);
+  text-align: center;
+}
+
 .row-flex-container {
 display: flex;
 flex-wrap: wrap;
@@ -229,19 +234,59 @@ flex-basis: 200px;
 height: 300px;
 margin-top: 30px;
 margin-left: 10px;
-padding-left: 2em;
 }
+
+#goal {
+  border-radius: 15px;
+  flex-basis: 200px;
+  margin-top: 10px;
+  text-align: left;
+  background-color: var(--second-color);
+  border: 5px solid var(--second-color);
+  font: 15px sans-serif;
+  height: 190px;
+  color: black;
+  padding: 10px;
+  align-items: center;
+  overflow: scroll;
+}
+
+
+
+.header {
+  text-align: center;
+}
+
 
 .notes {
 border: 2px solid black;
 border-radius: 15px;
-flex-basis: 475px;
-height: 250px;
+flex-basis: 200px;
+height: 300px;
 margin-top: 30px;
 margin-left: 10px;
-padding-left: 2em;
 }
 
+#notes{
+  border-radius: 15px;
+  flex-basis: 200px;
+  margin-top: 10px;
+  text-align: left;
+  background-color: var(--second-color);
+  border: 5px solid var(--second-color);
+  font: 15px sans-serif;
+  height: 190px;
+  color: black;
+  padding: 10px;
+  align-items: center;
+  overflow: scroll;
+}
+
+.daily ul{
+  display: flex;
+  flex-direction:column;
+  height: 100%;
+}
 
 #datesHeader {
   font-family: 'Montserrat';

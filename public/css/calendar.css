@@ -143,3 +143,30 @@ html {
 .today {
   background-color: var(--third-color);
 }
+
+.add {
+  border-radius: 50%;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: var(--second-color);
+  color: var(--fourth-color);
+  border: var(--fourth-color);
+  position: relative;
+  margin-left: 40%;
+}
+
+.entry{
+  border-radius: 15px;
+  flex-basis: 300px;
+  margin-top: 10px;
+  text-align: left;
+  background-color: white;
+  border: 5px solid white;
+  font: 15px sans-serif;
+  height: 580px;
+  color: black;
+  padding: 10px;
+  align-items: center;
+  overflow: scroll;
+}

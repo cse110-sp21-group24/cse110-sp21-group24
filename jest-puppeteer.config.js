@@ -1,8 +1,8 @@
-module.exports = {
+/*module.exports = {
   launch: {
     headless: true
    }
-}
+}*/
 /*
 module.exports = {
   launch: {

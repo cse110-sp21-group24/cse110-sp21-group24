@@ -10,7 +10,7 @@ describe('Test opening and closing navigation bar', () => {
     await Promise.all([
       page.coverage.startJSCoverage(),
     ]);
-    await page.goto('http://127.0.0.1:5500/public/index.html');
+    await page.goto('http://127.0.0.1:8080/public/index.html');
   });
 
   // Open and close nav bar on home page
@@ -32,7 +32,7 @@ describe('Test opening and closing navigation bar', () => {
 
   // Open and close nav bar not on the home page
   it('Test 3: should click close button on settings - navigation bar should open', async () => {
-    await page.goto('http://127.0.0.1:5500/public/settings.html');
+    await page.goto('http://127.0.0.1:8080/public/settings.html');
     let width = await page.evaluate(() => {
       document.querySelector('.openbtn').click();
       return document.querySelector('#navigation').style.width;

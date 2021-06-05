@@ -11,7 +11,7 @@ describe('Navigate from home to index', () => {
     await Promise.all([
       page.coverage.startJSCoverage(),
     ]);
-    await page.goto('http://127.0.0.1:5500/public/collection.html');
+    await page.goto('http://127.0.0.1:8080/public/collection.html');
   });
 
   it('Test 1: should open popup - check that the open button is hidden', async () => {

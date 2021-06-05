@@ -12,7 +12,7 @@ describe('Navigate to logs from index', () => {
   });
   
   beforeEach(async() => {
-    await page.goto('http://127.0.0.1:5500/public/indexPage.html');
+    await page.goto('http://127.0.0.1:8080/public/indexPage.html');
   });
 
   // Navigate to home page

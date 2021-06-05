@@ -10,7 +10,7 @@ describe('Navigate from home to index', () => {
     await Promise.all([
       page.coverage.startJSCoverage(),
     ]);
-    await page.goto('http://127.0.0.1:5500/public/index.html');
+    await page.goto('http://127.0.0.1:8080/public/index.html');
   });
   
   // Navigate to index page 

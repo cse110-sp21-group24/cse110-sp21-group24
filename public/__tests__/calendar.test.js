@@ -9,7 +9,7 @@ describe('Test calendar dates and months', () => {
     await Promise.all([
       page.coverage.startJSCoverage(),
     ]);  
-    await page.goto('http://127.0.0.1:5500/public/calendar.html');
+    await page.goto('http://127.0.0.1:8080/public/calendar.html');
   });
 
   // Navigate to next month 

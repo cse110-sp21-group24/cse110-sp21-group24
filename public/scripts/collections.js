@@ -214,3 +214,10 @@ window.onclick = function(event) {
     deleteBulletIcon(event.target);
   }
 }
+
+function saveEntries(){
+}
+
+function retreiveEntries(){
+
+}

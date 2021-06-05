@@ -25,8 +25,8 @@
   text-align: center;
   color: var(--third-color);
   position: absolute;
-  left: 540px;
-  top: 60px;
+  left: 450px;
+  top: 50px;
 }
 
 .content-box {
@@ -52,9 +52,8 @@
   bottom: 112px;
 }
 
-.content-box > .collection-subcontent {
-  list-style-type: disc;
-  cursor: text;
+.content-box > li {
+  position: relative;
 }
 
 .list-box {
@@ -159,14 +158,18 @@ li a:hover:not(.active, .closebtn) {
   align-items: center;
 }
 
+.content-box li {
+  display: inline;
+}
+
 .collection-subcontent-add {
   border-radius: 50%;
   text-decoration: none;
   display: inline-block;
   padding: 8px 12px;
-  background-color: white;
-  color: var(--fourth-color);
+  background-color: var(--third-color);
+  color: var(--fifth-color);
   border: var(--fourth-color);
   position: relative;
-  margin-left: 40%;
+  margin-left: 47%;
 }

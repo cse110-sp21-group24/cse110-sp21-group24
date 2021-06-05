@@ -162,7 +162,7 @@ li a:hover:not(.active, .closebtn) {
   display: inline;
 }
 
-.collection-subcontent-add {
+.collection-add {
   border-radius: 50%;
   text-decoration: none;
   display: inline-block;

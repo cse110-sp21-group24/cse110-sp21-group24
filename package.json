@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "serve": "http-server . -p 8080",
     "build": "echo 'build script executed'"
   },
   "repository": {
@@ -26,6 +27,7 @@
     "jquery": "^3.6.0"
   },
   "devDependencies": {
+    "http-server": "^0.12.3",
     "jest-puppeteer": "^5.0.4",
     "puppeteer": "^9.1.1"
   },

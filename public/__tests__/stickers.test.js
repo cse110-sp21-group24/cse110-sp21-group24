@@ -1,4 +1,5 @@
-const { afterAll } = require("@jest/globals");
+const { beforeAll } = require("@jest/globals");
+
 
 /* 
  * Tests stickers.js. Tests various functions related to uploading and 
@@ -12,7 +13,7 @@ describe('Navigate from home to index', () => {
     ]);
     await page.goto('http://127.0.0.1:5500/public/collection.html');
   });
-  
+
   it('Test 1: should open popup - check that the open button is hidden', async () => {
     await page.click('#openBtn');
     let hidden = await page.evaluate(() => {
@@ -44,8 +45,8 @@ describe('Navigate from home to index', () => {
   }, 10000);
 
   it('Test 5: drag sticker onto page - check it was correctly stored in local storage', async () => {
-    
-  }, 10000);
+  
+  }, 10000); 
 
   it('Test 6: delete sticker - check it is no longer in local storage', async () => {
     

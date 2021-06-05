@@ -24,7 +24,9 @@ describe('Test correct color settings by palette generator', () => {
     expect(src).toContain('blob:http://127.0.0.1:5500/');
   });
 
-  it('Test 2: Upload image - check second color is correct', async () => {
+  it('Test 2: Upload image - check first color is correct', async () => {
+    const elementHandle = await page.$("input[type=file]");
+    await elementHandle.uploadFile('public/images/settings-test.PNG');
     let color = await page.evaluate(() => {
       return document.documentElement.style.getPropertyValue('--first-color');
     });

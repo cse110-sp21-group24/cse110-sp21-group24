@@ -1,6 +1,10 @@
-/*module.exports = {
+module.exports = {
   launch: {
-    headless: false,
-    slowMo: 500
-   }
-}*/
+    headless: true,
+   },
+   server: {
+    command: "npm run serve",
+    port: 5500,
+    launchTimeout: 180000
+  }
+}

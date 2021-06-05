@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "serve":  "http-server -a localhost -p 5500",
     "build": "echo 'build script executed'"
   },
   "repository": {

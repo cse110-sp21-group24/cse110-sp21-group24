@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: features/bulletEntries.js</title>
+    <title>JSDoc: Source: index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: features/bulletEntries.js</h1>
+    <h1 class="page-title">Source: index.js</h1>
 
     
 
@@ -26,37 +26,37 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>
-/**
- * 
- * @param { any } element event.target
- * @param { String } currentIcon String of current class name for icon
- * @param { String } nextIcon String of next class name for icon
- * @returns changed element
+            <pre class="prettyprint source linenums"><code>/**
+ * Update colors based on current color scheme
  */
-function changeBulletIcon(element,nextIcon){
-  let elementToChange = element.parentElement.parentElement.childNodes[0];
-  elementToChange.className = nextIcon;
-  return elementToChange;
+ window.addEventListener('load', () => {
+  getColors(); // retrieve color scheme
+});
+
+
+/**
+ * Open navigation bar - overlap content for all pages except home
+ */
+function openNav(btn) {
+  document.getElementById("navigation").style.width = "250px";
+  if (document.getElementById("main")) {
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+  else {
+    btn.style.marginLeft = "250px";
+  }
 }
 
 /**
- * This function removes the element passed in as a parameter
- * @param { any } element event.target
+ * Close navigation bar 
  */
-function deleteBulletIcon(element){
-  let elementToChange = element.parentElement.parentElement;
-  elementToChange.remove();
-  return elementToChange;
+function closeNav() {
+  document.getElementById("navigation").style.width = "0";
+  if (document.getElementById("main")) {
+    document.getElementById("main").style.marginLeft= "0";
+  }
+  document.querySelector('button[class="openbtn"]').style.marginLeft = "0px";
 }
-
-/**
- * This function toggles the drop down menu of entries
- */
-function toggleDrop(){
-  document.getElementById('myDropDown').classList.toggle('show');
-}
-
 </code></pre>
         </article>
     </section>

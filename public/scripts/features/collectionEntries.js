@@ -1,3 +1,6 @@
+/**
+ * This function adds the created collections to the side of the collections page
+ */
 function addCollectionList(){
   let collectionList = JSON.parse(localStorage.getItem("Collections"));
   let list = [];
@@ -17,6 +20,9 @@ function addCollectionList(){
   clickableCollections();
 }
 
+/**
+ * This function makes the created collections clickable on side to load the bullet points
+ */
 function clickableCollections(){
   var collectionList = document.querySelectorAll(".collection-list p");
   for (let i = 0; i < collectionList.length; i++) { 
@@ -29,6 +35,11 @@ function clickableCollections(){
   }
 }
 
+/**
+ * This function saves the passed element to the local storage
+ * based on the collection that is open
+ * @param {*} element 
+ */
 function saveCollectionBulletToLC(element){
   let collectionList = document.getElementById('ctitle').innerHTML;
   let collectionStorage = JSON.parse(localStorage.getItem("CollectionsList"));
@@ -78,6 +89,9 @@ function addCollectionBulletsOnStart(){
   });
 }
 
+/**
+ * This function removes all of the bullets from the page
+ */
 function deleteAllBullets(){
   let list = document.getElementById("collectionListArea").childNodes[1].childNodes;
   for(var i = list.length - 1; i > 0; i--){
@@ -86,6 +100,10 @@ function deleteAllBullets(){
   console.log(list);
 }
 
+/**
+ * This function deletes the passed element from the local storage
+ * @param {*} element 
+ */
 function deleteCollectionBulletPoint(element){
   let collectionStorage = JSON.parse(localStorage.getItem("CollectionsList"));
   let id = element.parentElement.parentElement.id;

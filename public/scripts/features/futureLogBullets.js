@@ -1,3 +1,8 @@
+/**
+ * This function saves the passed element to local storage 
+ * based on the months open on the future logs page
+ * @param {*} element 
+ */
 function saveFutureBulletToLC(element){
   let pageName = document.querySelector('title').innerHTML;
   let dayStorage = JSON.parse(localStorage.getItem(pageName));
@@ -16,11 +21,20 @@ function saveFutureBulletToLC(element){
   localStorage.setItem(key, JSON.stringify(dayStorage));
 }
 
+/**
+ * This function saves the element's changed icon using 
+ * saveFutureBulletToLC
+ * @param {*} element 
+ */
 function saveFutureBulletChangedIcon(element){
   let divChanged = element.parentElement.parentElement;
   saveFutureBulletToLC(divChanged);
 }
 
+/**
+ * This function adds all of the correct bullets based on 
+ * what months are on the future logs screen
+ */
 function addFutureBulletsOnStart(){
   const monthsArr = ["first","second","third","fourth","fifth","sixth"];
   var monthsToSection = {};
@@ -61,6 +75,10 @@ function addFutureBulletsOnStart(){
   });
 }
 
+/**
+ * This function deletes the passed element from the local storage
+ * @param {*} element 
+ */
 function deleteFutureBulletPoint(element){
   let id = document.querySelector('title').innerHTML;
   let dayData = JSON.parse(localStorage.getItem(id));
@@ -68,6 +86,11 @@ function deleteFutureBulletPoint(element){
   localStorage.setItem(id, JSON.stringify(dayData));
 }
 
+/**
+ * This function gets the months showing on the page in order 
+ * from left to right
+ * @returns List of months on page
+ */
 function getMonths(){
   let monthList = [];
   let months = document.querySelectorAll('h2');

@@ -84,6 +84,10 @@ function addDropDownImages(){
   return myDropDown;
 }
 
+/**
+ * This function saves the element passed to the local storage
+ * @param {*} element 
+ */
 function saveToLC(element){
   let pageID = document.getElementById("datesHeader").innerHTML;
   let dayStorage = JSON.parse(localStorage.getItem(pageID));
@@ -106,11 +110,19 @@ function saveToLC(element){
   //console.log(JSON.parse(localStorage.getItem(key)));
 }
 
+/**
+ * This function saves the element passed by calling saveToLC
+ * @param {*} element html element that is being saved
+ */
 function saveChangedIcon(element){
   let divChanged = element.parentElement.parentElement;
   saveToLC(divChanged);
 }
 
+/**
+ * This function deletes the element passed from local storage
+ * @param {*} element 
+ */
 function deleteBulletPoint(element){
   let id = document.getElementById("datesHeader").innerHTML;
   let dayData = JSON.parse(localStorage.getItem(id));
@@ -118,6 +130,10 @@ function deleteBulletPoint(element){
   localStorage.setItem(id, JSON.stringify(dayData));
 }
 
+/**
+ * This function adds all of the bullet points saved in 
+ * local storage based on the header of the page
+ */
 function addBulletsOnStart(){
   let id = document.getElementById("datesHeader").innerHTML;
   let dayData = JSON.parse(localStorage.getItem(id));

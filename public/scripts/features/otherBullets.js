@@ -1,3 +1,7 @@
+/**
+ * This function saves the passed element to local storage
+ * @param {*} element 
+ */
 function saveBulletToLC(element){
   let pageName = document.querySelector('title').innerHTML;
   let pageID = pageName + document.getElementById('currMonth').innerHTML;
@@ -21,11 +25,20 @@ function saveBulletToLC(element){
   //console.log(JSON.parse(localStorage.getItem(key)));
 }
 
+/**
+ * This function saves an element's bullet icon using
+ * saveBulletToLC
+ * @param {*} element 
+ */
 function saveBulletChangedIcon(element){
   let divChanged = element.parentElement.parentElement;
   saveBulletToLC(divChanged);
 }
 
+/**
+ * This function adds the reminders for the month that is 
+ * open on the page
+ */
 function addOtherBulletsOnStart(){
   let pageName = document.querySelector('title').innerHTML;
   let id = pageName + document.getElementById('currMonth').innerHTML;
@@ -54,6 +67,10 @@ function addOtherBulletsOnStart(){
   });
 }
 
+/**
+ * This function deletes the passed element from local storage
+ * @param {*} element 
+ */
 function deleteOtherBulletPoint(element){
   let pageName = document.querySelector('title').innerHTML;
   let id = pageName + document.getElementById('currMonth').innerHTML;
@@ -62,6 +79,9 @@ function deleteOtherBulletPoint(element){
   localStorage.setItem(id, JSON.stringify(dayData));
 }
 
+/**
+ * This function removes the bullet points on the reminder section of the page
+ */
 function removeAllBullets(){
   let list = document.getElementById('reminder').childNodes[1].childNodes;
   for(var i = list.length - 1; i > 0; i--){

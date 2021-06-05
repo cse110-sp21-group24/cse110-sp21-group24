@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/Roboto-Regular.ttf");
+}
+
+/* Changing color scheme */
+:root {
+  --first-color: #9eb3c2;
+  --second-color: #9bd4f5;
+  --third-color: #1d8ece;
+  --fourth-color: #2e77bb;
+  --fifth-color: #ffffff;
+}
+
+/* collection page styling */
+.collection-title > h1 {
+  font-family: "Sansita One";
+  font-size: 64px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+  color: var(--third-color);
+  position: absolute;
+  left: 450px;
+  top: 50px;
+}
+
+.content-box {
+  cursor: pointer;
+  position: absolute;
+  border-radius: 15px;
+  border: 2px solid black;
+
+  text-align: left;
+  background-color: var(--fifth-color);
+  border: 5px solid var(--second-color);
+  color: black;
+  align-items: center;
+  font: 15px sans-serif;
+  overflow: hidden;
+
+  padding: 50px;
+  width: 730px;
+  height: 400px;
+  left: 250px;
+  right: 430px;
+  top: 152px;
+  bottom: 112px;
+}
+
+.content-box > li {
+  position: relative;
+}
+
+.list-box {
+  height: 510px;
+  width: 200px;
+  left: 1136px;
+  padding: 100px;
+  position: relative;
+  background-color: var(--second-color);
+}
+
+.collection-list > p {
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 23px;
+  text-align: center;
+}
+
+.edit-button {
+  cursor: pointer;
+  height: 0px;
+  width: 0px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  vertical-align: top;
+}
+
+.collection-edit {
+  position: absolute;
+  top: 20px;
+  left: 298px;
+}
+
+.collection-input-section {
+  position: static;
+}
+
+.collection-input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+  width: 200px;
+}
+
+.cinputline {
+  display: none;
+}
+
+.collection-submit-button,
+.collection-reset-button {
+  position: static;
+  display: none;
+}
+
+/* content box styling */
+/* Set the general formatting for list as a whole */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Set the general formatting for each item */
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Set the color of the item currently selected */
+li a.active {
+  background-color: var(--fourth-color);
+  color: white;
+}
+
+/* Change color of item when it is being hovered over */
+li a:hover:not(.active, .closebtn) {
+  background-color: #555;
+  color: white;
+}
+
+.content-box-list {
+  text-align: left;
+  background-color: var(--second-color);
+  border: 5px solid var(--second-color);
+  border-radius: 15px;
+  font: 15px sans-serif;
+  width: 730px;
+  height: 400px;
+  color: black;
+  padding: 10px;
+  align-items: center;
+}
+
+.content-box li {
+  display: inline;
+}
+
+.collection-add {
+  border-radius: 50%;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: var(--third-color);
+  color: var(--fifth-color);
+  border: var(--fourth-color);
+  position: relative;
+  margin-left: 47%;
+}

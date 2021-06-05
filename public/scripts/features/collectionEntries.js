@@ -6,13 +6,14 @@ function addCollectionList(){
       return collectionList[key];
     });
   }
-  //console.log(list);
   list.forEach(elem => {
     const collectionRow = document.createElement('p');
     collectionRow.innerHTML = elem.name;
     document.getElementById('collection-list').appendChild(collectionRow);
   });
-  document.querySelector(".collection-title h1").innerHTML = list[0].name;
+  if(list.length != 0){
+    document.querySelector(".collection-title h1").innerHTML = list[0].name;
+  }
   clickableCollections();
 }
 

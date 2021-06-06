@@ -90,7 +90,11 @@ li a:hover:not(.active, .closebtn) {
   padding:10px 16px;
 }
 
-/*** Book Cover Animation ***/
+/*** Book Cover Animation 
+ *** This animation was created largely from the following codepen: 
+ *** https://codepen.io/HighFlyer/pen/LaXrgV
+ ***/
+
 .container {
   z-index: 1;
   perspective:3000px;

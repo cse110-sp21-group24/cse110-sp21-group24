@@ -1,5 +1,39 @@
 const date = new Date();
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
+/**
+ * Update colors based on current color scheme
+ */
+ window.addEventListener('load', () => {
+  getColors(); // retrieve color scheme
+
+  // if clicked from index page, populate with correct month
+  let urlMonth = decodeURI(location.hash).substring(1);
+  if (urlMonth !== "") {
+    date.setMonth(months.indexOf(urlMonth));
+    renderCalendar();
+  } else {
+    urlMonth = months[date.getMonth()];
+  }
+
+  // retrieve stickers
+  path = urlMonth;
+  getCustomStickers();
+  getSavedStickers();
+});
 
 const renderCalendar = () => {
   // need to find how many days have to be shown from the prev month
@@ -14,21 +48,6 @@ const renderCalendar = () => {
   const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
   // next month's days
   const nextDays = 7 - lastDayIndex - 1;
-
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
 
   let days = "";
   document.querySelector(".date h1").innerHTML = months[date.getMonth()];
@@ -55,14 +74,22 @@ const renderCalendar = () => {
 }
 
 document.querySelector('.prev').addEventListener('click', () => {
-    date.setMonth(date.getMonth()-1);
-    renderCalendar();
+  const prevMonth = date.getMonth() - 1;
+  date.setMonth(prevMonth);
+  path = months[prevMonth];
+  removeCurrentStickers(); // remove stickers on current page
+  renderCalendar();
+  getSavedStickers(); // get stickers on prev page
 });
 
 
 document.querySelector('.next').addEventListener('click', () => {
-    date.setMonth(date.getMonth()+1);
-    renderCalendar();
+  const nextMonth = date.getMonth() + 1;
+  date.setMonth(nextMonth);
+  path = months[nextMonth];
+  removeCurrentStickers(); // remove stickers on current page
+  renderCalendar();
+  getSavedStickers(); // get stickers on prev page
 });
 
 renderCalendar();

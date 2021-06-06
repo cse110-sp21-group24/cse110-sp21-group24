@@ -1,3 +1,5 @@
+/*** Import fonts ***/
+
 @font-face {
   font-family: 'Sansita One';
   src: url('fonts/SansitaOne.ttf');
@@ -15,6 +17,8 @@
   --third-color: #1D8ECE;
   --fourth-color: #2E77BB;
 }
+
+/*** Set general text and layout properties ***/
 
 h1 {
   font-family: 'Sansita One';
@@ -68,6 +72,8 @@ p {
   display: inline-block;
 }
 
+/*** Set background colors ***/
+
 #color1 {
   background-color: var(--first-color);
 }
@@ -83,6 +89,8 @@ p {
 #color4 {
   background-color: var(--fourth-color);
 }
+
+/*** Set button styling ***/
 
 .upload {
   margin-left: auto;

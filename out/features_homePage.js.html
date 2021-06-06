@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: features/bulletEntries.js</title>
+    <title>JSDoc: Source: features/homePage.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: features/bulletEntries.js</h1>
+    <h1 class="page-title">Source: features/homePage.js</h1>
 
     
 
@@ -26,37 +26,13 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>
-/**
- * 
- * @param { any } element event.target
- * @param { String } currentIcon String of current class name for icon
- * @param { String } nextIcon String of next class name for icon
- * @returns changed element
+            <pre class="prettyprint source linenums"><code>/**
+ * Navigate to index if journal cover is clicked
  */
-function changeBulletIcon(element,nextIcon){
-  let elementToChange = element.parentElement.parentElement.childNodes[0];
-  elementToChange.className = nextIcon;
-  return elementToChange;
-}
-
-/**
- * This function removes the element passed in as a parameter
- * @param { any } element event.target
- */
-function deleteBulletIcon(element){
-  let elementToChange = element.parentElement.parentElement;
-  elementToChange.remove();
-  return elementToChange;
-}
-
-/**
- * This function toggles the drop down menu of entries
- */
-function toggleDrop(){
-  document.getElementById('myDropDown').classList.toggle('show');
-}
-
+let coverToIndex = document.getElementById('toIndex');
+coverToIndex.addEventListener('click', () => {
+  location.href="./indexPage.html";
+});
 </code></pre>
         </article>
     </section>

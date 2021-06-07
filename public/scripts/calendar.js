@@ -75,9 +75,12 @@ const renderCalendar = () => {
 }
 
 document.querySelector('.prev').addEventListener('click', () => {
-  const prevMonth = date.getMonth() - 1;
+  let prevMonth = date.getMonth() - 1;
   date.setMonth(prevMonth);
   path = months[prevMonth];
+  if(prevMonth > 11) {
+    prevMonth += 12;
+  }
   removeCurrentStickers(); // remove stickers on current page
   renderCalendar();
   getSavedStickers(); // get stickers on prev page
@@ -87,9 +90,12 @@ document.querySelector('.prev').addEventListener('click', () => {
 
 
 document.querySelector('.next').addEventListener('click', () => {
-  const nextMonth = date.getMonth() + 1;
+  let nextMonth = date.getMonth() + 1;
   date.setMonth(nextMonth);
   path = months[nextMonth];
+  if(nextMonth > 11) {
+    nextMonth -= 12;
+  }
   removeCurrentStickers(); // remove stickers on current page
   renderCalendar();
   getSavedStickers(); // get stickers on prev page

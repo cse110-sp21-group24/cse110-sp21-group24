@@ -9,9 +9,14 @@ function saveFutureBulletToLC(element){
   if(dayStorage == null){
     dayStorage = {};
   }
+  let month = element.parentElement.parentElement.parentElement.childNodes[1].innerHTML
+  let year = document.querySelector('h1').innerHTML;
+  let yearNumber = year.match(/(\d+)/);
+  let monthYear = month + yearNumber[0];
+  console.log(monthYear);
   let entryJSON = {
     pageID: pageName,
-    month: element.parentElement.parentElement.parentElement.childNodes[1].innerHTML,
+    month: monthYear,
     id: element.id,
     bulletType: element.childNodes[0].classList[0],
     entry: element.childNodes[0].innerHTML
@@ -38,6 +43,8 @@ function saveFutureBulletChangedIcon(element){
 function addFutureBulletsOnStart(){
   const monthsArr = ["first","second","third","fourth","fifth","sixth"];
   var monthsToSection = {};
+  let year = document.querySelector('h1').innerHTML;
+  let yearNumber = year.match(/(\d+)/);
   var currentMonths = getMonths();
   monthsToSection[currentMonths[0]] = monthsArr[0];
   monthsToSection[currentMonths[1]] = monthsArr[1];
@@ -55,6 +62,10 @@ function addFutureBulletsOnStart(){
       return dayData[key];
     });
   }
+  let currentMonth = currentMonths;
+  for(var i = 0; i < currentMonths.length; i++){
+    currentMonth[i] = currentMonths[i] + yearNumber[0];
+  }
   //console.log(bullets);
   bullets.forEach(elem => {
     let bullet = createDropDown();
@@ -66,7 +77,13 @@ function addFutureBulletsOnStart(){
     bullet.appendChild(bulletItem);
     bullet.appendChild(bulletDropDown);
     //console.log(elem.month);
-    let section = monthsToSection[elem.month];
+    let month = elem.month;
+    let sectionMonth = month.replace(/\d+/g,'');
+    let section = monthsToSection[sectionMonth];
+    console.log(yearNumber[0]);
+    
+    console.log(currentMonths);
+    console.log(elem.month);
     if(currentMonths.includes(elem.month)){
       let list = document.getElementById(section).getElementsByTagName('ul')[0];
       bullet.id = elem.id;

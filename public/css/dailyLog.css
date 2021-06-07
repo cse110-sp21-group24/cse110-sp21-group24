@@ -208,13 +208,13 @@ li a:hover:not(.active, .closebtn) {
   background-color: var(--second-color);
   border: 5px solid var(--second-color);
   border-radius: 15px;
-  font: 15px sans-serif;
+  font: 15px "Montserrat";
   height: 250px;
-  width: 100%;
+  width: 220px;
   color: black;
-  padding: 10px;
+  padding: 1em;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .daily {
@@ -228,18 +228,18 @@ margin-left: 18em;
 }
 
 .row-flex-container {
-display: flex;
-flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Style goals box */
 .goals {
-border: 2px solid black;
-border-radius: 15px;
-flex-basis: 200px;
-height: 300px;
-margin-top: 30px;
-margin-left: 10px;
+  border-radius: 15px;
+  flex-basis: 200px;
+  width: 30em;
+  margin-top: 30px;
+  margin-left: 10px;
+  background-color: var(--second-color);
 }
 
 #goal {
@@ -249,28 +249,27 @@ margin-left: 10px;
   text-align: left;
   background-color: var(--second-color);
   border: 5px solid var(--second-color);
-  font: 15px sans-serif;
+  font: 15px "Montserrat";
   height: 190px;
   color: black;
   padding: 10px;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 }
-
-
 
 .header {
   text-align: center;
+  font-family: "Montserrat";
+  padding-top: 20px;
 }
 
-
 .notes {
-border: 2px solid black;
-border-radius: 15px;
-flex-basis: 200px;
-height: 300px;
-margin-top: 30px;
-margin-left: 10px;
+  border-radius: 15px;
+  flex-basis: 200px;
+  width: 30em;
+  margin-top: 30px;
+  margin-left: 10px;
+  background-color: var(--second-color);
 }
 
 #notes{
@@ -280,12 +279,12 @@ margin-left: 10px;
   text-align: left;
   background-color: var(--second-color);
   border: 5px solid var(--second-color);
-  font: 15px sans-serif;
+  font: 15px "Montserrat";
   height: 190px;
   color: black;
   padding: 10px;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .daily ul{
@@ -295,7 +294,7 @@ margin-left: 10px;
 }
 
 #datesHeader {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
 }
 
 .round {
@@ -313,12 +312,13 @@ margin-left: 10px;
   border-radius: 50%;
   text-decoration: none;
   display: inline-block;
-  padding: 8px 12px;
+  padding: 2px 9px;
   background-color: white;
   color: var(--fourth-color);
   border: var(--fourth-color);
   position: relative;
-  margin-left: 40%;
+  margin-left: 45%;
+  font-size: 22px;
 }
 
 .previous {
@@ -334,25 +334,26 @@ margin-left: 10px;
 /*** Set layout of daily log section ***/
 
 .bigDay {
+  border-radius: 15px;
   float: left;
-  width: 30%;
-  margin-right: 20%;
+  margin-right: 16%;
   margin-left: 20px;
 }
 
 .bigDayContent {
+  margin-left: 10px;
+  width: 30em;
   text-align: center;
   color: var(--fourth-color);
   background-color: var(--second-color);
   border: 5px solid var(--second-color);
   border-radius: 15px;
-  font: 15px sans-serif;
-  height: 500px;
-  width: 100%;
+  font: 15px "Montserrat";
+  height: 400px;
   color: black;
   padding: 10px;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .current {
@@ -361,9 +362,13 @@ margin-left: 10px;
   text-align: left;
   border: 5px solid var(--second-color);
   border-radius: 15px;
-  font: 15px sans-serif;
+  font: 15px "Montserrat";
   height: 250px;
   color: black;
   padding: 10px;
   align-items: center;
+}
+
+h2 {
+  font-family: "Montserrat";
 }

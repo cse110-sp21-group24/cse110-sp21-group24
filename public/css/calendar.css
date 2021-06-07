@@ -177,5 +177,5 @@ html {
   color: black;
   padding: 10px;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 }

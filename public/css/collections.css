@@ -126,7 +126,7 @@
   height: 425px;
   color: black;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .content-box ul{

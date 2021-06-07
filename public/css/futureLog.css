@@ -150,3 +150,37 @@ h2 {
 .dropdown:hover .dropbtn {
   background-color: var(--fourth-color);
 }
+
+.add {
+  border-radius: 50%;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: white;
+  color: var(--fourth-color);
+  border: var(--fourth-color);
+  position: relative;
+  margin-left: 40%;
+}
+
+.content{
+  border-radius: 15px;
+  flex-basis: 300px;
+  margin-top: 10px;
+  text-align: left;
+  background-color: var(--second-color);
+  border: 5px solid var(--second-color);
+  font: 15px sans-serif;
+  height: 500px;
+  color: black;
+  padding: 10px;
+  align-items: center;
+  overflow: scroll;
+}
+
+.column ul{
+  display: flex;
+  flex-direction:column;
+  height: 85%;
+  padding-left: 0px;
+}

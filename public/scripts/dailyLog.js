@@ -9,12 +9,12 @@
 
   getColors(); // retrieve color scheme
 
-  // Get week dates from url
+  // get week dates from url
   let urlDate = decodeURI(location.hash).substring(1);
   if (urlDate !== "") {
     document.getElementById("datesHeader").innerHTML = `Week of ${urlDate}`;
   }
-  // If clicked from nav bar, display current week
+  // if clicked from nav bar, display current week
   else {
     let curr = new Date;
     let first = curr.getDate() - curr.getDay() + 1;
@@ -28,59 +28,47 @@
     document.getElementById("datesHeader").innerHTML = `Week of ${urlDate}`;
   }  
 
-  // Retrieve stickers
+  // retrieve stickers
   path = urlDate;
   getCustomStickers();
   getSavedStickers();
+  addBulletsOnStart();
 });
 
-/* When add button is pressed, add a new entry with corresponding bullet information */
-document.getElementById("mon-add").addEventListener('click', () => {
-  let item = document.createElement('li');
-  item.contentEditable = "true";
-  item.innerHTML = "ADD ENTRY";
-  item.classList.add('task-list');
-  let dropDown = document.createElement('div');
-  dropDown.style.width = '215px';
-  dropDown.classList.add('dropDown');
-  let myDropDown = document.createElement('div');
-  myDropDown.classList.add('dropDown-content');
-  myDropDown.setAttribute('id','myDropDown');
-  myDropDown.style.margin = "0px 0px 0px 10px";
-  let taskList = document.createElement('img');
-  taskList.src = 'images/taskB.png';
-  taskList.className = 'taskImage';
-  myDropDown.appendChild(taskList);
-  let eventList = document.createElement('img');
-  eventList.src = 'images/eventB.png';
-  eventList.className = 'eventImage';
-  myDropDown.appendChild(eventList);
-  let importantList = document.createElement('img');
-  importantList.src = 'images/importantB.png';
-  importantList.className = 'importantImage';
-  myDropDown.appendChild(importantList);
-  let inspirationList = document.createElement('img');
-  inspirationList.src = 'images/inspirationB.png';
-  inspirationList.className = 'inspirationImage';
-  myDropDown.appendChild(inspirationList);
-  let noteList = document.createElement('img');
-  noteList.src = 'images/noteB.png';
-  noteList.className = 'noteImage';
-  myDropDown.appendChild(noteList);
-  let checkMarkList = document.createElement('img');
-  checkMarkList.src = 'images/checkMark.png';
-  checkMarkList.className = 'checkMarkImage';
-  myDropDown.appendChild(checkMarkList);
-  let deleteList = document.createElement('img');
-  deleteList.src = 'images/trash.png';
-  deleteList.className = 'deleteImage';
-  myDropDown.appendChild(deleteList);
-  dropDown.appendChild(item);
-  dropDown.appendChild(myDropDown);
-  document.getElementById("mon").getElementsByTagName('ul')[0].appendChild(dropDown);
+const daysArr = ["mon","tue","wed","thu","fri","sat","sun","goal","notes"];
+
+daysArr.forEach((elem) => {
+  let day = elem+"-add";
+  document.getElementById(day).addEventListener('click', () => {
+    let oldList = document.getElementById(elem).getElementsByTagName('ul')[0];
+    let lastEntryId = oldList.childNodes[oldList.childNodes.length-1].id;
+    let item = document.createElement('li');
+    item.contentEditable = "true";
+    item.innerHTML = "ADD ENTRY";
+    item.classList.add('task-list');
+    let dropDown = createDropDown();
+    let myDropDown = addDropDownImages();
+    dropDown.appendChild(item);
+    dropDown.appendChild(myDropDown);
+    let list = document.getElementById(elem).getElementsByTagName('ul')[0];
+    //console.log(oldList);
+    if(lastEntryId == null){
+      dropDown.id = elem + 1;
+      //console.log(dropDown.id);
+    }else{
+      let number = lastEntryId.match(/(\d+)/);
+      //console.log(parseInt(number[0])+1);
+      let numberAdded = parseInt(number[0]);
+      let newNumberAdded = numberAdded+1;
+      dropDown.id = elem + newNumberAdded;
+    }
+    list.appendChild(dropDown);
+    saveToLC(dropDown);
+    //console.log(dropDown);
+  });
 });
 
-/* When the dropdown is clicked, show different bullet options */
+
 window.onclick = function(event) {
   if (!event.target.matches('.dropBtn')) {
     var dropdowns = document.getElementsByClassName("dropDown-content");
@@ -88,6 +76,7 @@ window.onclick = function(event) {
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
       if (openDropdown.classList.contains('show')) {
+        saveToLC(openDropdown.parentElement);
         openDropdown.classList.remove('show');
       }
     }
@@ -119,18 +108,27 @@ window.onclick = function(event) {
 
   if(event.target.classList == 'taskImage'){
     changeBulletIcon(event.target, 'task-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'eventImage'){
     changeBulletIcon(event.target, 'event-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'importantImage'){
     changeBulletIcon(event.target, 'important-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'inspirationImage'){
     changeBulletIcon(event.target, 'inspiration-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'noteImage'){
     changeBulletIcon(event.target, 'note-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'checkMarkImage'){
     changeBulletIcon(event.target, 'checkMark-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'deleteImage'){
+    deleteBulletPoint(event.target);
     deleteBulletIcon(event.target);
+  }else if(event.target.classList == 'saveIconImage'){
+    saveChangedIcon(event.target);
   }
 
   

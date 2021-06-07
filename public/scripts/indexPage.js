@@ -7,6 +7,7 @@ window.addEventListener('load', () => {
 
 let today = new Date();
 
+
 /* List of months to correspond with index of getMonth */
  const months = [
   "January",

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: features/collectionEntries.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: features/collectionEntries.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * This function adds the created collections to the side of the collections page
+ */
+function addCollectionList(){
+  let collectionList = JSON.parse(localStorage.getItem("Collections"));
+  let list = [];
+  if(collectionList != null){
+    list = Object.keys(collectionList).map(key => {
+      return collectionList[key];
+    });
+  }
+  list.forEach(elem => {
+    const collectionRow = document.createElement('p');
+    collectionRow.innerHTML = elem.name;
+    document.getElementById('collection-list').appendChild(collectionRow);
+  });
+  if(list.length != 0){
+    document.querySelector(".collection-title h1").innerHTML = list[0].name;
+  }
+  clickableCollections();
+}
+
+/**
+ * This function makes the created collections clickable on side to load the bullet points
+ */
+function clickableCollections(){
+  var collectionList = document.querySelectorAll(".collection-list p");
+  for (let i = 0; i &lt; collectionList.length; i++) { 
+    collectionList[i].addEventListener("click", function() {
+      //collectionList[i].style.textDecoration = 'underline';
+      document.querySelector(".collection-title h1").innerHTML = collectionList[i].textContent;
+      deleteAllBullets();
+      addCollectionBulletsOnStart();
+    });
+  }
+}
+
+/**
+ * This function saves the passed element to the local storage
+ * based on the collection that is open
+ * @param {*} element 
+ */
+function saveCollectionBulletToLC(element){
+  let collectionList = document.getElementById('ctitle').innerHTML;
+  let collectionStorage = JSON.parse(localStorage.getItem("CollectionsList"));
+  if(collectionStorage == null){
+    collectionStorage = {};
+  }
+  let entryJSON = {
+    pageID: "Collections",
+    collectionName: collectionList,
+    id: element.id,
+    bulletType: element.childNodes[0].classList[0],
+    entry: element.childNodes[0].innerHTML
+  }
+  collectionStorage[entryJSON.id] = entryJSON;
+  let key = "CollectionsList";
+  localStorage.setItem(key, JSON.stringify(collectionStorage));
+}
+
+function saveCollectionBulletChangedIcon(element){
+  let divChanged = element.parentElement.parentElement;
+  saveCollectionBulletToLC(divChanged);
+}
+
+function addCollectionBulletsOnStart(){
+  let collectionList = document.getElementById('ctitle').innerHTML;
+  let collectionStorage = JSON.parse(localStorage.getItem("CollectionsList"));
+  let bullets = [];
+  if(collectionStorage != null){
+    bullets = Object.keys(collectionStorage).map(key => {
+      return collectionStorage[key];
+    });
+  }
+  bullets.forEach(elem => {
+    if(elem.id.startsWith(collectionList)){
+      let bullet = createDropDown();
+      let bulletDropDown = addDropDownImages();
+      let bulletItem = document.createElement('li');
+      bulletItem.contentEditable = "true";
+      bulletItem.innerHTML = elem.entry;
+      bulletItem.classList.add(elem.bulletType);
+      bullet.appendChild(bulletItem);
+      bullet.appendChild(bulletDropDown);
+      let list = document.getElementById("collectionListArea").getElementsByTagName('ul')[0];
+      bullet.id = elem.id;
+      list.appendChild(bullet);
+    }
+  });
+}
+
+/**
+ * This function removes all of the bullets from the page
+ */
+function deleteAllBullets(){
+  let list = document.getElementById("collectionListArea").childNodes[1].childNodes;
+  for(var i = list.length - 1; i > 0; i--){
+    list[i].remove();
+  }
+  console.log(list);
+}
+
+/**
+ * This function deletes the passed element from the local storage
+ * @param {*} element 
+ */
+function deleteCollectionBulletPoint(element){
+  let collectionStorage = JSON.parse(localStorage.getItem("CollectionsList"));
+  let id = element.parentElement.parentElement.id;
+  delete collectionStorage[id];
+  localStorage.setItem("CollectionsList", JSON.stringify(collectionStorage));
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addBulletsOnStart">addBulletsOnStart</a></li><li><a href="global.html#addCollectionList">addCollectionList</a></li><li><a href="global.html#addDropDownImages">addDropDownImages</a></li><li><a href="global.html#addFutureBulletsOnStart">addFutureBulletsOnStart</a></li><li><a href="global.html#addOtherBulletsOnStart">addOtherBulletsOnStart</a></li><li><a href="global.html#calendarLink">calendarLink</a></li><li><a href="global.html#changeBulletIcon">changeBulletIcon</a></li><li><a href="global.html#clickableCollections">clickableCollections</a></li><li><a href="global.html#closeNav">closeNav</a></li><li><a href="global.html#collectionLink1">collectionLink1</a></li><li><a href="global.html#coverToIndex">coverToIndex</a></li><li><a href="global.html#createDropDown">createDropDown</a></li><li><a href="global.html#deleteAllBullets">deleteAllBullets</a></li><li><a href="global.html#deleteBulletIcon">deleteBulletIcon</a></li><li><a href="global.html#deleteBulletPoint">deleteBulletPoint</a></li><li><a href="global.html#deleteCollectionBulletPoint">deleteCollectionBulletPoint</a></li><li><a href="global.html#deleteFutureBulletPoint">deleteFutureBulletPoint</a></li><li><a href="global.html#deleteOtherBulletPoint">deleteOtherBulletPoint</a></li><li><a href="global.html#futureLink1">futureLink1</a></li><li><a href="global.html#getFuture">getFuture</a></li><li><a href="global.html#getMonths">getMonths</a></li><li><a href="global.html#getWeekOne">getWeekOne</a></li><li><a href="global.html#getWeekTwo">getWeekTwo</a></li><li><a href="global.html#openNav">openNav</a></li><li><a href="global.html#removeAllBullets">removeAllBullets</a></li><li><a href="global.html#saveBulletChangedIcon">saveBulletChangedIcon</a></li><li><a href="global.html#saveBulletToLC">saveBulletToLC</a></li><li><a href="global.html#saveChangedIcon">saveChangedIcon</a></li><li><a href="global.html#saveCollectionBulletToLC">saveCollectionBulletToLC</a></li><li><a href="global.html#saveFutureBulletChangedIcon">saveFutureBulletChangedIcon</a></li><li><a href="global.html#saveFutureBulletToLC">saveFutureBulletToLC</a></li><li><a href="global.html#saveToLC">saveToLC</a></li><li><a href="global.html#toggleDrop">toggleDrop</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Mon Jun 07 2021 18:53:49 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

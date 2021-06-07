@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-@font-face {
-  font-family: 'Roboto';
-  src: url('fonts/Roboto-Regular.ttf');
-}
-
 /* Changing color scheme */
 :root {
   --first-color: #9EB3C2;
@@ -45,6 +40,7 @@
 .content-box > .collection-subcontent {
   list-style-type: disc;
   cursor: text;
+  font-family: "Montserrat";
 }
 
 .list-box {
@@ -122,7 +118,7 @@
   text-align: left;
   background-color: white;
   border: 5px solid white;
-  font: 15px sans-serif;
+  font: 15px "Montserrat";
   height: 425px;
   color: black;
   align-items: center;

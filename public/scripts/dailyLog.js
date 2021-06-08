@@ -35,7 +35,7 @@
   addBulletsOnStart();
 });
 
-const daysArr = ["mon","tue","wed","thu","fri","sat","sun","goal","notes"];
+const daysArr = ["sun","mon","tue","wed","thu","fri","sat","goal","notes"];
 
 daysArr.forEach((elem) => {
   let day = elem+"-add";
@@ -182,12 +182,21 @@ function putBack(){
 days[0].addEventListener('click', () => {
 
   putBack();
-  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("mon"));
-  document.getElementById("monCurr").classList.add("current");
-  day.innerHTML = "Monday";
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sun"));
+  document.getElementById("sunCurr").classList.add("current");
+  day.innerHTML = "Sunday";
 });
 
 days[1].addEventListener('click', () => {
+
+  putBack();
+  day.innerHTML = "Monday";
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("mon"));
+  document.getElementById("monCurr").classList.add("current");
+  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Monday";
+});
+
+days[2].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Tuesday";
@@ -196,7 +205,7 @@ days[1].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Tuesday";
 });
 
-days[2].addEventListener('click', () => {
+days[3].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Wednesday";
@@ -205,7 +214,7 @@ days[2].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Wednesday";
 });
 
-days[3].addEventListener('click', () => {
+days[4].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Thursday";
@@ -214,7 +223,7 @@ days[3].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Thursday";
 });
 
-days[4].addEventListener('click', () => {
+days[5].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Friday";
@@ -223,20 +232,11 @@ days[4].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Friday";
 });
 
-days[5].addEventListener('click', () => {
+days[6].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Saturday";
   document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sat"));
   document.getElementById("satCurr").classList.add("current");
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Saturday";
-});
-
-days[6].addEventListener('click', () => {
-
-  putBack();
-  day.innerHTML = "Sunday";
-  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sun"));
-  document.getElementById("sunCurr").classList.add("current");
-  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Sunday";
 });

@@ -17,7 +17,7 @@
   // if clicked from nav bar, display current week
   else {
     let curr = new Date;
-    let first = curr.getDate() - curr.getDay() + 1;
+    let first = curr.getDate() - curr.getDay();
     let firstDay = new Date(curr.setDate(first));
     let lastDay = new Date(curr.setDate(curr.getDate() + 6));
 

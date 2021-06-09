@@ -132,6 +132,5 @@
 .content-box ul{
   display: flex;
   flex-direction:column;
-  height: 85%;
   padding-left: 0px;
 }

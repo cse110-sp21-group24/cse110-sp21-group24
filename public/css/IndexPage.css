@@ -9,6 +9,11 @@
   src: url('fonts/Mansalva-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'Montserrat Medium';
+  src: url('fonts/Montserrat-Medium.ttf');
+}
+
 /* Changing color scheme */
 :root {
   --first-color: #9EB3C2;
@@ -28,6 +33,10 @@ h1 {
   width: 625px;
   position:relative;
   left: 10px;
+}
+
+.bolded {
+  font-family: "Montserrat Medium";
 }
 
 #testLink {

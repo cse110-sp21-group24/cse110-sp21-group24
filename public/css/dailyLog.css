@@ -3,8 +3,6 @@
   src: url('fonts/SansitaOne.ttf');
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
 /* Changing color scheme */
 :root {
   --first-color: #9EB3C2;

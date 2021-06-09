@@ -184,7 +184,7 @@ function putBack(){
 
 /*** Make a day the focus of the main daily log on click ***/
 
-days[1].addEventListener('click', () => {
+days[0].addEventListener('click', () => {
 
   putBack();
   document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sun"));
@@ -244,13 +244,4 @@ days[6].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sat"));
   document.getElementById("satCurr").classList.add("current");
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Saturday";
-});
-
-days[0].addEventListener('click', () => {
-
-  putBack();
-  day.innerHTML = "Sunday";
-  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sun"));
-  document.getElementById("sunCurr").classList.add("current");
-  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Sunday";
 });

@@ -41,6 +41,10 @@ Install or update npm packages.
 npm install
 ```
 
+Install the LiveServer extension and open `index.html` with LiveServer to test locally.
+
+Alternatively:
+
 Install the Firebase CLI [here](https://firebase.google.com/docs/cli#install_the_firebase_cli).
 
 All website files will be located in the `public` directory. To test locally, run:
@@ -55,15 +59,9 @@ Website will then run at http://localhost:5000
 
 To build:
 
-Create a pull request with your changes. A build script will automatically be run and generate a preview before deploying. Code quality, testing, and document generation will also be run automatically. More details about the CI/CD pipeline can be viewed [here](admin/cipipeline/updated-phase1.md). Once the changes are merged to main, the deployment will be automatically be updated at https://team-24-gme-bujo.firebaseapp.com/.
+Create a pull request with your changes (on a new branch). A build script will automatically be run and generate a preview that can be viewed before deploying. Code quality, testing, and document generation will also be run automatically. More details about the CI/CD pipeline can be viewed [here](admin/cipipeline/updated-phase1.md).
 
-To manually deploy:
-
-```
-firebase deploy
-```
-
-Deployment will then be updated at https://team-24-gme-bujo.firebaseapp.com/
+Once the changes are merged to main, deployment will then be updated at https://team-24-gme-bujo.firebaseapp.com/
 
 ## Testing
 
@@ -76,6 +74,9 @@ npm test
 All tests will automatically be run after making a push to the repository.
 
 ## Linter
+
+Run the following command to lint files before pushing to the repository:
+
 ```
 npx eslint yourfile.js
 ```
@@ -84,4 +85,4 @@ npx eslint yourfile.js
 
 Documentation of all code written can be found in the **\out** folder.  
 
-Internal team documentation can be found under **\admin** and **\specs**. **\admin** contains notes on team meetings (including sprint reviews and retrospectives), standups, and the CI/CD pipeline. **\specs** contains artifacts from brainstorming sessions and the development of the design.
+Internal team documentation can be found under **\admin** and **\specs**. **\admin** contains notes on team meetings (including sprint reviews and retrospectives), standups, and the CI/CD pipeline. **\specs** contains artifacts from brainstorming sessions, development of the design, and ADRs.

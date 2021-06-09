@@ -4,7 +4,7 @@
 .task-list {
     list-style-type: none;
     list-style-image: none;
-    background: url('../images/taskB.png') no-repeat;
+    background: url('../images/icons/taskB.png') no-repeat;
     background-size: 1em;
     padding-left: 1.5em;
     padding-bottom: 5px;
@@ -14,7 +14,7 @@
 .event-list {
     list-style-type: none;
     list-style-image: none;
-    background: url('../images/eventB.png') no-repeat;
+    background: url('../images/icons/eventB.png') no-repeat;
     background-size: 1em;
     padding-left: 1.5em;
     padding-bottom: 5px;
@@ -24,7 +24,7 @@
 .important-list {
   list-style-type: none;
   list-style-image: none;
-  background: url('../images/importantB.png') no-repeat;
+  background: url('../images/icons/importantB.png') no-repeat;
   background-size: 1em;
   padding-left: 1.5em;
   padding-bottom: 5px;
@@ -34,7 +34,7 @@
 .inspiration-list {
   list-style-type: none;
   list-style-image: none;
-  background: url('../images/inspirationB.png') no-repeat;
+  background: url('../images/icons/inspirationB.png') no-repeat;
   background-size: 1em;
   padding-left: 1.5em;
   padding-bottom: 5px;
@@ -44,7 +44,7 @@
 .note-list {
   list-style-type: none;
   list-style-image: none;
-  background: url('../images/noteB.png') no-repeat;
+  background: url('../images/icons/noteB.png') no-repeat;
   background-size: 1em;
   padding-left: 1.5em;
   padding-bottom: 5px;
@@ -54,7 +54,7 @@
 .checkMark-list {
   list-style-type: none;
   list-style-image: none;
-  background: url('../images/checkMark.png') no-repeat;
+  background: url('../images/icons/checkMark.png') no-repeat;
   background-size: 1em;
   padding-left: 1.5em;
   padding-bottom: 5px;

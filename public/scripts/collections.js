@@ -11,9 +11,16 @@
   addCollectionBulletsOnStart();
 });
 
+/**
+ * Add a new collection
+ */
 function collectionAdd() {
   document.getElementsById("cinput").style.display = "inline";
 }
+
+/**
+ * Set the title of the collection based on current selection
+ */
 
 var collectionList = document.querySelectorAll(".collection-list p");
 
@@ -39,6 +46,9 @@ collectionInput.addEventListener("keyup", function(event) {
   }
 });
 
+/**
+ * Function to add collections to the right menu bar
+ */
 function addCollectionRow() {
   const collectionRow = document.createElement('p');
   const inputVal = document.getElementById("cinput").value;
@@ -56,6 +66,10 @@ function addCollectionRow() {
   collectionList[cList.id] = cList;
   localStorage.setItem("Collections", JSON.stringify(collectionList));
 }
+
+/**
+ * Set the layout for a collection
+ */
 
 document.getElementById("collection-add").addEventListener('click', () => {
   let oldList = document.getElementById("collectionListArea").getElementsByTagName('ul')[0];
@@ -82,6 +96,10 @@ document.getElementById("collection-add").addEventListener('click', () => {
   saveCollectionBulletToLC(dropDown);
   //console.log(dropDown);
 });
+
+/**
+ * Show dropdown when an entry is clicked
+ */
 
 window.onclick = function(event) {
   if (!event.target.matches('.dropBtn')) {

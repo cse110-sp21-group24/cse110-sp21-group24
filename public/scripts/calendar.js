@@ -74,6 +74,10 @@ const renderCalendar = () => {
 
 }
 
+/**
+ * Change the month when the previous month is clicked
+ */
+
 document.querySelector('.prev').addEventListener('click', () => {
   let prevMonth = date.getMonth() - 1;
   date.setMonth(prevMonth);
@@ -88,6 +92,9 @@ document.querySelector('.prev').addEventListener('click', () => {
   addOtherBulletsOnStart();
 });
 
+/**
+ * Change the month when the next month is clicked
+ */
 
 document.querySelector('.next').addEventListener('click', () => {
   let nextMonth = date.getMonth() + 1;
@@ -102,6 +109,10 @@ document.querySelector('.next').addEventListener('click', () => {
   removeAllBullets();
   addOtherBulletsOnStart();
 });
+
+/**
+ * Set general calendar format and layout
+ */
 
 renderCalendar();
 
@@ -129,6 +140,10 @@ document.getElementById("remider-add").addEventListener('click', () => {
   saveBulletToLC(dropDown);
   //console.log(dropDown);
 });
+
+/**
+ * Show dropdown when entry is clicked
+ */
 
 window.onclick = function(event) {
   if (!event.target.matches('.dropBtn')) {

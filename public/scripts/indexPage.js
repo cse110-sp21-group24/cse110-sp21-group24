@@ -9,6 +9,7 @@ let today = new Date();
 
 
 /* List of months to correspond with index of getMonth */
+
  const months = [
   "January",
   "February",
@@ -53,6 +54,8 @@ function getWeekTwo() {
 /**
  * Get the last 3 months to display on the index as the monthly
  * log
+ * @param { String } month number of month to display
+ * @returns the requested month
  */
 function getMonths(month) {
   switch(month) {
@@ -70,6 +73,8 @@ function getMonths(month) {
 /**
  * Get the last 2 sets of 6 months to display on the index as
  * the future log
+ * @param { String } option choose which six months to display
+ * @param { Integer } year year to add to month range
  */
 function getFuture(option, year) {
   switch(option) {
@@ -82,9 +87,8 @@ function getFuture(option, year) {
   }
 }
 
-/**
+/*** 
  * Create Event Listeners For Different Links For Hyper Links
- * Will need to change location.href to jump to correct page
  */
 
 var calendarLink = document.getElementById("calendar");
@@ -131,6 +135,7 @@ monthlyLink3.addEventListener('click', () => {
  * Get the current and next future logs according to
  * the current month
  */
+
 var futureLink1 = document.getElementById("future1");
 var futureLink2 = document.getElementById("future2");
 let futureOne, futureTwo;

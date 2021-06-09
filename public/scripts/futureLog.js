@@ -1,6 +1,7 @@
 /**
  * Update colors based on current color scheme
  */
+
 window.addEventListener('load', () => {
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -11,6 +12,7 @@ window.addEventListener('load', () => {
   /**
   * Get future log months depending on url or current month if no url hash
   */
+ 
   let urlFuture = decodeURI(location.hash).substring(1);
   // if no url hash, populate url variable
   if (urlFuture === "") {
@@ -48,6 +50,9 @@ window.addEventListener('load', () => {
   addFutureBulletsOnStart();
 });
 
+/**
+ * Create layout for each month
+ */
 
 const monthsArr = ["first","second","third","fourth","fifth","sixth"];
 
@@ -83,6 +88,10 @@ monthsArr.forEach((elem) => {
     //console.log(dropDown);
   });
 });
+
+/**
+ * When an entry is clicked, open the dropdown menu
+ */
 
 window.onclick = function(event) {
   if (!event.target.matches('.dropBtn')) {

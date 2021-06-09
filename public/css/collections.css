@@ -25,8 +25,8 @@
   text-align: center;
   color: var(--third-color);
   position: absolute;
-  left: 450px;
-  top: 50px;
+  left: 27%;
+  top: 6%;
 }
 
 .content-box {
@@ -46,9 +46,8 @@
   padding: 50px;
   width: 730px;
   height: 400px;
-  left: 250px;
-  right: 430px;
-  top: 152px;
+  left: 10%;
+  top: 20%;
   bottom: 112px;
 }
 
@@ -57,9 +56,9 @@
 }
 
 .list-box {
-  height: 510px;
-  width: 200px;
-  left: 1136px;
+  height: 100%;
+  width: 13%;
+  left: 73%;
   padding: 100px;
   position: relative;
   background-color: var(--second-color);
@@ -90,7 +89,7 @@
 .collection-edit {
   position: absolute;
   top: 20px;
-  left: 298px;
+  left: 230px;
 }
 
 .collection-input-section {
@@ -146,4 +145,33 @@
   flex-direction: column;
   height: 85%;
   padding-left: 0px;
+}
+
+.collection-delete {
+  position: absolute;
+  top: 20px;
+  left: 300px;
+}
+
+.delete-button {
+  cursor: pointer;
+  height: 0px;
+  width: 0px;
+  padding: 0;
+  margin: auto;
+  border: none;
+  outline: none;
+  vertical-align: top;
+}
+
+.collection-background {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 73%;
 }

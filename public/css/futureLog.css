@@ -165,12 +165,13 @@ h2 {
   border-radius: 50%;
   text-decoration: none;
   display: inline-block;
-  padding: 8px 12px;
+  font-size: 22px;
+  padding: 3px 11px;
   background-color: white;
   color: var(--fourth-color);
   border: var(--fourth-color);
   position: relative;
-  margin-left: 40%;
+  margin-left: 42%;
 }
 
 .column ul{

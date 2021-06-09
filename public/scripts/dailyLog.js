@@ -33,6 +33,11 @@
   getCustomStickers();
   getSavedStickers();
   addBulletsOnStart();
+
+  day.innerHTML = "Sunday";
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sun"));
+  document.getElementById("sunCurr").classList.add("current");
+  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Sunday";
 });
 
 /**
@@ -188,7 +193,7 @@ function putBack(){
  * Make a day the focus of the main daily log on click
  */
 
-days[0].addEventListener('click', () => {
+days[1].addEventListener('click', () => {
 
   putBack();
   document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("mon"));
@@ -196,7 +201,7 @@ days[0].addEventListener('click', () => {
   day.innerHTML = "Monday";
 });
 
-days[1].addEventListener('click', () => {
+days[2].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Tuesday";
@@ -205,7 +210,7 @@ days[1].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Tuesday";
 });
 
-days[2].addEventListener('click', () => {
+days[3].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Wednesday";
@@ -214,7 +219,7 @@ days[2].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Wednesday";
 });
 
-days[3].addEventListener('click', () => {
+days[4].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Thursday";
@@ -223,7 +228,7 @@ days[3].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Thursday";
 });
 
-days[4].addEventListener('click', () => {
+days[5].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Friday";
@@ -232,7 +237,7 @@ days[4].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Friday";
 });
 
-days[5].addEventListener('click', () => {
+days[6].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Saturday";
@@ -241,7 +246,7 @@ days[5].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Saturday";
 });
 
-days[6].addEventListener('click', () => {
+days[0].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Sunday";

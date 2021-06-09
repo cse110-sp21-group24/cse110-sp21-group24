@@ -43,6 +43,8 @@ const renderCalendar = () => {
 
   // gives the last day of the current month
   const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+
+  // gives the last day of the previous month
   const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
 
   // this will store the index of the week when 1st of that month lies
@@ -59,24 +61,22 @@ const renderCalendar = () => {
   // display the previous month's last few days
   for (let i = firstDayIndex; i > 0; i--){
     days += `<div class = "prev-date">${prevLastDay - i + 1}</div>`;
+    monthDays.innerHTML = days;
   }
 
-  for (let i = 1; i <= lastDay; i++){
-    
-    if (date.getMonth() === new Date().getMonth() && i === new Date().getDate()) {
+  for (let i = 1; i <= lastDay; i++){ 
+    if (date.getFullYear() === new Date().getFullYear() && date.getMonth() === new Date().getMonth() && i === new Date().getDate()) {
       days += `<div class = "today">${i}</div>`;
     }
     else days += `<div>${i}</div>`;
+    monthDays.innerHTML = days;
   }
-  alert(firstDayIndex);
-
+  
   for (let j = 1; j <= nextDays; j++){
     days += `<div class = "next-date">${j}</div>`;
     monthDays.innerHTML = days;
   }
-
-  
-
+  monthDays.innerHTML = days;
 }
 
 document.querySelector('.prev').addEventListener('click', () => {

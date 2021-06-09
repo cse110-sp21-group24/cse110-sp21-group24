@@ -9,6 +9,11 @@
   src: url('fonts/Mansalva-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'Montserrat Medium';
+  src: url('fonts/Montserrat-Medium.ttf');
+}
+
 /* Changing color scheme */
 :root {
   --first-color: #9EB3C2;
@@ -30,6 +35,10 @@ h1 {
   left: 10px;
 }
 
+.bolded {
+  font-family: "Montserrat Medium";
+}
+
 #testLink {
   color: black;
 }
@@ -43,9 +52,8 @@ h1 {
 .hyperLinks {
   width: 525px;
   height: auto;
-  padding-left: 10px;
-  padding-right: 75px;
-  margin-left: 10px;
+  padding-left: 20px;
+  padding-right: 100px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 60px;
@@ -144,6 +152,7 @@ h2{
 /*** Make Unordered List Not Have Regular Bullet Points ***/
 .noBullets {
   list-style-type: none;
+  font: 27px "Montserrat", sans-serif;
 }
 
 /*** Center and Moving All Elements ***/

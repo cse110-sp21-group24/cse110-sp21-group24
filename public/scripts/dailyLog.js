@@ -1,121 +1,78 @@
 /**
- * Update colors based on current color scheme
+ * Update colors based on current color scheme, update week header, 
+ * and get stickers when the page loads
  */
  window.addEventListener('load', () => {
-  // retrieve color scheme
-  const color1 = localStorage.getItem("color1");
-  const color2 = localStorage.getItem("color2");
-  const color3 = localStorage.getItem("color3");
-  const color4 = localStorage.getItem("color4");
-
-  document.documentElement.style.setProperty('--first-color', color1);
-  document.documentElement.style.setProperty('--second-color', color2);
-  document.documentElement.style.setProperty('--third-color', color3);
-  document.documentElement.style.setProperty('--fourth-color', color4);
-
-  // get the dates of the current week
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
-  let curr = new Date;
-  let first = curr.getDate() - curr.getDay();
-  let firstDay = new Date(curr.setDate(first));
-  let lastDay = new Date(curr.setDate(curr.getDate() + 6));
 
-  let firstFormat = `${monthNames[firstDay.getMonth()]} ${firstDay.getDate()}`
-  let lastFormat = `${monthNames[lastDay.getMonth()]} ${lastDay.getDate()}`
+  getColors(); // retrieve color scheme
 
-  document.getElementById("datesHeader").innerHTML = `Week of ${firstFormat} - ${lastFormat}`;
-
-  // retrieve custom stickers
-  let results = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-      if (key.startsWith("custom")) {
-          results.push(JSON.parse(localStorage.getItem(key)));
-      }
+  // get week dates from url
+  let urlDate = decodeURI(location.hash).substring(1);
+  if (urlDate !== "") {
+    document.getElementById("datesHeader").innerHTML = `Week of ${urlDate}`;
   }
-  results.forEach(elem => {
-    let loadCustom = document.createElement("img");
-    loadCustom.id = elem.id
-    loadCustom.src = elem.src;
-    loadCustom.setAttribute("ondragstart", "drag(event)");
-    loadCustom.setAttribute("onmousedown", "deleteSticker(event)");
-    loadCustom.height = "80";
-    document.getElementById("customBox").appendChild(loadCustom);
-  })
-  
-  // retrieve stickers placmenet
-  let stickers = Array.from(document.querySelectorAll("img")).filter(elem => elem.id.startsWith("sticker") || elem.id.startsWith("washi") || elem.id.startsWith("custom"));
-  stickers.forEach((elem) => {
-    let key = path.concat("/" + elem.id)
-    if (localStorage.getItem(`${key}`) !== null) {
-      let img = JSON.parse(localStorage.getItem(`${key}`));
-      let load = document.createElement("img");
-      load.id = img.id;
-      load.src = img.src;
-      load.setAttribute("ondragstart", "drag(event)");
-      load.setAttribute("onmousedown", "deleteSticker(event)");
-      load.class = "ui-draggable ui-draggable-handle";
-      load.height = "80";
-      load.style.position = img.style.position;
-      load.style.inset = img.style.inset;
-      let parent = "stickerBox";
-      if (elem.id.startsWith("washi")) {
-        parent = "washiBox";
-      } else if (elem.id.startsWith("custom")) {
-        parent = "customBox";
-      }
-      document.getElementById(parent).removeChild(elem);
-      document.getElementById("dropBody").appendChild(load);
-    }
-  })
+  // if clicked from nav bar, display current week
+  else {
+    let curr = new Date;
+    let first = curr.getDate() - curr.getDay() + 1;
+    let firstDay = new Date(curr.setDate(first));
+    let lastDay = new Date(curr.setDate(curr.getDate() + 6));
+
+    let firstFormat = `${monthNames[firstDay.getMonth()]} ${firstDay.getDate()}`;
+    let lastFormat = `${monthNames[lastDay.getMonth()]} ${lastDay.getDate()}`;
+
+    urlDate = firstFormat + " - " + lastFormat;
+    document.getElementById("datesHeader").innerHTML = `Week of ${urlDate}`;
+  }  
+
+  // retrieve stickers
+  path = urlDate;
+  getCustomStickers();
+  getSavedStickers();
+  addBulletsOnStart();
+
+  day.innerHTML = "Sunday";
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sun"));
+  document.getElementById("sunCurr").classList.add("current");
+  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Sunday";
 });
 
-document.getElementById("mon-add").addEventListener('click', () => {
-  let item = document.createElement('li');
-  item.contentEditable = "true";
-  item.innerHTML = "ADD ENTRY";
-  item.classList.add('task-list');
-  let dropDown = document.createElement('div');
-  dropDown.style.width = '215px';
-  dropDown.classList.add('dropDown');
-  let myDropDown = document.createElement('div');
-  myDropDown.classList.add('dropDown-content');
-  myDropDown.setAttribute('id','myDropDown');
-  myDropDown.style.margin = "0px 0px 0px 10px";
-  let taskList = document.createElement('img');
-  taskList.src = 'images/taskB.png';
-  taskList.className = 'taskImage';
-  myDropDown.appendChild(taskList);
-  let eventList = document.createElement('img');
-  eventList.src = 'images/eventB.png';
-  eventList.className = 'eventImage';
-  myDropDown.appendChild(eventList);
-  let importantList = document.createElement('img');
-  importantList.src = 'images/importantB.png';
-  importantList.className = 'importantImage';
-  myDropDown.appendChild(importantList);
-  let inspirationList = document.createElement('img');
-  inspirationList.src = 'images/inspirationB.png';
-  inspirationList.className = 'inspirationImage';
-  myDropDown.appendChild(inspirationList);
-  let noteList = document.createElement('img');
-  noteList.src = 'images/noteB.png';
-  noteList.className = 'noteImage';
-  myDropDown.appendChild(noteList);
-  let checkMarkList = document.createElement('img');
-  checkMarkList.src = 'images/checkMark.png';
-  checkMarkList.className = 'checkMarkImage';
-  myDropDown.appendChild(checkMarkList);
-  let deleteList = document.createElement('img');
-  deleteList.src = 'images/trash.png';
-  deleteList.className = 'deleteImage';
-  myDropDown.appendChild(deleteList);
-  dropDown.appendChild(item);
-  dropDown.appendChild(myDropDown);
-  document.getElementById("mon").getElementsByTagName('ul')[0].appendChild(dropDown);
+const daysArr = ["mon","tue","wed","thu","fri","sat","sun","goal","notes"];
+
+daysArr.forEach((elem) => {
+  let day = elem+"-add";
+  document.getElementById(day).addEventListener('click', () => {
+    let oldList = document.getElementById(elem).getElementsByTagName('ul')[0];
+    let lastEntryId = oldList.childNodes[oldList.childNodes.length-1].id;
+    let item = document.createElement('li');
+    item.contentEditable = "true";
+    item.innerHTML = "ADD ENTRY";
+    item.classList.add('task-list');
+    let dropDown = createDropDown();
+    let myDropDown = addDropDownImages();
+    dropDown.appendChild(item);
+    dropDown.appendChild(myDropDown);
+    let list = document.getElementById(elem).getElementsByTagName('ul')[0];
+    //console.log(oldList);
+    if(lastEntryId == null){
+      dropDown.id = elem + 1;
+      //console.log(dropDown.id);
+    }else{
+      let number = lastEntryId.match(/(\d+)/);
+      //console.log(parseInt(number[0])+1);
+      let numberAdded = parseInt(number[0]);
+      let newNumberAdded = numberAdded+1;
+      dropDown.id = elem + newNumberAdded;
+    }
+    list.appendChild(dropDown);
+    saveToLC(dropDown);
+    //console.log(dropDown);
+  });
 });
+
 
 window.onclick = function(event) {
   if (!event.target.matches('.dropBtn')) {
@@ -124,11 +81,14 @@ window.onclick = function(event) {
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
       if (openDropdown.classList.contains('show')) {
+        saveToLC(openDropdown.parentElement);
         openDropdown.classList.remove('show');
       }
     }
   }
   
+  /*** Show dropdown when bullet is selected ***/
+
   if(event.target.classList == 'task-list'){
     var dropDown = event.target.parentElement.childNodes[1];
     dropDown.classList.toggle('show');
@@ -149,20 +109,31 @@ window.onclick = function(event) {
     dropDown.classList.toggle('show');
   }
 
+  /*** Change bullet icon when one from dropdown is selected ***/
+
   if(event.target.classList == 'taskImage'){
     changeBulletIcon(event.target, 'task-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'eventImage'){
     changeBulletIcon(event.target, 'event-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'importantImage'){
     changeBulletIcon(event.target, 'important-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'inspirationImage'){
     changeBulletIcon(event.target, 'inspiration-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'noteImage'){
     changeBulletIcon(event.target, 'note-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'checkMarkImage'){
     changeBulletIcon(event.target, 'checkMark-list');
+    saveChangedIcon(event.target);
   }else if(event.target.classList == 'deleteImage'){
+    deleteBulletPoint(event.target);
     deleteBulletIcon(event.target);
+  }else if(event.target.classList == 'saveIconImage'){
+    saveChangedIcon(event.target);
   }
 
   
@@ -172,6 +143,7 @@ var days = document.getElementsByTagName('h2');
 
 var day = document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0];
 
+/* Function to remove the current day from the daily log section */
 function putBack(){
   if (day.innerHTML == "Monday") {
     document.getElementById("monContainer").appendChild(document.getElementById("mon"));
@@ -210,7 +182,9 @@ function putBack(){
   }
 }
 
-days[0].addEventListener('click', () => {
+/*** Make a day the focus of the main daily log on click ***/
+
+days[1].addEventListener('click', () => {
 
   putBack();
   document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("mon"));
@@ -218,7 +192,7 @@ days[0].addEventListener('click', () => {
   day.innerHTML = "Monday";
 });
 
-days[1].addEventListener('click', () => {
+days[2].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Tuesday";
@@ -227,7 +201,7 @@ days[1].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Tuesday";
 });
 
-days[2].addEventListener('click', () => {
+days[3].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Wednesday";
@@ -236,7 +210,7 @@ days[2].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Wednesday";
 });
 
-days[3].addEventListener('click', () => {
+days[4].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Thursday";
@@ -245,7 +219,7 @@ days[3].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Thursday";
 });
 
-days[4].addEventListener('click', () => {
+days[5].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Friday";
@@ -254,7 +228,7 @@ days[4].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Friday";
 });
 
-days[5].addEventListener('click', () => {
+days[6].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Saturday";
@@ -263,7 +237,7 @@ days[5].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Saturday";
 });
 
-days[6].addEventListener('click', () => {
+days[0].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Sunday";

@@ -102,3 +102,36 @@
   position: static;
   display: none;
 }
+
+.add {
+  border-radius: 50%;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: var(--second-color);
+  color: var(--fourth-color);
+  border: var(--fourth-color);
+  position: relative;
+  margin-left: 40%;
+}
+
+.entry{
+  border-radius: 15px;
+  flex-basis: 300px;
+  margin-top: 0px;
+  text-align: left;
+  background-color: white;
+  border: 5px solid white;
+  font: 15px sans-serif;
+  height: 425px;
+  color: black;
+  align-items: center;
+  overflow: scroll;
+}
+
+.content-box ul{
+  display: flex;
+  flex-direction:column;
+  height: 85%;
+  padding-left: 0px;
+}

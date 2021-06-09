@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="./css/collections.css" />
   <link rel="stylesheet" href="./css/navigation.css" />
   <link rel="stylesheet" href="./css/stickers.css">
+  <link rel="stylesheet" href="./css/bulletEntries.css">
+  <link rel="stylesheet" href="./css/dropDown.css">
 
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Sansita+One" />
 </head>
@@ -67,12 +69,11 @@
       </div>
 
       <div class="content-box">
-
-        <ul class="collection-subcontent">
-          <p>Body measurement 3/30</p>
-          <li>weight - 120lbs</li>
-          <li>right arm - 20in</li>
-        </ul>
+        <div id = "collectionListArea" class="entry">
+          <ul class="collection-subcontent">
+          </ul>
+          <a id="collection-add" class="add">&#x2b;</a>
+        </div>
       </div>
 
       <div class="list-box">
@@ -82,8 +83,7 @@
           </button>
         </div>
         <div class="collection-list" id="collection-list">
-          <p>Fitness Tracker</p>
-          <p>Christmas Present</p>
+          <p>Note Pad</p>
         </div>
         <div class="collection-input-section">
           <form>
@@ -101,7 +101,10 @@
   <!-- Scripts -->
   <script src="./scripts/index.js"></script>
   <script src="./scripts/collections.js"></script>
+  <script src="./scripts/features/colorscheme.js"></script>
   <script src="./scripts/features/stickers.js"></script>
+  <script src="./scripts/features/bulletEntries.js"></script>
+  <script src="./scripts/features/collectionEntries.js"></script>
     
   <!-- Libraries -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

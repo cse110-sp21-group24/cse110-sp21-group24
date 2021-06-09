@@ -2,60 +2,13 @@
  * Update colors based on current color scheme
  */
  window.addEventListener('load', () => {
-  // retrieve color scheme
-  const color1 = localStorage.getItem("color1");
-  const color2 = localStorage.getItem("color2");
-  const color3 = localStorage.getItem("color3");
-  const color4 = localStorage.getItem("color4");
+  getColors(); // retrieve color scheme
 
-  document.documentElement.style.setProperty('--first-color', color1);
-  document.documentElement.style.setProperty('--second-color', color2);
-  document.documentElement.style.setProperty('--third-color', color3);
-  document.documentElement.style.setProperty('--fourth-color', color4);
-
-// retrieve custom stickers
-let results = [];
-for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-    if (key.startsWith("custom")) {
-        results.push(JSON.parse(localStorage.getItem(key)));
-    }
-}
-results.forEach(elem => {
-  let loadCustom = document.createElement("img");
-  loadCustom.id = elem.id
-  loadCustom.src = elem.src;
-  loadCustom.setAttribute("ondragstart", "drag(event)");
-  loadCustom.setAttribute("onmousedown", "deleteSticker(event)");
-  loadCustom.height = "80";
-  document.getElementById("customBox").appendChild(loadCustom);
-})
-
-// retrieve stickers placmenet
-let stickers = Array.from(document.querySelectorAll("img")).filter(elem => elem.id.startsWith("sticker") || elem.id.startsWith("washi") || elem.id.startsWith("custom"));
-stickers.forEach((elem) => {
-  let key = path.concat("/" + elem.id)
-  if (localStorage.getItem(`${key}`) !== null) {
-    let img = JSON.parse(localStorage.getItem(`${key}`));
-    let load = document.createElement("img");
-    load.id = img.id;
-    load.src = img.src;
-    load.setAttribute("ondragstart", "drag(event)");
-    load.setAttribute("onmousedown", "deleteSticker(event)");
-    load.class = "ui-draggable ui-draggable-handle";
-    load.height = "80";
-    load.style.position = img.style.position;
-    load.style.inset = img.style.inset;
-    let parent = "stickerBox";
-    if (elem.id.startsWith("washi")) {
-      parent = "washiBox";
-    } else if (elem.id.startsWith("custom")) {
-      parent = "customBox";
-    }
-    document.getElementById(parent).removeChild(elem);
-    document.getElementById("dropBody").appendChild(load);
-    }
-  })
+  // retrieve stickers
+  getCustomStickers();
+  getSavedStickers();
+  addCollectionList();
+  addCollectionBulletsOnStart();
 });
 
 function collectionAdd() {
@@ -89,7 +42,100 @@ collectionInput.addEventListener("keyup", function(event) {
 function addCollectionRow() {
   const collectionRow = document.createElement('p');
   const inputVal = document.getElementById("cinput").value;
-  collectionRow.innerHTML = element;
-
+  const list = document.getElementById("collection-list");
+  collectionRow.innerHTML = inputVal;
   document.getElementById('collection-list').appendChild(collectionRow);
+  let collectionList = JSON.parse(localStorage.getItem("Collections"));
+  if(collectionList == null){
+    collectionList = {};
+  }
+  let cList = {
+    name: inputVal,
+    id: "Collections"+list.childNodes.length
+  }
+  collectionList[cList.id] = cList;
+  localStorage.setItem("Collections", JSON.stringify(collectionList));
+}
+
+document.getElementById("collection-add").addEventListener('click', () => {
+  let oldList = document.getElementById("collectionListArea").getElementsByTagName('ul')[0];
+  let lastEntryId = oldList.childNodes[oldList.childNodes.length-1].id;
+  let item = document.createElement('li');
+  item.contentEditable = "true";
+  item.innerHTML = "ADD ENTRY";
+  item.classList.add('task-list');
+  let dropDown = createDropDown();
+  let myDropDown = addDropDownImages();
+  dropDown.appendChild(item);
+  dropDown.appendChild(myDropDown);
+  let list = document.getElementById("collectionListArea").getElementsByTagName('ul')[0];
+  let listName = document.getElementById("ctitle").innerHTML;
+  if(lastEntryId == null){
+    var endingNumber = 1;
+  }else{
+    let number = lastEntryId.match(/(\d+)/);
+    let numberAdded = parseInt(number[0]);
+    var endingNumber = numberAdded + 1;
+  }
+  dropDown.id = listName + endingNumber;
+  list.appendChild(dropDown);
+  saveCollectionBulletToLC(dropDown);
+  //console.log(dropDown);
+});
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropBtn')) {
+    var dropdowns = document.getElementsByClassName("dropDown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        saveCollectionBulletToLC(openDropdown.parentElement);
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+  if(event.target.classList == 'task-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'event-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'important-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'inspiration-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'note-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'checkMark-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }
+  if(event.target.classList == 'taskImage'){
+    changeBulletIcon(event.target, 'task-list');
+    saveCollectionBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'eventImage'){
+    changeBulletIcon(event.target, 'event-list');
+    saveCollectionBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'importantImage'){
+    changeBulletIcon(event.target, 'important-list');
+    saveCollectionBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'inspirationImage'){
+    changeBulletIcon(event.target, 'inspiration-list');
+    saveCollectionBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'noteImage'){
+    changeBulletIcon(event.target, 'note-list');
+    saveCollectionBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'checkMarkImage'){
+    changeBulletIcon(event.target, 'checkMark-list');
+    saveCollectionBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'deleteImage'){
+    deleteCollectionBulletPoint(event.target);
+    deleteBulletIcon(event.target);
+  }else if(event.target.classList == 'saveIconImage'){
+    saveCollectionBulletChangedIcon(event.target);
+  }
 }

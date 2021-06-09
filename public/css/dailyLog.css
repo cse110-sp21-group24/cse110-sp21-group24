@@ -291,7 +291,7 @@ margin-left: 10px;
 .daily ul{
   display: flex;
   flex-direction:column;
-  height: 100%;
+  height: 90%;
 }
 
 #datesHeader {

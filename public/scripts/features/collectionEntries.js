@@ -128,9 +128,20 @@ function collectionDelete(){
   let collectionStorage= JSON.parse(localStorage.getItem("Collections"));
   let collectionListStorage = JSON.parse(localStorage.getItem("CollectionsList"));
   
+  for (const key of Object.keys(collectionListStorage)){
+    if (collectionListStorage[key].collectionName == collectionList){
+      delete collectionListStorage[key];
+    }
+  }
 
-  delete collectionStorage["Collections6"];
+  for (const key of Object.keys(collectionStorage)){
+    if (collectionStorage[key].name == collectionList){
+      delete collectionStorage[key];
+    }
+  }
+
   localStorage.setItem("Collections", JSON.stringify(collectionStorage));
+  localStorage.setItem("CollectionsList", JSON.stringify(collectionListStorage));
 
   location.reload();
 }

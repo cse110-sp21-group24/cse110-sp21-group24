@@ -16,7 +16,9 @@ function collectionAdd() {
     x.style.display = "block";
   }
 }
-
+/**
+ * Set the title of the collection based on current selection
+ */
 
 var collectionList = document.querySelectorAll(".collection-list p");
 
@@ -31,8 +33,6 @@ for (let i = 0; i < collectionList.length; i++) {
      });
 }
 
-
-
 var collectionInput = document.getElementById("cinput");
 
 collectionInput.addEventListener("keyup", function(event) {
@@ -40,7 +40,6 @@ collectionInput.addEventListener("keyup", function(event) {
    event.preventDefault();
    document.getElementById("csubmit-button").click();
    document.getElementById("creset-button").click();
-   
   }
 });
 

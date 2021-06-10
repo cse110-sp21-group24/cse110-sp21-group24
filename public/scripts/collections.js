@@ -161,24 +161,3 @@ window.onclick = function(event) {
     saveCollectionBulletChangedIcon(event.target);
   }
 }
-
-let testObject = JSON.parse(localStorage.getItem("Collections"));
-let test2 = JSON.parse(localStorage.getItem("CollectionsList"));
-
-console.log(testObject);
-console.log(test2);
-console.log(testObject["Collections4"]);
-
-for (const entry of Object.entries(testObject)){
-  console.log(entry);
-  for (const key of Object.keys(entry)){
-    console.log(key);
-  }
-}
-
-for (const entry of Object.entries(test2)){
-  console.log(entry);
-  for (const key of Object.keys(entry)){
-    console.log(key);
-  }
-}

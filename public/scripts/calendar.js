@@ -109,6 +109,7 @@ document.querySelector('.next').addEventListener('click', () => {
 });
 
 document.querySelector('.date p').addEventListener('click', () => {
+  path = months[new Date().getMonth()];
   date.setMonth(new Date().getMonth());
   date.setFullYear(new Date().getFullYear());
   removeCurrentStickers();

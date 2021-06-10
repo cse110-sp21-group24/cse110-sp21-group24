@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Collections</title>
 
-  <link rel="stylesheet" href="./css/collections.css" />
+  <link rel="stylesheet" href="./css/collection.css" />
   <link rel="stylesheet" href="./css/navigation.css" />
   <link rel="stylesheet" href="./css/stickers.css">
   <link rel="stylesheet" href="./css/bulletEntries.css">
@@ -17,7 +17,7 @@
 
 <body>
   <!-- Area for draggable stickers -->
-  <div id="dropBody" ondragover="allowDrop(event)">
+  <div id="dropBody" ondragover="allowDrop(event)" style="height:100%">
     <!-- Navigation -->
     <div class="navigation" id="navigation">
       <ul class="menu-items">
@@ -63,23 +63,17 @@
           </div>
         </section>
       </div>
+    
       <!-- Page Body -->
-      <div class="collection-title" id="collection-title">
-        <h1 class="ctitle" id="ctitle"></h1>
-      </div>
-
-      <div class="content-box">
-        <div id = "collectionListArea" class="entry">
-          <ul class="collection-subcontent">
-          </ul>
-          <a id="collection-add" class="add">&#x2b;</a>
-        </div>
-      </div>
-
       <div class="list-box">
         <div class="collection-edit">
           <button class="edit-button" id="edit-button" onclick="collectionAdd()">
-            <img src="./images/icons/edit_button.png" width="48" height="48" />
+            <img src="./images/icons/edit_button.png" height="35" />
+          </button>
+        </div>
+        <div class="collection-delete">
+          <button class="delete-button" id="delete-button" onclick="collectionDelete()">
+            <img src="./images/icons/trashcan.png" height="30" />
           </button>
         </div>
         <div class="collection-list" id="collection-list">
@@ -95,9 +89,27 @@
             <button type="reset" class="collection-reset-button" id="creset-button"></button>
           </form>
         </div>
+        <button type="submit" class="collection-submit-button" id="csubmit-button"
+          onclick="addCollectionRow();"></button>
+        <button type="reset" class="collection-reset-button" id="creset-button"></button>
+
       </div>
+      <div class="collection-title" id="collection-title">
+      <h1 class="ctitle" id="ctitle"></h1>
+    </div>
+
+      <div class="content-box">
+        <div id = "collectionListArea" class="entry">
+          <ul class="collection-subcontent">
+          </ul>
+          <a id="collection-add" class="add">&#x2b;</a>
+        </div>
+      </div>
+      
+
     </div>
   </div>
+  
   <!-- Scripts -->
   <script src="./scripts/index.js"></script>
   <script src="./scripts/collections.js"></script>

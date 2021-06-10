@@ -1,5 +1,17 @@
 # CSE 110 Group 24 - Bullet Journal Project
 
+## Table of Contents
+
+[Overview](#overview)  
+[BuJo](#bujo)  
+[Local Development](#local-development)  
+[Build and Deployment](#build-and-deployment)  
+[Testing](#testing)  
+[Linter](#linter)   
+[Documentation](#documentation)  
+
+## Overview
+
 [Team Page](./admin/team.md)
 
 Bullet journaling organizes scheduling, reminders, to-do lists, brainstorming, and other organizational tasks into a single notebook.
@@ -13,15 +25,25 @@ The core utilities of bullet journals are:
 
 ## BuJo
 
-Details on the features and functionality of our product can be found [here](admin/onboard.md)
+Our product took these core features and developed an application for students focused around the theme of personalization. Further details on the features and functionality of our product can be found [here](admin/onboard.md).
 
 ## Local Development
+
+Clone the repo with
+
+```
+git clone https://github.com/cse110-sp21-group24/cse110-sp21-group24
+```
 
 Install or update npm packages.
 
 ```
 npm install
 ```
+
+Install the LiveServer extension and open `index.html` with LiveServer to test locally.
+
+Alternatively:
 
 Install the Firebase CLI [here](https://firebase.google.com/docs/cli#install_the_firebase_cli).
 
@@ -33,18 +55,34 @@ firebase serve
 
 Website will then run at http://localhost:5000
 
-## Deployment
+## Build and Deployment
 
-To deploy:
+To build:
+
+Create a pull request with your changes (on a new branch). A build script will automatically be run and generate a preview that can be viewed before deploying. Code quality, testing, and document generation will also be run automatically. More details about the CI/CD pipeline can be viewed [here](admin/cipipeline/updated-phase1.md).
+
+Once the changes are merged to main, deployment will then be updated at https://team-24-gme-bujo.firebaseapp.com/
+
+## Testing
+
+To test locally run
 
 ```
-firebase deploy
+npm test
 ```
 
-Deployment will then be updated at https://team-24-gme-bujo.firebaseapp.com/
-
+All tests will automatically be run after making a push to the repository.
 
 ## Linter
+
+Run the following command to lint files before pushing to the repository:
+
 ```
 npx eslint yourfile.js
 ```
+
+## Documentation
+
+Documentation of all code written can be found in the **\out** folder.  
+
+Internal team documentation can be found under **\admin** and **\specs**. **\admin** contains notes on team meetings (including sprint reviews and retrospectives), standups, and the CI/CD pipeline. **\specs** contains artifacts from brainstorming sessions, development of the design, and ADRs.

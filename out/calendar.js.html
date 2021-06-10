@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: calendar.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: calendar.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const date = new Date();
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+/**
+ * Update colors based on current color scheme
+ */
+ window.addEventListener('load', () => {
+  getColors(); // retrieve color scheme
+
+  // if clicked from index page, populate with correct month
+  let urlMonth = decodeURI(location.hash).substring(1);
+  if (urlMonth !== "") {
+    date.setMonth(months.indexOf(urlMonth));
+    renderCalendar();
+  } else {
+    urlMonth = months[date.getMonth()];
+  }
+
+  // retrieve stickers
+  path = urlMonth + `${date.getFullYear()}`;
+  getCustomStickers();
+  getSavedStickers();
+  addOtherBulletsOnStart();
+});
+
+const renderCalendar = () => {
+  // need to find how many days have to be shown from the prev month
+  date.setDate(1);
+  const monthDays = document.querySelector(".days");
+
+  // gives the last day of the current month
+  const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+
+  // gives the last day of the previous month
+  const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+
+  // this will store the index of the week when 1st of that month lies
+  const firstDayIndex = date.getDay();
+  // this will store the index of the week when last day of that month lies
+  const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
+  // next month's days
+  const nextDays = 7 - lastDayIndex - 1;
+
+  let days = "";
+  document.querySelector(".date h1").innerHTML = months[date.getMonth()] + " " + date.getFullYear();
+  document.querySelector(".date p").innerHTML = "Today: " + new Date().toDateString();
+
+  // display the previous month's last few days
+  for (let i = firstDayIndex; i > 0; i--){
+    days += `&lt;div class = "prev-date">${prevLastDay - i + 1}&lt;/div>`;
+    monthDays.innerHTML = days;
+  }
+
+  for (let i = 1; i &lt;= lastDay; i++){ 
+    if (date.getFullYear() === new Date().getFullYear() &amp;&amp; date.getMonth() === new Date().getMonth() &amp;&amp; i === new Date().getDate()) {
+      days += `&lt;div class = "today">${i}&lt;/div>`;
+    }
+    else days += `&lt;div>${i}&lt;/div>`;
+    monthDays.innerHTML = days;
+  }
+  
+  for (let j = 1; j &lt;= nextDays; j++){
+    days += `&lt;div class = "next-date">${j}&lt;/div>`;
+    monthDays.innerHTML = days;
+  }
+  monthDays.innerHTML = days;
+}
+
+/**
+ * Change the month when the previous month is clicked
+ */
+
+document.querySelector('.prev').addEventListener('click', () => {
+  let prevMonth = date.getMonth() - 1;
+  date.setMonth(prevMonth);
+  path = months[prevMonth];
+  if(prevMonth > 11 || prevMonth &lt; 0) {
+    prevMonth += 12;
+  }
+  path = months[prevMonth] + `${date.getFullYear()}`;
+  removeCurrentStickers(); // remove stickers on current page
+  renderCalendar();
+  getSavedStickers(); // get stickers on prev page
+  removeAllBullets();
+  addOtherBulletsOnStart();
+});
+
+/**
+ * Change the month when the next month is clicked
+ */
+
+document.querySelector('.next').addEventListener('click', () => {
+  let nextMonth = date.getMonth() + 1;
+  date.setMonth(nextMonth);
+  if(nextMonth > 11) {
+    nextMonth -= 12;
+  }
+  path = months[nextMonth] + `${date.getFullYear()}`;
+  removeCurrentStickers(); // remove stickers on current page
+  renderCalendar();
+  getSavedStickers(); // get stickers on prev page
+  removeAllBullets();
+  addOtherBulletsOnStart();
+});
+
+/**
+ * Set general calendar format and layout
+ */
+document.querySelector('.date p').addEventListener('click', () => {
+  date.setMonth(new Date().getMonth());
+  date.setFullYear(new Date().getFullYear());
+  path = months[date.getMonth()] + `${date.getFullYear()}`;
+  removeCurrentStickers();
+  renderCalendar();
+  getSavedStickers();
+  removeAllBullets();
+  addOtherBulletsOnStart();
+});
+
+renderCalendar();
+
+document.getElementById("reminder-add").addEventListener('click', () => {
+  let oldList = document.getElementById("reminder").getElementsByTagName('ul')[0];
+  let lastEntryId = oldList.childNodes[oldList.childNodes.length-1].id;
+  let item = document.createElement('li');
+  item.contentEditable = "true";
+  item.innerHTML = "ADD ENTRY";
+  item.classList.add('task-list');
+  let dropDown = createDropDown();
+  let myDropDown = addDropDownImages();
+  dropDown.appendChild(item);
+  dropDown.appendChild(myDropDown);
+  let list = document.getElementById("reminder").getElementsByTagName('ul')[0];
+  if(lastEntryId == null){
+    var endingNumber = 1;
+  }else{
+    let number = lastEntryId.match(/(\d+)/);
+    let numberAdded = parseInt(number[0]);
+    var endingNumber = numberAdded + 1;
+  }
+  dropDown.id = "reminder" + endingNumber;
+  list.appendChild(dropDown);
+  saveBulletToLC(dropDown);
+  //console.log(dropDown);
+});
+
+/**
+ * Show dropdown when entry is clicked
+ */
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropBtn')) {
+    var dropdowns = document.getElementsByClassName("dropDown-content");
+    var i;
+    for (i = 0; i &lt; dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        saveBulletToLC(openDropdown.parentElement);
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+  if(event.target.classList == 'task-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'event-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'important-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'inspiration-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'note-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }else if(event.target.classList == 'checkMark-list'){
+    var dropDown = event.target.parentElement.childNodes[1];
+    dropDown.classList.toggle('show');
+  }
+  if(event.target.classList == 'taskImage'){
+    changeBulletIcon(event.target, 'task-list');
+    saveBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'eventImage'){
+    changeBulletIcon(event.target, 'event-list');
+    saveBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'importantImage'){
+    changeBulletIcon(event.target, 'important-list');
+    saveBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'inspirationImage'){
+    changeBulletIcon(event.target, 'inspiration-list');
+    saveBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'noteImage'){
+    changeBulletIcon(event.target, 'note-list');
+    saveBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'checkMarkImage'){
+    changeBulletIcon(event.target, 'checkMark-list');
+    saveBulletChangedIcon(event.target);
+  }else if(event.target.classList == 'deleteImage'){
+    deleteOtherBulletPoint(event.target);
+    deleteBulletIcon(event.target);
+  }else if(event.target.classList == 'saveIconImage'){
+    saveBulletChangedIcon(event.target);
+  }
+}
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addBulletsOnStart">addBulletsOnStart</a></li><li><a href="global.html#addCollectionBulletsOnStart">addCollectionBulletsOnStart</a></li><li><a href="global.html#addCollectionList">addCollectionList</a></li><li><a href="global.html#addCollectionRow">addCollectionRow</a></li><li><a href="global.html#addDropDownImages">addDropDownImages</a></li><li><a href="global.html#addFutureBulletsOnStart">addFutureBulletsOnStart</a></li><li><a href="global.html#addOtherBulletsOnStart">addOtherBulletsOnStart</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#changeBulletIcon">changeBulletIcon</a></li><li><a href="global.html#clickableCollections">clickableCollections</a></li><li><a href="global.html#closeNav">closeNav</a></li><li><a href="global.html#closeSticker">closeSticker</a></li><li><a href="global.html#collectionAdd">collectionAdd</a></li><li><a href="global.html#collectionLink1">collectionLink1</a></li><li><a href="global.html#collectionList">collectionList</a></li><li><a href="global.html#componentToHex">componentToHex</a></li><li><a href="global.html#coverToIndex">coverToIndex</a></li><li><a href="global.html#createCustom">createCustom</a></li><li><a href="global.html#createDropDown">createDropDown</a></li><li><a href="global.html#deleteAllBullets">deleteAllBullets</a></li><li><a href="global.html#deleteBulletIcon">deleteBulletIcon</a></li><li><a href="global.html#deleteBulletPoint">deleteBulletPoint</a></li><li><a href="global.html#deleteCollectionBulletPoint">deleteCollectionBulletPoint</a></li><li><a href="global.html#deleteFutureBulletPoint">deleteFutureBulletPoint</a></li><li><a href="global.html#deleteOtherBulletPoint">deleteOtherBulletPoint</a></li><li><a href="global.html#deleteSticker">deleteSticker</a></li><li><a href="global.html#drag">drag</a></li><li><a href="global.html#futureLink1">futureLink1</a></li><li><a href="global.html#getFuture">getFuture</a></li><li><a href="global.html#getMonths">getMonths</a></li><li><a href="global.html#getSavedStickers">getSavedStickers</a></li><li><a href="global.html#getWeekOne">getWeekOne</a></li><li><a href="global.html#getWeekTwo">getWeekTwo</a></li><li><a href="global.html#monthsArr">monthsArr</a></li><li><a href="global.html#openNav">openNav</a></li><li><a href="global.html#openSticker">openSticker</a></li><li><a href="global.html#putBack">putBack</a></li><li><a href="global.html#removeAllBullets">removeAllBullets</a></li><li><a href="global.html#removeCurrentStickers">removeCurrentStickers</a></li><li><a href="global.html#rgbToHex">rgbToHex</a></li><li><a href="global.html#saveBulletChangedIcon">saveBulletChangedIcon</a></li><li><a href="global.html#saveBulletToLC">saveBulletToLC</a></li><li><a href="global.html#saveChangedIcon">saveChangedIcon</a></li><li><a href="global.html#saveCollectionBulletChangedIcon">saveCollectionBulletChangedIcon</a></li><li><a href="global.html#saveCollectionBulletToLC">saveCollectionBulletToLC</a></li><li><a href="global.html#saveFutureBulletChangedIcon">saveFutureBulletChangedIcon</a></li><li><a href="global.html#saveFutureBulletToLC">saveFutureBulletToLC</a></li><li><a href="global.html#saveToLC">saveToLC</a></li><li><a href="global.html#toggleDrop">toggleDrop</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Thu Jun 10 2021 02:44:53 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

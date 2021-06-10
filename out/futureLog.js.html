@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: futureLog.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: futureLog.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Update colors based on current color scheme
+ */
+
+window.addEventListener('load', () => {
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  getColors(); // retrieve color scheme
+
+  /**
+  * Get future log months depending on url or current month if no url hash
+  */
+ 
+  let urlFuture = decodeURI(location.hash).substring(1);
+  // if no url hash, populate url variable
+  if (urlFuture === "") {
+    let today = new Date();
+    if ((today.getMonth() >= 0 &amp;&amp; today.getMonth() &lt;= 4) || today.getMonth() === 11) {
+      urlFuture = "January - June ";
+      if (today.getMonth() === 11) {
+        urlFuture += (today.getFullYear() + 1);
+      } else {
+        urlFuture += today.getFullYear();
+      }
+    } else {
+      urlFuture = "July - December " + today.getFullYear();
+    }
+  }
+
+  // get starting month and year from url
+  const splitArr = urlFuture.split(" ");
+  const startMonth = monthNames.indexOf(splitArr[0]);
+  const year = splitArr[3];
+
+  // populate the correct months and year
+  let count = 0;
+  document.querySelectorAll("h2").forEach(month => {
+    let curr = startMonth + count;
+    month.innerHTML = monthNames[curr];
+    count++;
+  });
+  document.querySelector("h1").innerHTML = `${year} Future Log`;
+  
+  // retrieve custom stickers
+  path = urlFuture;
+  getCustomStickers();
+  getSavedStickers();
+  addFutureBulletsOnStart();
+});
+
+/**
+ * Create layout for each month
+ */
+
+const monthsArr = ["first","second","third","fourth","fifth","sixth"];
+
+
+monthsArr.forEach((elem) => {
+  let month = elem+"-add";
+  document.getElementById(month).addEventListener('click', () => {
+    let oldList = document.getElementById(elem).getElementsByTagName('ul')[0];
+    let lastEntryId = oldList.childNodes[oldList.childNodes.length-1].id;
+    let item = document.createElement('li');
+    item.contentEditable = "true";
+    item.innerHTML = "ADD ENTRY";
+    item.classList.add('task-list');
+    let dropDown = createDropDown();
+    let myDropDown = addDropDownImages();
+    dropDown.appendChild(item);
+    dropDown.appendChild(myDropDown);
+    let list = document.getElementById(elem).getElementsByTagName('ul')[0];
+    let year = document.querySelector('h1').innerHTML;
+    let yearNumber = year.match(/(\d+)/);
+    if(lastEntryId == null){
+      var endingNumber = 1;
+    }else{
+      let number = lastEntryId.match(/(\d+)/);
+      let numberAdded = parseInt(number[0]);
+      var endingNumber = numberAdded + 1;
+    }
+    let monthName =document.getElementById(month).parentElement.parentElement.childNodes[1].innerHTML + yearNumber[0] + endingNumber;
+    console.log(monthName);
+    dropDown.id = monthName;
+    list.appendChild(dropDown);
+    saveFutureBulletToLC(dropDown);
+    //console.log(dropDown);
+  });
+});
+
+/**
+ * When an entry is clicked, open the dropdown menu
+ */
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropBtn')) {
+    var dropdowns = document.getElementsByClassName("dropDown-content");
+    var i;
+    for (i = 0; i &lt; dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        saveFutureBulletToLC(openDropdown.parentElement);
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+    if(event.target.classList == 'task-list'){
+      var dropDown = event.target.parentElement.childNodes[1];
+      dropDown.classList.toggle('show');
+    }else if(event.target.classList == 'event-list'){
+      var dropDown = event.target.parentElement.childNodes[1];
+      dropDown.classList.toggle('show');
+    }else if(event.target.classList == 'important-list'){
+      var dropDown = event.target.parentElement.childNodes[1];
+      dropDown.classList.toggle('show');
+    }else if(event.target.classList == 'inspiration-list'){
+      var dropDown = event.target.parentElement.childNodes[1];
+      dropDown.classList.toggle('show');
+    }else if(event.target.classList == 'note-list'){
+      var dropDown = event.target.parentElement.childNodes[1];
+      dropDown.classList.toggle('show');
+    }else if(event.target.classList == 'checkMark-list'){
+      var dropDown = event.target.parentElement.childNodes[1];
+      dropDown.classList.toggle('show');
+    }
+    if(event.target.classList == 'taskImage'){
+      changeBulletIcon(event.target, 'task-list');
+      saveFutureBulletChangedIcon(event.target);
+    }else if(event.target.classList == 'eventImage'){
+      changeBulletIcon(event.target, 'event-list');
+      saveFutureBulletChangedIcon(event.target);
+    }else if(event.target.classList == 'importantImage'){
+      changeBulletIcon(event.target, 'important-list');
+      saveFutureBulletChangedIcon(event.target);
+    }else if(event.target.classList == 'inspirationImage'){
+      changeBulletIcon(event.target, 'inspiration-list');
+      saveFutureBulletChangedIcon(event.target);
+    }else if(event.target.classList == 'noteImage'){
+      changeBulletIcon(event.target, 'note-list');
+      saveFutureBulletChangedIcon(event.target);
+    }else if(event.target.classList == 'checkMarkImage'){
+      changeBulletIcon(event.target, 'checkMark-list');
+      saveFutureBulletChangedIcon(event.target);
+    }else if(event.target.classList == 'deleteImage'){
+      deleteFutureBulletPoint(event.target);
+      deleteBulletIcon(event.target);
+    }else if(event.target.classList == 'saveIconImage'){
+      saveFutureBulletChangedIcon(event.target);
+    }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addBulletsOnStart">addBulletsOnStart</a></li><li><a href="global.html#addCollectionBulletsOnStart">addCollectionBulletsOnStart</a></li><li><a href="global.html#addCollectionList">addCollectionList</a></li><li><a href="global.html#addCollectionRow">addCollectionRow</a></li><li><a href="global.html#addDropDownImages">addDropDownImages</a></li><li><a href="global.html#addFutureBulletsOnStart">addFutureBulletsOnStart</a></li><li><a href="global.html#addOtherBulletsOnStart">addOtherBulletsOnStart</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#changeBulletIcon">changeBulletIcon</a></li><li><a href="global.html#clickableCollections">clickableCollections</a></li><li><a href="global.html#closeNav">closeNav</a></li><li><a href="global.html#closeSticker">closeSticker</a></li><li><a href="global.html#collectionAdd">collectionAdd</a></li><li><a href="global.html#collectionLink1">collectionLink1</a></li><li><a href="global.html#collectionList">collectionList</a></li><li><a href="global.html#componentToHex">componentToHex</a></li><li><a href="global.html#coverToIndex">coverToIndex</a></li><li><a href="global.html#createCustom">createCustom</a></li><li><a href="global.html#createDropDown">createDropDown</a></li><li><a href="global.html#deleteAllBullets">deleteAllBullets</a></li><li><a href="global.html#deleteBulletIcon">deleteBulletIcon</a></li><li><a href="global.html#deleteBulletPoint">deleteBulletPoint</a></li><li><a href="global.html#deleteCollectionBulletPoint">deleteCollectionBulletPoint</a></li><li><a href="global.html#deleteFutureBulletPoint">deleteFutureBulletPoint</a></li><li><a href="global.html#deleteOtherBulletPoint">deleteOtherBulletPoint</a></li><li><a href="global.html#deleteSticker">deleteSticker</a></li><li><a href="global.html#drag">drag</a></li><li><a href="global.html#futureLink1">futureLink1</a></li><li><a href="global.html#getFuture">getFuture</a></li><li><a href="global.html#getMonths">getMonths</a></li><li><a href="global.html#getSavedStickers">getSavedStickers</a></li><li><a href="global.html#getWeekOne">getWeekOne</a></li><li><a href="global.html#getWeekTwo">getWeekTwo</a></li><li><a href="global.html#monthsArr">monthsArr</a></li><li><a href="global.html#openNav">openNav</a></li><li><a href="global.html#openSticker">openSticker</a></li><li><a href="global.html#putBack">putBack</a></li><li><a href="global.html#removeAllBullets">removeAllBullets</a></li><li><a href="global.html#removeCurrentStickers">removeCurrentStickers</a></li><li><a href="global.html#rgbToHex">rgbToHex</a></li><li><a href="global.html#saveBulletChangedIcon">saveBulletChangedIcon</a></li><li><a href="global.html#saveBulletToLC">saveBulletToLC</a></li><li><a href="global.html#saveChangedIcon">saveChangedIcon</a></li><li><a href="global.html#saveCollectionBulletChangedIcon">saveCollectionBulletChangedIcon</a></li><li><a href="global.html#saveCollectionBulletToLC">saveCollectionBulletToLC</a></li><li><a href="global.html#saveFutureBulletChangedIcon">saveFutureBulletChangedIcon</a></li><li><a href="global.html#saveFutureBulletToLC">saveFutureBulletToLC</a></li><li><a href="global.html#saveToLC">saveToLC</a></li><li><a href="global.html#toggleDrop">toggleDrop</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Thu Jun 10 2021 02:44:53 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

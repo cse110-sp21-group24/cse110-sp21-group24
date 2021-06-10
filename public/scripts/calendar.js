@@ -30,7 +30,7 @@ const months = [
   }
 
   // retrieve stickers
-  path = urlMonth;
+  path = urlMonth + `${date.getFullYear()}`;
   getCustomStickers();
   getSavedStickers();
   addOtherBulletsOnStart();
@@ -82,10 +82,10 @@ const renderCalendar = () => {
 document.querySelector('.prev').addEventListener('click', () => {
   let prevMonth = date.getMonth() - 1;
   date.setMonth(prevMonth);
-  path = months[prevMonth];
   if(prevMonth > 11 || prevMonth < 0) {
     prevMonth += 12;
   }
+  path = months[prevMonth] + `${date.getFullYear()}`;
   removeCurrentStickers(); // remove stickers on current page
   renderCalendar();
   getSavedStickers(); // get stickers on prev page
@@ -97,10 +97,10 @@ document.querySelector('.prev').addEventListener('click', () => {
 document.querySelector('.next').addEventListener('click', () => {
   let nextMonth = date.getMonth() + 1;
   date.setMonth(nextMonth);
-  path = months[nextMonth];
   if(nextMonth > 11) {
     nextMonth -= 12;
   }
+  path = months[nextMonth] + `${date.getFullYear()}`;
   removeCurrentStickers(); // remove stickers on current page
   renderCalendar();
   getSavedStickers(); // get stickers on prev page
@@ -109,9 +109,9 @@ document.querySelector('.next').addEventListener('click', () => {
 });
 
 document.querySelector('.date p').addEventListener('click', () => {
-  path = months[new Date().getMonth()];
   date.setMonth(new Date().getMonth());
   date.setFullYear(new Date().getFullYear());
+  path = months[date.getMonth()] + `${date.getFullYear()}`;
   removeCurrentStickers();
   renderCalendar();
   getSavedStickers();

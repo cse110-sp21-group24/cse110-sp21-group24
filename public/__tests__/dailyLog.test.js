@@ -2,6 +2,7 @@
  * Tests dailyLog.js. Tests that the left window changes when different days are cliked &
 also tests the bulletEntries functionality
  */
+/*
 describe('Test daily log page functionality', () => {
   beforeAll(async() => { 
     await page.goto('http://127.0.0.1:8080/public/dailyLog.html');
@@ -162,3 +163,4 @@ describe('Test daily log page functionality', () => {
       console.log(`Bytes used: ${(usedBytes / totalBytes) * 100}%`);
     });
 });
+*/

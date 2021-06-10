@@ -78,7 +78,7 @@ document.querySelector('.prev').addEventListener('click', () => {
   let prevMonth = date.getMonth() - 1;
   date.setMonth(prevMonth);
   path = months[prevMonth];
-  if(prevMonth > 11) {
+  if(prevMonth > 11 || prevMonth < 0) {
     prevMonth += 12;
   }
   removeCurrentStickers(); // remove stickers on current page
@@ -92,10 +92,10 @@ document.querySelector('.prev').addEventListener('click', () => {
 document.querySelector('.next').addEventListener('click', () => {
   let nextMonth = date.getMonth() + 1;
   date.setMonth(nextMonth);
-  path = months[nextMonth];
   if(nextMonth > 11) {
     nextMonth -= 12;
   }
+  path = months[nextMonth];
   removeCurrentStickers(); // remove stickers on current page
   renderCalendar();
   getSavedStickers(); // get stickers on prev page
@@ -105,7 +105,7 @@ document.querySelector('.next').addEventListener('click', () => {
 
 renderCalendar();
 
-document.getElementById("remider-add").addEventListener('click', () => {
+document.getElementById("reminder-add").addEventListener('click', () => {
   let oldList = document.getElementById("reminder").getElementsByTagName('ul')[0];
   let lastEntryId = oldList.childNodes[oldList.childNodes.length-1].id;
   let item = document.createElement('li');
@@ -124,7 +124,7 @@ document.getElementById("remider-add").addEventListener('click', () => {
     let numberAdded = parseInt(number[0]);
     var endingNumber = numberAdded + 1;
   }
-  dropDown.id = "remider" + endingNumber;
+  dropDown.id = "reminder" + endingNumber;
   list.appendChild(dropDown);
   saveBulletToLC(dropDown);
   //console.log(dropDown);

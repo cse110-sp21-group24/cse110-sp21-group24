@@ -110,3 +110,19 @@ function deleteCollectionBulletPoint(element){
   delete collectionStorage[id];
   localStorage.setItem("CollectionsList", JSON.stringify(collectionStorage));
 }
+
+/**
+ * This function deletes the collection passed from local storage
+ * @param {*} element 
+ */
+function collectionDelete(){
+  let collectionList = document.getElementById("ctitle").innerHTML;
+  let collectionStorage= JSON.parse(localStorage.getItem("Collections"));
+ 
+  delete collectionStorage[element.parentElement.parentElement.id];
+  localStorage.setItem(id, JSON.stringify(collectionStorage));
+
+
+
+  addCollectionList();
+}

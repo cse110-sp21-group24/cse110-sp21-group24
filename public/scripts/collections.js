@@ -147,14 +147,3 @@ window.onclick = function(event) {
     saveCollectionBulletChangedIcon(event.target);
   }
 }
-
-/**
- * This function deletes the collection passed from local storage
- * @param {*} element 
- */
-function collectionDelete(){
-  let id = document.getElementById("ctitle").innerHTML;
-  let dayData = JSON.parse(localStorage.getItem(id));
-  delete dayData[element.parentElement.parentElement.id];
-  localStorage.setItem(id, JSON.stringify(dayData));
-}

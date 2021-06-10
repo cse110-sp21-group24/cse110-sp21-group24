@@ -1,5 +1,5 @@
 /**
- * This function saves the passed element to local storage
+ * This function saves the passed element to local storage for the Calandar Page
  * @param {*} element 
  */
 function saveBulletToLC(element){
@@ -68,7 +68,7 @@ function addOtherBulletsOnStart(){
 }
 
 /**
- * This function deletes the passed element from local storage
+ * This function deletes the passed element from local storage for the montly logs page
  * @param {*} element 
  */
 function deleteOtherBulletPoint(element){

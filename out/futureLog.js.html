@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: futureLog.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: futureLog.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Update colors based on current color scheme
  */
 
@@ -17,7 +45,7 @@ window.addEventListener('load', () => {
   // if no url hash, populate url variable
   if (urlFuture === "") {
     let today = new Date();
-    if ((today.getMonth() >= 0 && today.getMonth() <= 4) || today.getMonth() === 11) {
+    if ((today.getMonth() >= 0 &amp;&amp; today.getMonth() &lt;= 4) || today.getMonth() === 11) {
       urlFuture = "January - June ";
       if (today.getMonth() === 11) {
         urlFuture += (today.getFullYear() + 1);
@@ -97,7 +125,7 @@ window.onclick = function(event) {
   if (!event.target.matches('.dropBtn')) {
     var dropdowns = document.getElementsByClassName("dropDown-content");
     var i;
-    for (i = 0; i < dropdowns.length; i++) {
+    for (i = 0; i &lt; dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
       if (openDropdown.classList.contains('show')) {
         saveFutureBulletToLC(openDropdown.parentElement);
@@ -148,4 +176,26 @@ window.onclick = function(event) {
     }else if(event.target.classList == 'saveIconImage'){
       saveFutureBulletChangedIcon(event.target);
     }
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addBulletsOnStart">addBulletsOnStart</a></li><li><a href="global.html#addCollectionBulletsOnStart">addCollectionBulletsOnStart</a></li><li><a href="global.html#addCollectionList">addCollectionList</a></li><li><a href="global.html#addCollectionRow">addCollectionRow</a></li><li><a href="global.html#addDropDownImages">addDropDownImages</a></li><li><a href="global.html#addFutureBulletsOnStart">addFutureBulletsOnStart</a></li><li><a href="global.html#addOtherBulletsOnStart">addOtherBulletsOnStart</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#changeBulletIcon">changeBulletIcon</a></li><li><a href="global.html#clickableCollections">clickableCollections</a></li><li><a href="global.html#closeNav">closeNav</a></li><li><a href="global.html#closeSticker">closeSticker</a></li><li><a href="global.html#collectionAdd">collectionAdd</a></li><li><a href="global.html#collectionLink1">collectionLink1</a></li><li><a href="global.html#collectionList">collectionList</a></li><li><a href="global.html#componentToHex">componentToHex</a></li><li><a href="global.html#coverToIndex">coverToIndex</a></li><li><a href="global.html#createCustom">createCustom</a></li><li><a href="global.html#createDropDown">createDropDown</a></li><li><a href="global.html#deleteAllBullets">deleteAllBullets</a></li><li><a href="global.html#deleteBulletIcon">deleteBulletIcon</a></li><li><a href="global.html#deleteBulletPoint">deleteBulletPoint</a></li><li><a href="global.html#deleteCollectionBulletPoint">deleteCollectionBulletPoint</a></li><li><a href="global.html#deleteFutureBulletPoint">deleteFutureBulletPoint</a></li><li><a href="global.html#deleteOtherBulletPoint">deleteOtherBulletPoint</a></li><li><a href="global.html#deleteSticker">deleteSticker</a></li><li><a href="global.html#drag">drag</a></li><li><a href="global.html#futureLink1">futureLink1</a></li><li><a href="global.html#getFuture">getFuture</a></li><li><a href="global.html#getMonths">getMonths</a></li><li><a href="global.html#getSavedStickers">getSavedStickers</a></li><li><a href="global.html#getWeekOne">getWeekOne</a></li><li><a href="global.html#getWeekTwo">getWeekTwo</a></li><li><a href="global.html#monthsArr">monthsArr</a></li><li><a href="global.html#openNav">openNav</a></li><li><a href="global.html#openSticker">openSticker</a></li><li><a href="global.html#putBack">putBack</a></li><li><a href="global.html#removeAllBullets">removeAllBullets</a></li><li><a href="global.html#removeCurrentStickers">removeCurrentStickers</a></li><li><a href="global.html#rgbToHex">rgbToHex</a></li><li><a href="global.html#saveBulletChangedIcon">saveBulletChangedIcon</a></li><li><a href="global.html#saveBulletToLC">saveBulletToLC</a></li><li><a href="global.html#saveChangedIcon">saveChangedIcon</a></li><li><a href="global.html#saveCollectionBulletChangedIcon">saveCollectionBulletChangedIcon</a></li><li><a href="global.html#saveCollectionBulletToLC">saveCollectionBulletToLC</a></li><li><a href="global.html#saveFutureBulletChangedIcon">saveFutureBulletChangedIcon</a></li><li><a href="global.html#saveFutureBulletToLC">saveFutureBulletToLC</a></li><li><a href="global.html#saveToLC">saveToLC</a></li><li><a href="global.html#toggleDrop">toggleDrop</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Thu Jun 10 2021 03:27:42 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

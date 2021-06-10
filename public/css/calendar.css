@@ -129,7 +129,7 @@ html {
 .days div {
   font-size: 1.5rem;
   width: calc(989.4px / 7);
-  height: 5rem;
+  height: 7.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,12 +157,13 @@ html {
   border-radius: 50%;
   text-decoration: none;
   display: inline-block;
-  padding: 8px 12px;
+  font-size: 22px;
+  padding: 3px 11px;
   background-color: var(--second-color);
   color: var(--fourth-color);
   border: var(--fourth-color);
   position: relative;
-  margin-left: 40%;
+  margin-left: 42%;
 }
 
 .entry{
@@ -177,5 +178,5 @@ html {
   color: black;
   padding: 10px;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 }

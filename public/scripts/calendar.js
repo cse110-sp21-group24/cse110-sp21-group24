@@ -36,7 +36,7 @@ const months = [
   addOtherBulletsOnStart();
 });
 
-const renderCalendar = () => {
+const renderCalendar = () => {  
   // need to find how many days have to be shown from the prev month
   date.setDate(1);
   const monthDays = document.querySelector(".days");
@@ -60,23 +60,67 @@ const renderCalendar = () => {
 
   // display the previous month's last few days
   for (let i = firstDayIndex; i > 0; i--){
-    days += `<div class = "prev-date">${prevLastDay - i + 1}</div>`;
+    days += `<div class = "prev-date" class = "single-day">${prevLastDay - i + 1}</div>`;
     monthDays.innerHTML = days;
   }
 
-  for (let i = 1; i <= lastDay; i++){ 
+  for (let i = 1; i <= lastDay; i++){
     if (date.getFullYear() === new Date().getFullYear() && date.getMonth() === new Date().getMonth() && i === new Date().getDate()) {
-      days += `<div class = "today">${i}</div>`;
+      days += `<div class = "today" class = "single-day">${i}</div>`;
     }
-    else days += `<div>${i}</div>`;
+    else days += `<div class = "single-day">${i}</div>`;
     monthDays.innerHTML = days;
+
   }
   
   for (let j = 1; j <= nextDays; j++){
-    days += `<div class = "next-date">${j}</div>`;
+    days += `<div class = "next-date" class = "single-day">${j}</div>`;
     monthDays.innerHTML = days;
   }
   monthDays.innerHTML = days;
+  setDayOnClick();
+}
+
+
+/**
+ * Redirect to the correct daily log page if a day is clicked
+ */
+function setDayOnClick() {
+  let allDays = document.querySelectorAll('.single-day');
+  for (const day of allDays) {
+      day.addEventListener('click', () => {
+        location.href="dailyLog.html#" + getWeek(day);
+      });
+  }
+}
+
+/**
+ * Get the current week of the day being clicked
+ * @param day day currently being clicked
+ * @returns { String } week to add to url hash
+ */
+function getWeek(day) {
+  let currDay = parseInt(day.innerHTML);
+  let currMonth = document.querySelector('#currMonth').innerHTML;
+  currMonth = months.indexOf(currMonth.split(" ")[0]);
+  console.log(currMonth);
+  let currDate = new Date();
+  currDate.setDate(currDay);
+  currDate.setMonth(currMonth);
+
+  let firstDay = new Date();
+  firstDay.setMonth(currMonth);
+  firstDay.setDate(currDate.getDate() - currDate.getDay() % 7);
+
+  let lastDay = new Date();
+  lastDay.setMonth(currMonth);
+  lastDay.setDate(currDate.getDate() + (6 - currDate.getDay() % 7));
+
+  console.log(months[firstDay.getMonth()] + " " + firstDay.getDate() + " - " 
+  + months[lastDay.getMonth()] + " " + lastDay.getDate());
+
+  return months[firstDay.getMonth()] + " " + firstDay.getDate() + " - " 
+  + months[lastDay.getMonth()] + " " + lastDay.getDate();
 }
 
 /**

@@ -40,9 +40,8 @@
   border: 5px solid var(--second-color);
   color: black;
   align-items: center;
-  font: 15px sans-serif;
+  font: 15px "Montserrat", sans-serif;
   overflow: hidden;
-
   padding: 50px;
   width: 730px;
   height: 400px;
@@ -133,11 +132,11 @@
   text-align: left;
   background-color: white;
   border: 5px solid white;
-  font: 15px sans-serif;
-  height: 425px;
+  font: 15px "Montserrat", sans-serif;
+  max-height: 400px;
   color: black;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .content-box ul {

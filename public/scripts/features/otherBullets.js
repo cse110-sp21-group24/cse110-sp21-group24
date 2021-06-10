@@ -1,5 +1,5 @@
 /**
- * This function saves the passed element to local storage
+ * This function saves the passed element to local storage for the Calandar Page
  * @param {*} element 
  */
 function saveBulletToLC(element){

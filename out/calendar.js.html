@@ -64,7 +64,7 @@ const months = [
   addOtherBulletsOnStart();
 });
 
-const renderCalendar = () => {
+const renderCalendar = () => {  
   // need to find how many days have to be shown from the prev month
   date.setDate(1);
   const monthDays = document.querySelector(".days");
@@ -88,23 +88,67 @@ const renderCalendar = () => {
 
   // display the previous month's last few days
   for (let i = firstDayIndex; i > 0; i--){
-    days += `&lt;div class = "prev-date">${prevLastDay - i + 1}&lt;/div>`;
+    days += `&lt;div class = "prev-date" class = "single-day">${prevLastDay - i + 1}&lt;/div>`;
     monthDays.innerHTML = days;
   }
 
-  for (let i = 1; i &lt;= lastDay; i++){ 
+  for (let i = 1; i &lt;= lastDay; i++){
     if (date.getFullYear() === new Date().getFullYear() &amp;&amp; date.getMonth() === new Date().getMonth() &amp;&amp; i === new Date().getDate()) {
-      days += `&lt;div class = "today">${i}&lt;/div>`;
+      days += `&lt;div class = "today" class = "single-day">${i}&lt;/div>`;
     }
-    else days += `&lt;div>${i}&lt;/div>`;
+    else days += `&lt;div class = "single-day">${i}&lt;/div>`;
     monthDays.innerHTML = days;
+
   }
   
   for (let j = 1; j &lt;= nextDays; j++){
-    days += `&lt;div class = "next-date">${j}&lt;/div>`;
+    days += `&lt;div class = "next-date" class = "single-day">${j}&lt;/div>`;
     monthDays.innerHTML = days;
   }
   monthDays.innerHTML = days;
+  setDayOnClick();
+}
+
+
+/**
+ * Redirect to the correct daily log page if a day is clicked
+ */
+function setDayOnClick() {
+  let allDays = document.querySelectorAll('.single-day');
+  for (const day of allDays) {
+      day.addEventListener('click', () => {
+        location.href="dailyLog.html#" + getWeek(day);
+      });
+  }
+}
+
+/**
+ * Get the current week of the day being clicked
+ * @param day day currently being clicked
+ * @returns { String } week to add to url hash
+ */
+function getWeek(day) {
+  let currDay = parseInt(day.innerHTML);
+  let currMonth = document.querySelector('#currMonth').innerHTML;
+  currMonth = months.indexOf(currMonth.split(" ")[0]);
+  console.log(currMonth);
+  let currDate = new Date();
+  currDate.setDate(currDay);
+  currDate.setMonth(currMonth);
+
+  let firstDay = new Date();
+  firstDay.setMonth(currMonth);
+  firstDay.setDate(currDate.getDate() - currDate.getDay() % 7);
+
+  let lastDay = new Date();
+  lastDay.setMonth(currMonth);
+  lastDay.setDate(currDate.getDate() + (6 - currDate.getDay() % 7));
+
+  console.log(months[firstDay.getMonth()] + " " + firstDay.getDate() + " - " 
+  + months[lastDay.getMonth()] + " " + lastDay.getDate());
+
+  return months[firstDay.getMonth()] + " " + firstDay.getDate() + " - " 
+  + months[lastDay.getMonth()] + " " + lastDay.getDate();
 }
 
 /**
@@ -256,13 +300,13 @@ window.onclick = function(event) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addBulletsOnStart">addBulletsOnStart</a></li><li><a href="global.html#addCollectionBulletsOnStart">addCollectionBulletsOnStart</a></li><li><a href="global.html#addCollectionList">addCollectionList</a></li><li><a href="global.html#addCollectionRow">addCollectionRow</a></li><li><a href="global.html#addDropDownImages">addDropDownImages</a></li><li><a href="global.html#addFutureBulletsOnStart">addFutureBulletsOnStart</a></li><li><a href="global.html#addOtherBulletsOnStart">addOtherBulletsOnStart</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#changeBulletIcon">changeBulletIcon</a></li><li><a href="global.html#clickableCollections">clickableCollections</a></li><li><a href="global.html#closeNav">closeNav</a></li><li><a href="global.html#closeSticker">closeSticker</a></li><li><a href="global.html#collectionAdd">collectionAdd</a></li><li><a href="global.html#collectionLink1">collectionLink1</a></li><li><a href="global.html#collectionList">collectionList</a></li><li><a href="global.html#componentToHex">componentToHex</a></li><li><a href="global.html#coverToIndex">coverToIndex</a></li><li><a href="global.html#createCustom">createCustom</a></li><li><a href="global.html#createDropDown">createDropDown</a></li><li><a href="global.html#deleteAllBullets">deleteAllBullets</a></li><li><a href="global.html#deleteBulletIcon">deleteBulletIcon</a></li><li><a href="global.html#deleteBulletPoint">deleteBulletPoint</a></li><li><a href="global.html#deleteCollectionBulletPoint">deleteCollectionBulletPoint</a></li><li><a href="global.html#deleteFutureBulletPoint">deleteFutureBulletPoint</a></li><li><a href="global.html#deleteOtherBulletPoint">deleteOtherBulletPoint</a></li><li><a href="global.html#deleteSticker">deleteSticker</a></li><li><a href="global.html#drag">drag</a></li><li><a href="global.html#futureLink1">futureLink1</a></li><li><a href="global.html#getFuture">getFuture</a></li><li><a href="global.html#getMonths">getMonths</a></li><li><a href="global.html#getSavedStickers">getSavedStickers</a></li><li><a href="global.html#getWeekOne">getWeekOne</a></li><li><a href="global.html#getWeekTwo">getWeekTwo</a></li><li><a href="global.html#monthsArr">monthsArr</a></li><li><a href="global.html#openNav">openNav</a></li><li><a href="global.html#openSticker">openSticker</a></li><li><a href="global.html#putBack">putBack</a></li><li><a href="global.html#removeAllBullets">removeAllBullets</a></li><li><a href="global.html#removeCurrentStickers">removeCurrentStickers</a></li><li><a href="global.html#rgbToHex">rgbToHex</a></li><li><a href="global.html#saveBulletChangedIcon">saveBulletChangedIcon</a></li><li><a href="global.html#saveBulletToLC">saveBulletToLC</a></li><li><a href="global.html#saveChangedIcon">saveChangedIcon</a></li><li><a href="global.html#saveCollectionBulletChangedIcon">saveCollectionBulletChangedIcon</a></li><li><a href="global.html#saveCollectionBulletToLC">saveCollectionBulletToLC</a></li><li><a href="global.html#saveFutureBulletChangedIcon">saveFutureBulletChangedIcon</a></li><li><a href="global.html#saveFutureBulletToLC">saveFutureBulletToLC</a></li><li><a href="global.html#saveToLC">saveToLC</a></li><li><a href="global.html#toggleDrop">toggleDrop</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addBulletsOnStart">addBulletsOnStart</a></li><li><a href="global.html#addCollectionBulletsOnStart">addCollectionBulletsOnStart</a></li><li><a href="global.html#addCollectionList">addCollectionList</a></li><li><a href="global.html#addCollectionRow">addCollectionRow</a></li><li><a href="global.html#addDropDownImages">addDropDownImages</a></li><li><a href="global.html#addFutureBulletsOnStart">addFutureBulletsOnStart</a></li><li><a href="global.html#addOtherBulletsOnStart">addOtherBulletsOnStart</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#changeBulletIcon">changeBulletIcon</a></li><li><a href="global.html#clickableCollections">clickableCollections</a></li><li><a href="global.html#closeNav">closeNav</a></li><li><a href="global.html#closeSticker">closeSticker</a></li><li><a href="global.html#collectionAdd">collectionAdd</a></li><li><a href="global.html#collectionLink1">collectionLink1</a></li><li><a href="global.html#collectionList">collectionList</a></li><li><a href="global.html#componentToHex">componentToHex</a></li><li><a href="global.html#coverToIndex">coverToIndex</a></li><li><a href="global.html#createCustom">createCustom</a></li><li><a href="global.html#createDropDown">createDropDown</a></li><li><a href="global.html#deleteAllBullets">deleteAllBullets</a></li><li><a href="global.html#deleteBulletIcon">deleteBulletIcon</a></li><li><a href="global.html#deleteBulletPoint">deleteBulletPoint</a></li><li><a href="global.html#deleteCollectionBulletPoint">deleteCollectionBulletPoint</a></li><li><a href="global.html#deleteFutureBulletPoint">deleteFutureBulletPoint</a></li><li><a href="global.html#deleteOtherBulletPoint">deleteOtherBulletPoint</a></li><li><a href="global.html#deleteSticker">deleteSticker</a></li><li><a href="global.html#drag">drag</a></li><li><a href="global.html#futureLink1">futureLink1</a></li><li><a href="global.html#getFuture">getFuture</a></li><li><a href="global.html#getMonths">getMonths</a></li><li><a href="global.html#getSavedStickers">getSavedStickers</a></li><li><a href="global.html#getWeek">getWeek</a></li><li><a href="global.html#getWeekOne">getWeekOne</a></li><li><a href="global.html#getWeekTwo">getWeekTwo</a></li><li><a href="global.html#monthsArr">monthsArr</a></li><li><a href="global.html#openNav">openNav</a></li><li><a href="global.html#openSticker">openSticker</a></li><li><a href="global.html#putBack">putBack</a></li><li><a href="global.html#removeAllBullets">removeAllBullets</a></li><li><a href="global.html#removeCurrentStickers">removeCurrentStickers</a></li><li><a href="global.html#rgbToHex">rgbToHex</a></li><li><a href="global.html#saveBulletChangedIcon">saveBulletChangedIcon</a></li><li><a href="global.html#saveBulletToLC">saveBulletToLC</a></li><li><a href="global.html#saveChangedIcon">saveChangedIcon</a></li><li><a href="global.html#saveCollectionBulletChangedIcon">saveCollectionBulletChangedIcon</a></li><li><a href="global.html#saveCollectionBulletToLC">saveCollectionBulletToLC</a></li><li><a href="global.html#saveFutureBulletChangedIcon">saveFutureBulletChangedIcon</a></li><li><a href="global.html#saveFutureBulletToLC">saveFutureBulletToLC</a></li><li><a href="global.html#saveToLC">saveToLC</a></li><li><a href="global.html#setDayOnClick">setDayOnClick</a></li><li><a href="global.html#toggleDrop">toggleDrop</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Thu Jun 10 2021 03:59:20 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Thu Jun 10 2021 05:38:33 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

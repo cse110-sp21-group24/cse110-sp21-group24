@@ -10,11 +10,6 @@
   src: url('fonts/Montserrat-Medium.ttf');
 }
 
-@font-face {
-  font-family: 'Roboto';
-  src: url('fonts/Roboto-Regular.ttf');
-}
-
 /* Changing color scheme */
 :root {
   --first-color: #9EB3C2;
@@ -39,6 +34,19 @@
   height: 450px;
   border-radius: 20px;
   padding: 10px;
+  border-radius: 15px;
+  flex-basis: 300px;
+  margin-top: 10px;
+  text-align: left;
+  background-color: var(--second-color);
+  border: 5px solid var(--second-color);
+  font: 15px sans-serif;
+  height: 500px;
+  color: black;
+  padding: 10px;
+  align-items: center;
+  overflow: auto;
+  font-family: "Montserrat";
 }
 
 @media screen and (max-width: 600px) {
@@ -155,27 +163,13 @@ h2 {
   border-radius: 50%;
   text-decoration: none;
   display: inline-block;
-  padding: 8px 12px;
+  font-size: 22px;
+  padding: 3px 11px;
   background-color: white;
   color: var(--fourth-color);
   border: var(--fourth-color);
   position: relative;
-  margin-left: 40%;
-}
-
-.content{
-  border-radius: 15px;
-  flex-basis: 300px;
-  margin-top: 10px;
-  text-align: left;
-  background-color: var(--second-color);
-  border: 5px solid var(--second-color);
-  font: 15px sans-serif;
-  height: 500px;
-  color: black;
-  padding: 10px;
-  align-items: center;
-  overflow: scroll;
+  margin-left: 42%;
 }
 
 .column ul{

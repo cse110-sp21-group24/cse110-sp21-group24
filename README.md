@@ -41,7 +41,7 @@ To deploy:
 firebase deploy
 ```
 
-Deployment will then be updated at https://team-24-gme-bujo.firebaseapp.com/
+Deployment will then be updated at https://team-24-gme-bujo.web.app/
 
 
 ## Linter

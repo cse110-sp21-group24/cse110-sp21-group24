@@ -55,8 +55,8 @@ const renderCalendar = () => {
   const nextDays = 7 - lastDayIndex - 1;
 
   let days = "";
-  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
-  document.querySelector(".date p").innerHTML = new Date().toDateString();
+  document.querySelector(".date h1").innerHTML = months[date.getMonth()] + " " + date.getFullYear();
+  document.querySelector(".date p").innerHTML = "Today: " + new Date().toDateString();
 
   // display the previous month's last few days
   for (let i = firstDayIndex; i > 0; i--){
@@ -104,6 +104,16 @@ document.querySelector('.next').addEventListener('click', () => {
   removeCurrentStickers(); // remove stickers on current page
   renderCalendar();
   getSavedStickers(); // get stickers on prev page
+  removeAllBullets();
+  addOtherBulletsOnStart();
+});
+
+document.querySelector('.date p').addEventListener('click', () => {
+  date.setMonth(new Date().getMonth());
+  date.setFullYear(new Date().getFullYear());
+  removeCurrentStickers();
+  renderCalendar();
+  getSavedStickers();
   removeAllBullets();
   addOtherBulletsOnStart();
 });

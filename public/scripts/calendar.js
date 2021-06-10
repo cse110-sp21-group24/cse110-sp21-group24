@@ -30,7 +30,7 @@ const months = [
   }
 
   // retrieve stickers
-  path = urlMonth;
+  path = urlMonth + `${date.getFullYear()}`;
   getCustomStickers();
   getSavedStickers();
   addOtherBulletsOnStart();
@@ -40,9 +40,13 @@ const renderCalendar = () => {
   // need to find how many days have to be shown from the prev month
   date.setDate(1);
   const monthDays = document.querySelector(".days");
+
   // gives the last day of the current month
   const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+
+  // gives the last day of the previous month
   const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+
   // this will store the index of the week when 1st of that month lies
   const firstDayIndex = date.getDay();
   // this will store the index of the week when last day of that month lies
@@ -51,27 +55,28 @@ const renderCalendar = () => {
   const nextDays = 7 - lastDayIndex - 1;
 
   let days = "";
-  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
-  document.querySelector(".date p").innerHTML = new Date().toDateString();
+  document.querySelector(".date h1").innerHTML = months[date.getMonth()] + " " + date.getFullYear();
+  document.querySelector(".date p").innerHTML = "Today: " + new Date().toDateString();
 
   // display the previous month's last few days
-  // i = firstDayIndex-1 because my calendar starts from Monday
   for (let i = firstDayIndex; i > 0; i--){
     days += `<div class = "prev-date">${prevLastDay - i + 1}</div>`;
+    monthDays.innerHTML = days;
   }
 
-  for (let i = 1; i <= lastDay; i++){
-    if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
-      days += `<div class = today>${i}</div>`;
+  for (let i = 1; i <= lastDay; i++){ 
+    if (date.getFullYear() === new Date().getFullYear() && date.getMonth() === new Date().getMonth() && i === new Date().getDate()) {
+      days += `<div class = "today">${i}</div>`;
     }
     else days += `<div>${i}</div>`;
+    monthDays.innerHTML = days;
   }
-
+  
   for (let j = 1; j <= nextDays; j++){
     days += `<div class = "next-date">${j}</div>`;
     monthDays.innerHTML = days;
   }
-
+  monthDays.innerHTML = days;
 }
 
 document.querySelector('.prev').addEventListener('click', () => {
@@ -81,6 +86,7 @@ document.querySelector('.prev').addEventListener('click', () => {
   if(prevMonth > 11 || prevMonth < 0) {
     prevMonth += 12;
   }
+  path = months[prevMonth] + `${date.getFullYear()}`;
   removeCurrentStickers(); // remove stickers on current page
   renderCalendar();
   getSavedStickers(); // get stickers on prev page
@@ -95,10 +101,21 @@ document.querySelector('.next').addEventListener('click', () => {
   if(nextMonth > 11) {
     nextMonth -= 12;
   }
-  path = months[nextMonth];
+  path = months[nextMonth] + `${date.getFullYear()}`;
   removeCurrentStickers(); // remove stickers on current page
   renderCalendar();
   getSavedStickers(); // get stickers on prev page
+  removeAllBullets();
+  addOtherBulletsOnStart();
+});
+
+document.querySelector('.date p').addEventListener('click', () => {
+  date.setMonth(new Date().getMonth());
+  date.setFullYear(new Date().getFullYear());
+  path = months[date.getMonth()] + `${date.getFullYear()}`;
+  removeCurrentStickers();
+  renderCalendar();
+  getSavedStickers();
   removeAllBullets();
   addOtherBulletsOnStart();
 });

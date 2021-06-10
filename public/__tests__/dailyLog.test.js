@@ -2,12 +2,12 @@
  * Tests dailyLog.js. Tests that the left window changes when different days are cliked &
 also tests the bulletEntries functionality
  */
-/*
+
 describe('Test daily log page functionality', () => {
   beforeAll(async() => { 
     await page.goto('http://127.0.0.1:8080/public/dailyLog.html');
   });
-
+/*
     // Click add bullet button to have bullets should in window 
     it('Test 1: should click on add bullet button and have bullets appear in window', async () => {
       await page.waitForSelector("#monContainer");
@@ -135,7 +135,7 @@ describe('Test daily log page functionality', () => {
       });
       expect(day).toBe('Wednesday');
     }, 20000);
-    
+    */
     // Click on Fridayday and should appear as header on left window
     it('Test 13: should click Friday and have it appear on left window', async () => {
       await page.waitForSelector("#friContainer > h2");
@@ -163,4 +163,3 @@ describe('Test daily log page functionality', () => {
       console.log(`Bytes used: ${(usedBytes / totalBytes) * 100}%`);
     });
 });
-*/

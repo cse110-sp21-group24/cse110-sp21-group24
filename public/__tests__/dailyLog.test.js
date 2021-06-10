@@ -7,7 +7,7 @@ describe('Test daily log page functionality', () => {
   beforeAll(async() => { 
     await page.goto('http://127.0.0.1:8080/public/dailyLog.html');
   });
-/*
+
     // Click add bullet button to have bullets should in window 
     it('Test 1: should click on add bullet button and have bullets appear in window', async () => {
       await page.waitForSelector("#monContainer");
@@ -16,82 +16,82 @@ describe('Test daily log page functionality', () => {
         document.querySelector("#mon-add").click();
         document.querySelector("#mon-add").click();
         document.querySelector("#mon-add").click();
-        return document.querySelector("#mon > ul").children.length;
+        return document.querySelector("#mon > div > ul").children.length;
       });
       expect(numEntries).toBe(4);
     }, 20000);
 
     // Click trash icon to have bullet removed from window 
     it('Test 2: should click on trash icon to have bullet removed', async () => {
-      await page.waitForSelector("#mon > ul > div:nth-child(1) > li");
+      await page.waitForSelector("#mon > div > ul > div:nth-child(1) > li");
       let numEntries = await page.evaluate(() => {
         document.querySelector("#myDropDown > img.deleteImage").click();
         //return document.querySelector("#single-day > div.bigDayContent > h1").textContent;
-        return document.querySelector("#mon > ul").children.length;
+        return document.querySelector("#mon > div > ul").children.length;
       });
       expect(numEntries).toBe(3);
     }, 20000);
     
     // Click event (bookmark) icon to have bullet image changed in window 
     it('Test 3: should click on bookmark icon and have bullet changed', async () => {
-      await page.waitForSelector("#mon > ul > div:nth-child(1) > li");
+      await page.waitForSelector("#mon > div > ul > div:nth-child(1) > li");
       let entry = await page.evaluate(() => {
         document.querySelector("#myDropDown > img.eventImage").click();
         //return document.querySelector("#single-day > div.bigDayContent > h1").textContent;
-        return document.querySelector("#mon > ul > div:nth-child(1) > li").className;
+        return document.querySelector("#mon > div > ul > div:nth-child(1) > li").className;
       });
       expect(entry).toBe("event-list");
     }, 20000);
     
     // Click important (folder) icon to have bullet image changed in window 
     it('Test 4: should click on folder icon and have bullet changed', async () => {
-      await page.waitForSelector("#mon > ul > div:nth-child(1) > li");
+      await page.waitForSelector("#mon > div > ul > div:nth-child(1) > li");
       let entry = await page.evaluate(() => {
         document.querySelector("#myDropDown > img.importantImage").click();
-        return document.querySelector("#mon > ul > div:nth-child(1) > li").className;
+        return document.querySelector("#mon > div > ul > div:nth-child(1) > li").className;
       });
       expect(entry).toBe("important-list");
     }, 20000);
     
     // Click isnpiration (star) icon to have bullet image changed in window    
     it('Test 5: should click on star icon and have bullet changed', async () => {
-      await page.waitForSelector("#mon > ul > div:nth-child(1) > li");
+      await page.waitForSelector("#mon > div > ul > div:nth-child(1) > li");
       let entry = await page.evaluate(() => {
         document.querySelector("#myDropDown > img.inspirationImage").click();
-        return document.querySelector("#mon > ul > div:nth-child(1) > li").className;
+        return document.querySelector("#mon > div > ul > div:nth-child(1) > li").className;
       });
       expect(entry).toBe("inspiration-list");
     }, 20000);
     
     // Click event icon to have bullet image changed in window 
     it('Test 6: should click on event icon and have bullet changed', async () => {
-      await page.waitForSelector("#mon > ul > div:nth-child(1) > li");
+      await page.waitForSelector("#mon > div > ul > div:nth-child(1) > li");
       let entry = await page.evaluate(() => {
         document.querySelector("#myDropDown > img.eventImage").click();
         //return document.querySelector("#single-day > div.bigDayContent > h1").textContent;
-        return document.querySelector("#mon > ul > div:nth-child(1) > li").className;
+        return document.querySelector("#mon > div > ul > div:nth-child(1) > li").className;
       });
       expect(entry).toBe("event-list");
     }, 20000);
     
     // Click note (box) icon to have bullet image changed in window 
     it('Test 7: should click on box icon and have bullet changed', async () => {
-      await page.waitForSelector("#mon > ul > div:nth-child(1) > li");
+      await page.waitForSelector("#mon > div > ul > div:nth-child(1) > li");
       let entry = await page.evaluate(() => {
         document.querySelector("#myDropDown > img.noteImage").click();
         //return document.querySelector("#single-day > div.bigDayContent > h1").textContent;
-        return document.querySelector("#mon > ul > div:nth-child(1) > li").className;
+        return document.querySelector("#mon > div > ul > div:nth-child(1) > li").className;
       });
       expect(entry).toBe("note-list");
     }, 20000);
     
     // Click checkmark icon to show bullet marked as completed
     it('Test 8: should click on checkmark icon and have bullet changed', async () => {
-      await page.waitForSelector("#mon > ul > div:nth-child(1) > li");
+      await page.waitForSelector("#mon > div > ul > div:nth-child(1) > li");
       let entry = await page.evaluate(() => {
         document.querySelector("#myDropDown > img.checkMarkImage").click();
         //return document.querySelector("#single-day > div.bigDayContent > h1").textContent;
-        return document.querySelector("#mon > ul > div:nth-child(1) > li").className;
+        return document.querySelector("#mon > div >ul > div:nth-child(1) > li").className;
       });
       expect(entry).toBe("checkMark-list");
     }, 20000);      
@@ -101,7 +101,7 @@ describe('Test daily log page functionality', () => {
       await page.waitForSelector("#monContainer");
       let entry = await page.evaluate(() => {
         //document.querySelector("#mon-add").click();
-        return document.querySelector("#mon > ul > div:nth-child(1) > li").textContent;
+        return document.querySelector("#mon > div > ul > div:nth-child(1) > li").textContent;
       });
       expect(entry).toBe("ADD ENTRY");
     }, 20000);
@@ -111,7 +111,7 @@ describe('Test daily log page functionality', () => {
       await page.waitForSelector("#monContainer");
       let entry = await page.evaluate(() => {
         //document.querySelector("#mon-add").click();
-        return document.querySelector("#mon > ul > div:nth-child(1) > li").contentEditable;
+        return document.querySelector("#mon > div > ul > div:nth-child(1) > li").contentEditable;
       });
       expect(entry).toBe("true");
     }, 20000);    
@@ -135,7 +135,7 @@ describe('Test daily log page functionality', () => {
       });
       expect(day).toBe('Wednesday');
     }, 20000);
-    */
+    
     // Click on Fridayday and should appear as header on left window
     it('Test 13: should click Friday and have it appear on left window', async () => {
       await page.waitForSelector("#friContainer > h2");

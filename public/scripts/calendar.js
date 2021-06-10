@@ -89,8 +89,7 @@ function setDayOnClick() {
   let allDays = document.querySelectorAll('.single-day');
   for (const day of allDays) {
       day.addEventListener('click', () => {
-        getWeek(day);
-        //location.href="dailyLog.html#" + getWeek(day);
+        location.href="dailyLog.html#" + getWeek(day);
       });
   }
 }

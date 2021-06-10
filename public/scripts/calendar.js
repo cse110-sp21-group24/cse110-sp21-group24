@@ -82,10 +82,7 @@ const renderCalendar = () => {
 document.querySelector('.prev').addEventListener('click', () => {
   let prevMonth = date.getMonth() - 1;
   date.setMonth(prevMonth);
-<<<<<<< HEAD
-=======
   path = months[prevMonth];
->>>>>>> 902df93bc427ce2963e281ae52466a7bca303cc7
   if(prevMonth > 11 || prevMonth < 0) {
     prevMonth += 12;
   }
@@ -104,11 +101,7 @@ document.querySelector('.next').addEventListener('click', () => {
   if(nextMonth > 11) {
     nextMonth -= 12;
   }
-<<<<<<< HEAD
   path = months[nextMonth] + `${date.getFullYear()}`;
-=======
-  path = months[nextMonth];
->>>>>>> 902df93bc427ce2963e281ae52466a7bca303cc7
   removeCurrentStickers(); // remove stickers on current page
   renderCalendar();
   getSavedStickers(); // get stickers on prev page

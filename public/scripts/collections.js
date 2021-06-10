@@ -148,10 +148,23 @@ window.onclick = function(event) {
   }
 }
 
+let testObject = JSON.parse(localStorage.getItem("Collections"));
+let test2 = JSON.parse(localStorage.getItem("CollectionsList"));
 
-let testobject = JSON.parse(localStorage.getItem("Collections"));
-let testobject2 = JSON.parse(localStorage.getItem("Collections"));
+console.log(testObject);
+console.log(test2);
+console.log(testObject["Collections4"]);
 
-for(let entry in testobject){
-    delete entry;
+for (const entry of Object.entries(testObject)){
+  console.log(entry);
+  for (const key of Object.keys(entry)){
+    console.log(key);
+  }
+}
+
+for (const entry of Object.entries(test2)){
+  console.log(entry);
+  for (const key of Object.keys(entry)){
+    console.log(key);
+  }
 }

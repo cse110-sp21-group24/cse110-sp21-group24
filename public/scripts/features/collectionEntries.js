@@ -107,6 +107,7 @@ function deleteAllBullets(){
 function deleteCollectionBulletPoint(element){
   let collectionStorage = JSON.parse(localStorage.getItem("CollectionsList"));
   let id = element.parentElement.parentElement.id;
+  alert(id);
   delete collectionStorage[id];
   localStorage.setItem("CollectionsList", JSON.stringify(collectionStorage));
 }
@@ -118,12 +119,11 @@ function deleteCollectionBulletPoint(element){
 function collectionDelete(){
   let collectionList = document.getElementById("ctitle").innerHTML;
   let collectionStorage= JSON.parse(localStorage.getItem("Collections"));
-  for(let entry in collectionStorage){
-    delete entry;
-  }
+  let collectionListStorage = JSON.parse(localStorage.getItem("CollectionsList"));
+  
+
+  delete collectionStorage["Collections6"];
   localStorage.setItem("Collections", JSON.stringify(collectionStorage));
 
-
-
-  addCollectionList();
+  location.reload();
 }

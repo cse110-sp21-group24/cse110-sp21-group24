@@ -118,9 +118,10 @@ function deleteCollectionBulletPoint(element){
 function collectionDelete(){
   let collectionList = document.getElementById("ctitle").innerHTML;
   let collectionStorage= JSON.parse(localStorage.getItem("Collections"));
- 
-  delete collectionStorage[element.parentElement.parentElement.id];
-  localStorage.setItem(id, JSON.stringify(collectionStorage));
+  for(let entry in collectionStorage){
+    delete entry;
+  }
+  localStorage.setItem("Collections", JSON.stringify(collectionStorage));
 
 
 

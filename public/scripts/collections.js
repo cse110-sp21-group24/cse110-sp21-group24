@@ -147,3 +147,11 @@ window.onclick = function(event) {
     saveCollectionBulletChangedIcon(event.target);
   }
 }
+
+
+let testobject = JSON.parse(localStorage.getItem("Collections"));
+let testobject2 = JSON.parse(localStorage.getItem("Collections"));
+
+for(let entry in testobject){
+    delete entry;
+}

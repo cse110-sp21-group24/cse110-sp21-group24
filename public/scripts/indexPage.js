@@ -30,8 +30,8 @@ let today = new Date();
 function getWeekOne() {
   let startWeekOne = new Date();
   let endWeekOne = new Date();
-  startWeekOne.setDate(today.getDate() - (today.getDay() + 6) % 7);
-  endWeekOne.setDate(today.getDate() + (6 - (today.getDay() + 6) % 7));
+  startWeekOne.setDate(today.getDate() - (today.getDay() % 7));
+  endWeekOne.setDate(today.getDate() + (6 - (today.getDay() % 7)));
   return months[startWeekOne.getMonth()] + " " + startWeekOne.getDate() + " - " 
     + months[endWeekOne.getMonth()] + " " + endWeekOne.getDate();
 }
@@ -43,8 +43,8 @@ function getWeekOne() {
 function getWeekTwo() {
   let startWeekTwo = new Date();
   let endWeekTwo = new Date();
-  startWeekTwo.setDate((today.getDate() - (today.getDay() + 6) % 7) - 7);
-  endWeekTwo.setDate((today.getDate() - (today.getDay() + 6) % 7) - 1);
+  startWeekTwo.setDate(today.getDate() - (today.getDay() % 7) - 7);
+  endWeekTwo.setDate((today.getDate() - (today.getDay() % 7) - 1));
   return months[startWeekTwo.getMonth()] + " " + startWeekTwo.getDate() + " - "
     + months[endWeekTwo.getMonth()] + " " + endWeekTwo.getDate();
 }

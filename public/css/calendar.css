@@ -2,17 +2,17 @@
 
 /* Changing color scheme */
 :root {
-  --first-color: #9EB3C2;
-  --second-color: #9BD4F5;
-  --third-color: #1D8ECE;
-  --fourth-color: #2E77BB;
+  --first-color: #9eb3c2;
+  --second-color: #9bd4f5;
+  --third-color: #1d8ece;
+  --fourth-color: #2e77bb;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 html {
@@ -32,7 +32,6 @@ html {
   justify-content: center;
   /* vertical centering */
   align-items: center;
-  
 }
 
 /*** Set layout of calendar ***/
@@ -44,7 +43,6 @@ html {
   border-radius: 20px;
   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 }
-
 
 .month {
   width: 100%;
@@ -95,7 +93,6 @@ html {
 
 .monthly-goals div {
   font-size: 1.5rem;
-  
 }
 
 /*** Set layout of calendar ***/
@@ -145,7 +142,8 @@ html {
   cursor: pointer;
 }
 
-.prev-date, .next-date {
+.prev-date,
+.next-date {
   opacity: 0.5;
 }
 
@@ -157,24 +155,16 @@ html {
   border-radius: 50%;
   text-decoration: none;
   display: inline-block;
-<<<<<<< HEAD
-  padding: 8px 12px;
-=======
   font-size: 22px;
   padding: 3px 11px;
->>>>>>> 148c2d0ed2260075354d132e24ac924f264fa3aa
   background-color: var(--second-color);
   color: var(--fourth-color);
   border: var(--fourth-color);
   position: relative;
-<<<<<<< HEAD
-  margin-left: 40%;
-=======
   margin-left: 42%;
->>>>>>> 148c2d0ed2260075354d132e24ac924f264fa3aa
 }
 
-.entry{
+.entry {
   border-radius: 15px;
   flex-basis: 300px;
   margin-top: 10px;
@@ -186,9 +176,5 @@ html {
   color: black;
   padding: 10px;
   align-items: center;
-<<<<<<< HEAD
-  overflow: scroll;
-=======
   overflow: auto;
->>>>>>> 148c2d0ed2260075354d132e24ac924f264fa3aa
 }

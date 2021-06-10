@@ -58,11 +58,18 @@ function saveCollectionBulletToLC(element){
   localStorage.setItem(key, JSON.stringify(collectionStorage));
 }
 
+/**
+ * Save a new bullet type when it is changed
+ * @param {*} element
+ */
 function saveCollectionBulletChangedIcon(element){
   let divChanged = element.parentElement.parentElement;
   saveCollectionBulletToLC(divChanged);
 }
 
+/**
+ * Get stored information from local storage for the default collection
+ */
 function addCollectionBulletsOnStart(){
   let collectionList = document.getElementById('ctitle').innerHTML;
   let collectionStorage = JSON.parse(localStorage.getItem("CollectionsList"));

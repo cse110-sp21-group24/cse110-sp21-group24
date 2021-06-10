@@ -1,14 +1,14 @@
 @font-face {
-  font-family: "Sansita One";
-  src: url("fonts/SansitaOne.ttf");
+  font-family: 'Sansita One';
+  src: url('fonts/SansitaOne.ttf');
 }
 
 /* Changing color scheme */
 :root {
-  --first-color: #9eb3c2;
-  --second-color: #9bd4f5;
-  --third-color: #1d8ece;
-  --fourth-color: #2e77bb;
+  --first-color: #9EB3C2;
+  --second-color: #9BD4F5;
+  --third-color: #1D8ECE;
+  --fourth-color: #2E77BB;
 }
 
 /*** Navigation Bar Styling ***/
@@ -49,7 +49,7 @@ li a:hover:not(.active, .closebtn) {
 
 /* Set font of navigation bar */
 .navigation {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /** Opening and Closing Menu **/
@@ -82,14 +82,14 @@ li a:hover:not(.active, .closebtn) {
 
 /* Set general formatting and transition speed of background moving  */
 .background {
-  transition: margin-left 0.5s;
-  padding: 10px 16px;
+  transition: margin-left .5s;
+  padding:10px 16px;
 }
 
 /*** Book Cover Animation ***/
 .container {
   z-index: 1;
-  perspective: 3000px;
+  perspective:3000px;
 }
 
 /* Set journal general formatting */
@@ -100,24 +100,24 @@ li a:hover:not(.active, .closebtn) {
   height: 550px;
   margin: 5% auto;
   border-radius: 2px 4px 4px 2px;
-  background: linear-gradient(45deg, #dad5dc 0%, #f2ebf4 100%);
-  -webkit-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153, 0.6);
-  -moz-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153, 0.6);
-  box-shadow: 13px 13px 8px 0px rgba(151, 146, 153, 0.6);
+  background: linear-gradient(45deg,  #DAD5DC 0%, #f2ebf4 100%);
+  -webkit-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+  -moz-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+  box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
   color: #2b2b2b;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
-  transition: transform 0.5s;
+  -webkit-transition: -webkit-transform .5s;
+  -moz-transition: -moz-transform .5s;
+  transition: transform .5s;
 }
 
 /* Animate rotation on mouse hover */
 .container .book:hover {
-  -webkit-transform: rotate3d(0, 1, 0, 35deg);
-  -moz-transform: rotate3d(0, 1, 0, 35deg);
-  transform: rotate3d(0, 1, 0, 35deg);
+  -webkit-transform: rotate3d(0,1,0,35deg);
+  -moz-transform: rotate3d(0,1,0,35deg);
+  transform: rotate3d(0,1,0,35deg);
 }
 
 .container .book > div,
@@ -134,12 +134,12 @@ li a:hover:not(.active, .closebtn) {
   -webkit-transform-origin: 0% 50%;
   -moz-transform-origin: 0% 50%;
   transform-origin: 0% 50%;
-  -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
-  transition: transform 0.5s;
-  -webkit-transform: translate3d(0, 0, 20px);
-  -moz-transform: translate3d(0, 0, 20px);
-  transform: translate3d(0, 0, 20px);
+  -webkit-transition: -webkit-transform .5s;
+  -moz-transition: -moz-transform .5s;
+  transition: transform .5s;
+  -webkit-transform: translate3d(0,0,20px);
+  -moz-transform: translate3d(0,0,20px);
+  transform: translate3d(0,0,20px);
   z-index: 10;
 }
 
@@ -149,36 +149,37 @@ li a:hover:not(.active, .closebtn) {
 }
 
 /* Set formatting for spine of journal */
-.container .left-side {
+.container .left-side{
   width: 40px;
   left: -20px;
   height: 550px;
-  background-color: #e1f4f3;
-  -webkit-transform: rotate3d(0, 1, 0, -90deg);
-  -moz-transform: rotate3d(0, 1, 0, -90deg);
-  transform: rotate3d(0, 1, 0, -90deg);
+  background-color: #E1F4F3;
+  -webkit-transform: rotate3d(0,1,0,-90deg);
+  -moz-transform: rotate3d(0,1,0,-90deg);
+  transform: rotate3d(0,1,0,-90deg);
 }
 
 .container .front > div {
   border-radius: 0 3px 3px 0;
-  box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    inset 4px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Add shadow down left side of cover to look like raised spine */
 .container .cover:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 10px;
   bottom: 0;
   width: 3px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0,0,0,0.1);
   box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
 }
 
 /* Set color of front cover if it blank */
 .cover {
-  background: linear-gradient(45deg, #dad5dc 0%, #f2ebf4 100%);
+ background: linear-gradient(45deg,  #DAD5DC 0%, #f2ebf4 100%);
 }
 
 .body {
@@ -227,14 +228,9 @@ h2 {
   text-align: center;
 }
 
-#dailyHeader {
-  color: var(--fourth-color);
-  text-align: center;
-}
-
 .row-flex-container {
-  display: flex;
-  flex-wrap: wrap;
+display: flex;
+flex-wrap: wrap;
 }
 
 /* Style goals box */
@@ -267,25 +263,6 @@ h2 {
   text-align: center;
 }
 
-#goal {
-  border-radius: 15px;
-  flex-basis: 200px;
-  margin-top: 10px;
-  text-align: left;
-  background-color: var(--second-color);
-  border: 5px solid var(--second-color);
-  font: 15px sans-serif;
-  height: 190px;
-  color: black;
-  padding: 10px;
-  align-items: center;
-  overflow: scroll;
-}
-
-.header {
-  text-align: center;
-}
-
 .notes {
   background-color: var(--second-color);
   border-radius: 15px;
@@ -296,7 +273,7 @@ h2 {
   font-family: "Montserrat", sans-serif;
 }
 
-#notes {
+#notes{
   border-radius: 15px;
   flex-basis: 200px;
   margin-top: -10px;
@@ -311,13 +288,13 @@ h2 {
   overflow: auto;
 }
 
-.daily ul {
+.daily ul{
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
 }
 
 #datesHeader {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 
 .round {

@@ -3,7 +3,7 @@
 ## Table of Contents
 
 [Overview](#overview)  
-[BuJo](#bujo)  
+[Toki Journal](#toki-journal)  
 [Local Development](#local-development)  
 [Build and Deployment](#build-and-deployment)  
 [Testing](#testing)  
@@ -23,9 +23,9 @@ The core utilities of bullet journals are:
 - **collections** (organizing information by content)
 - **migration** (periodically updating lists to new lists)
 
-## BuJo
+## Toki Journal
 
-Our product took these core features and developed an application for students focused around the theme of personalization. Further details on the features and functionality of our product can be found [here](admin/onboard.md).
+Our product, Toki Journal, took these core features and developed an application for students focused around the theme of personalization. Further details on the features and functionality of our product can be found [here](admin/onboard.md).
 
 ## Local Development
 

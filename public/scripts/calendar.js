@@ -79,6 +79,10 @@ const renderCalendar = () => {
   monthDays.innerHTML = days;
 }
 
+/**
+ * Change the month when the previous month is clicked
+ */
+
 document.querySelector('.prev').addEventListener('click', () => {
   let prevMonth = date.getMonth() - 1;
   date.setMonth(prevMonth);
@@ -94,6 +98,9 @@ document.querySelector('.prev').addEventListener('click', () => {
   addOtherBulletsOnStart();
 });
 
+/**
+ * Change the month when the next month is clicked
+ */
 
 document.querySelector('.next').addEventListener('click', () => {
   let nextMonth = date.getMonth() + 1;
@@ -109,6 +116,9 @@ document.querySelector('.next').addEventListener('click', () => {
   addOtherBulletsOnStart();
 });
 
+/**
+ * Set general calendar format and layout
+ */
 document.querySelector('.date p').addEventListener('click', () => {
   date.setMonth(new Date().getMonth());
   date.setFullYear(new Date().getFullYear());
@@ -146,6 +156,10 @@ document.getElementById("reminder-add").addEventListener('click', () => {
   saveBulletToLC(dropDown);
   //console.log(dropDown);
 });
+
+/**
+ * Show dropdown when entry is clicked
+ */
 
 window.onclick = function(event) {
   if (!event.target.matches('.dropBtn')) {

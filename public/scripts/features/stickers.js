@@ -2,6 +2,9 @@ let path = this.location.pathname;
 let imgInput = document.getElementById("newImg");
 let newSticker;
 
+/**
+ * Change sticker when image input is changed
+ */
 imgInput.onchange = () => {
   if (imgInput.files && imgInput.files[0]) {
     let reader = new FileReader();
@@ -14,22 +17,34 @@ imgInput.onchange = () => {
   }
 }
 
+/**
+ * Open the sticker popup on click
+ */
 function openSticker() {
   document.getElementById("customContainer").style.display = "block";
   document.getElementById("closeBtn").hidden = false;
   document.getElementById("openBtn").hidden = true;
 }
 
+/**
+ * Close the sticker popup on click
+ */
 function closeSticker() {
   document.getElementById("customContainer").style.display = "none";
   document.getElementById("openBtn").hidden = false;
   document.getElementById("closeBtn").hidden = true;
 }
 
+/**
+ * Stop page from refreshing when a sticker is being dragged
+ */
 function allowDrop(event) {
   event.preventDefault();
 }
 
+/**
+ * Store the position of a sticker when it is dragged into a new position
+ */
 function drag(event) {
   let img = document.getElementById(event.target.id);
   document.getElementById("dropBody").appendChild(img);
@@ -46,6 +61,9 @@ function drag(event) {
   } });
 }
 
+/**
+ * Delete sticker on right click
+ */
 function deleteSticker(event) {
   if (event.button == 2) {
     let img = document.getElementById(event.target.id);
@@ -66,6 +84,9 @@ function deleteSticker(event) {
   }
 }
 
+/**
+ * Create a custom sticker
+ */
 function createCustom(event) {
   event.preventDefault();
   let custom = document.createElement("img");
@@ -108,6 +129,9 @@ function getCustomStickers() {
   })
 }
 
+/**
+ * Restore stickers on a page from local storage
+ */
 function getSavedStickers() {
   // retrieve stickers placement
   let stickers = Array.from(document.querySelectorAll("img")).filter(elem => elem.id.startsWith("sticker") || elem.id.startsWith("washi") || elem.id.startsWith("custom"));
@@ -136,7 +160,9 @@ function getSavedStickers() {
   })
 };
 
-// remove stickers from current page
+/**
+ * Remove stickers from current page
+ */
 function removeCurrentStickers() {
   let pageStickers = Array.from(document.querySelectorAll("#dropBody > img")).filter(elem => elem.id.startsWith("sticker") || elem.id.startsWith("washi") || elem.id.startsWith("custom"));
   for (let i = 0; i < pageStickers.length; i++) {

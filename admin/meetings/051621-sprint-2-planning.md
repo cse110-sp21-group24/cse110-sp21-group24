@@ -8,7 +8,7 @@
 
 **Agenda**:
 - Plan out sprint 2 tasks and assign to team members
-    - see admin/timeline for specific task breakdowns
+    - see specs/timeline for specific task breakdowns
 - Discuss more specific component interactions
 
 **General Component TODO's**:  

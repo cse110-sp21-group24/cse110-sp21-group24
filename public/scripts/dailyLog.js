@@ -74,6 +74,9 @@ daysArr.forEach((elem) => {
   });
 });
 
+/**
+ * When an entry is clicked, show the dropdown menu
+ */
 
 window.onclick = function(event) {
   if (!event.target.matches('.dropBtn')) {
@@ -88,8 +91,7 @@ window.onclick = function(event) {
     }
   }
   
-  /*** Show dropdown when bullet is selected ***/
-
+  // Show dropdown when bullet is selected
   if(event.target.classList == 'task-list'){
     var dropDown = event.target.parentElement.childNodes[1];
     dropDown.classList.toggle('show');
@@ -110,8 +112,7 @@ window.onclick = function(event) {
     dropDown.classList.toggle('show');
   }
 
-  /*** Change bullet icon when one from dropdown is selected ***/
-
+  // Change bullet icon when one from dropdown is selected
   if(event.target.classList == 'taskImage'){
     changeBulletIcon(event.target, 'task-list');
     saveChangedIcon(event.target);
@@ -144,7 +145,9 @@ var days = document.getElementsByTagName('h2');
 
 var day = document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0];
 
-/* Function to remove the current day from the daily log section */
+/**
+ * Function to remove the current day from the daily log section
+ */
 function putBack(){
   if (day.innerHTML == "Monday") {
     document.getElementById("monContainer").appendChild(document.getElementById("mon"));
@@ -183,7 +186,9 @@ function putBack(){
   }
 }
 
-/*** Make a day the focus of the main daily log on click ***/
+/**
+ * Make a day the focus of the main daily log on click
+ */
 
 days[0].addEventListener('click', () => {
 

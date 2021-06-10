@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: features/stickers.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: features/stickers.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let path = this.location.pathname;
+let imgInput = document.getElementById("newImg");
+let newSticker;
+
+/**
+ * Change sticker when image input is changed
+ */
+imgInput.onchange = () => {
+  if (imgInput.files &amp;&amp; imgInput.files[0]) {
+    let reader = new FileReader();
+
+    reader.onload = (e) => {
+        newSticker = e.target.result;
+    };
+
+    reader.readAsDataURL(imgInput.files[0]);
+  }
+}
+
+/**
+ * Open the sticker popup on click
+ */
+function openSticker() {
+  document.getElementById("customContainer").style.display = "block";
+  document.getElementById("closeBtn").hidden = false;
+  document.getElementById("openBtn").hidden = true;
+}
+
+/**
+ * Close the sticker popup on click
+ */
+function closeSticker() {
+  document.getElementById("customContainer").style.display = "none";
+  document.getElementById("openBtn").hidden = false;
+  document.getElementById("closeBtn").hidden = true;
+}
+
+/**
+ * Stop page from refreshing when a sticker is being dragged
+ */
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+/**
+ * Store the position of a sticker when it is dragged into a new position
+ */
+function drag(event) {
+  let img = document.getElementById(event.target.id);
+  document.getElementById("dropBody").appendChild(img);
+  img.style = "position: absolute; top: 5%; left: 5%;";
+  $(img).draggable({ containment:'#dropBody',
+  stop: function(event, ui) {
+    let imgJSON = {
+      id: img.id,
+      src: img.src,
+      style: img.style,
+    };
+    let key = path.concat("/" + imgJSON.id);
+    localStorage.setItem(`${key}`, JSON.stringify(imgJSON));
+  } });
+}
+
+/**
+ * Delete sticker on right click
+ */
+function deleteSticker(event) {
+  if (event.button == 2) {
+    let img = document.getElementById(event.target.id);
+    let key = path.concat("/" + img.id);
+    if (localStorage.getItem(`${key}`) !== null) {
+      localStorage.removeItem(`${key}`);
+    }
+    document.getElementById("dropBody").removeChild(img);
+    img.removeAttribute("class");
+    img.removeAttribute("style");
+    if (event.target.id.startsWith("sticker")) {
+      document.getElementById("stickerBox").appendChild(img);
+    } else if (event.target.id.startsWith("washi")) {
+      document.getElementById("washiBox").appendChild(img);
+    } else {
+      document.getElementById("customBox").appendChild(img);
+    }
+  }
+}
+
+/**
+ * Create a custom sticker
+ */
+function createCustom(event) {
+  event.preventDefault();
+  let custom = document.createElement("img");
+  let uniqueId = Date.now();
+  custom.id = "custom".concat(uniqueId.toString());
+  custom.src = newSticker;
+  custom.setAttribute("ondragstart", "drag(event)");
+  custom.setAttribute("onmousedown", "deleteSticker(event)");
+  custom.height = "80";
+  document.getElementById("customBox").appendChild(custom);
+
+  // store into local storage
+  let imgJSON = {
+    id: custom.id,
+    src: custom.src,
+  };
+  localStorage.setItem(`${imgJSON.id}`, JSON.stringify(imgJSON));
+}
+
+/*
+ * On page load functions
+ */
+function getCustomStickers() {
+  // retrieve custom stickers
+  let results = [];
+  for (let i = 0; i &lt; localStorage.length; i++) {
+    let key = localStorage.key(i);
+      if (key.startsWith("custom")) {
+          results.push(JSON.parse(localStorage.getItem(key)));
+      }
+  }
+  results.forEach(elem => {
+    let loadCustom = document.createElement("img");
+    loadCustom.id = elem.id
+    loadCustom.src = elem.src;
+    loadCustom.setAttribute("ondragstart", "drag(event)");
+    loadCustom.setAttribute("onmousedown", "deleteSticker(event)");
+    loadCustom.height = "80";
+    document.getElementById("customBox").appendChild(loadCustom);
+  })
+}
+
+/**
+ * Restore stickers on a page from local storage
+ */
+function getSavedStickers() {
+  // retrieve stickers placement
+  let stickers = Array.from(document.querySelectorAll("img")).filter(elem => elem.id.startsWith("sticker") || elem.id.startsWith("washi") || elem.id.startsWith("custom"));
+  stickers.forEach((elem) => {
+    let key = path.concat("/" + elem.id)
+    if (localStorage.getItem(`${key}`) !== null) {
+      let img = JSON.parse(localStorage.getItem(`${key}`));
+      let load = document.createElement("img");
+      load.id = img.id;
+      load.src = img.src;
+      load.setAttribute("ondragstart", "drag(event)");
+      load.setAttribute("onmousedown", "deleteSticker(event)");
+      load.class = "ui-draggable ui-draggable-handle";
+      load.height = "80";
+      load.style.position = img.style.position;
+      load.style.inset = img.style.inset;
+      let parent = "stickerBox";
+      if (elem.id.startsWith("washi")) {
+        parent = "washiBox";
+      } else if (elem.id.startsWith("custom")) {
+        parent = "customBox";
+      }
+      document.getElementById(parent).removeChild(elem);
+      document.getElementById("dropBody").appendChild(load);
+    }
+  })
+};
+
+/**
+ * Remove stickers from current page
+ */
+function removeCurrentStickers() {
+  let pageStickers = Array.from(document.querySelectorAll("#dropBody > img")).filter(elem => elem.id.startsWith("sticker") || elem.id.startsWith("washi") || elem.id.startsWith("custom"));
+  for (let i = 0; i &lt; pageStickers.length; i++) {
+    document.getElementById("dropBody").removeChild(pageStickers[i]);
+    pageStickers[i].removeAttribute("class");
+    pageStickers[i].removeAttribute("style");
+    if (pageStickers[i].id.startsWith("sticker")) {
+      document.getElementById("stickerBox").appendChild(pageStickers[i]);
+    } else if (pageStickers[i].id.startsWith("washi")) {
+      document.getElementById("washiBox").appendChild(pageStickers[i]);
+    } else {
+      document.getElementById("customBox").appendChild(pageStickers[i]);
+    }
+  }
+}
+
+document.addEventListener('contextmenu', event => event.preventDefault());</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addBulletsOnStart">addBulletsOnStart</a></li><li><a href="global.html#addCollectionBulletsOnStart">addCollectionBulletsOnStart</a></li><li><a href="global.html#addCollectionList">addCollectionList</a></li><li><a href="global.html#addCollectionRow">addCollectionRow</a></li><li><a href="global.html#addDropDownImages">addDropDownImages</a></li><li><a href="global.html#addFutureBulletsOnStart">addFutureBulletsOnStart</a></li><li><a href="global.html#addOtherBulletsOnStart">addOtherBulletsOnStart</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#changeBulletIcon">changeBulletIcon</a></li><li><a href="global.html#clickableCollections">clickableCollections</a></li><li><a href="global.html#closeNav">closeNav</a></li><li><a href="global.html#closeSticker">closeSticker</a></li><li><a href="global.html#collectionAdd">collectionAdd</a></li><li><a href="global.html#collectionLink1">collectionLink1</a></li><li><a href="global.html#collectionList">collectionList</a></li><li><a href="global.html#componentToHex">componentToHex</a></li><li><a href="global.html#coverToIndex">coverToIndex</a></li><li><a href="global.html#createCustom">createCustom</a></li><li><a href="global.html#createDropDown">createDropDown</a></li><li><a href="global.html#deleteAllBullets">deleteAllBullets</a></li><li><a href="global.html#deleteBulletIcon">deleteBulletIcon</a></li><li><a href="global.html#deleteBulletPoint">deleteBulletPoint</a></li><li><a href="global.html#deleteCollectionBulletPoint">deleteCollectionBulletPoint</a></li><li><a href="global.html#deleteFutureBulletPoint">deleteFutureBulletPoint</a></li><li><a href="global.html#deleteOtherBulletPoint">deleteOtherBulletPoint</a></li><li><a href="global.html#deleteSticker">deleteSticker</a></li><li><a href="global.html#drag">drag</a></li><li><a href="global.html#futureLink1">futureLink1</a></li><li><a href="global.html#getFuture">getFuture</a></li><li><a href="global.html#getMonths">getMonths</a></li><li><a href="global.html#getSavedStickers">getSavedStickers</a></li><li><a href="global.html#getWeekOne">getWeekOne</a></li><li><a href="global.html#getWeekTwo">getWeekTwo</a></li><li><a href="global.html#monthsArr">monthsArr</a></li><li><a href="global.html#openNav">openNav</a></li><li><a href="global.html#openSticker">openSticker</a></li><li><a href="global.html#putBack">putBack</a></li><li><a href="global.html#removeAllBullets">removeAllBullets</a></li><li><a href="global.html#removeCurrentStickers">removeCurrentStickers</a></li><li><a href="global.html#rgbToHex">rgbToHex</a></li><li><a href="global.html#saveBulletChangedIcon">saveBulletChangedIcon</a></li><li><a href="global.html#saveBulletToLC">saveBulletToLC</a></li><li><a href="global.html#saveChangedIcon">saveChangedIcon</a></li><li><a href="global.html#saveCollectionBulletChangedIcon">saveCollectionBulletChangedIcon</a></li><li><a href="global.html#saveCollectionBulletToLC">saveCollectionBulletToLC</a></li><li><a href="global.html#saveFutureBulletChangedIcon">saveFutureBulletChangedIcon</a></li><li><a href="global.html#saveFutureBulletToLC">saveFutureBulletToLC</a></li><li><a href="global.html#saveToLC">saveToLC</a></li><li><a href="global.html#toggleDrop">toggleDrop</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Thu Jun 10 2021 02:44:53 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

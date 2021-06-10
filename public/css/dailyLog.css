@@ -3,8 +3,6 @@
   src: url('fonts/SansitaOne.ttf');
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
 /* Changing color scheme */
 :root {
   --first-color: #9EB3C2;
@@ -187,6 +185,13 @@ li a:hover:not(.active, .closebtn) {
 .body {
   background-color: white;
 }
+
+/*** Style each day in the weekly view ***/
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
 .day {
   /*border: 5px outset black;*/
   text-align: center;
@@ -199,22 +204,28 @@ li a:hover:not(.active, .closebtn) {
   color: var(--fourth-color);
   padding: 20px;
 }
+
 .dayContent {
   text-align: left;
   background-color: var(--second-color);
   border: 5px solid var(--second-color);
   border-radius: 15px;
-  font: 15px sans-serif;
+  font: 15px "Montserrat", sans-serif;
   height: 250px;
-  width: 100%;
   color: black;
   padding: 10px;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 }
+
 .daily {
-background-color: white;
-margin-left: 18em;
+  background-color: white;
+  margin-left: 18em;
+}
+
+#dailyHeader {
+  color: var(--fourth-color);
+  text-align: center;
 }
 
 #dailyHeader {
@@ -227,13 +238,43 @@ display: flex;
 flex-wrap: wrap;
 }
 
+/* Style goals box */
 .goals {
+<<<<<<< HEAD
 border: 2px solid black;
 border-radius: 15px;
 flex-basis: 200px;
 height: 300px;
 margin-top: 30px;
 margin-left: 10px;
+=======
+  background-color: var(--second-color);
+  border-radius: 15px;
+  flex-basis: 200px;
+  height: 300px;
+  margin-top: 40px;
+  padding-top: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+#goal {
+  border-radius: 15px;
+  flex-basis: 200px;
+  margin-top: -10px;
+  text-align: left;
+  background-color: var(--second-color);
+  border: 5px solid var(--second-color);
+  font: 15px "Montserrat", sans-serif;
+  height: 190px;
+  color: black;
+  padding: 10px;
+  align-items: center;
+  overflow: auto;
+}
+
+.header {
+  text-align: center;
+>>>>>>> 148c2d0ed2260075354d132e24ac924f264fa3aa
 }
 
 #goal {
@@ -259,33 +300,58 @@ margin-left: 10px;
 
 
 .notes {
+<<<<<<< HEAD
 border: 2px solid black;
 border-radius: 15px;
 flex-basis: 200px;
 height: 300px;
 margin-top: 30px;
 margin-left: 10px;
+=======
+  background-color: var(--second-color);
+  border-radius: 15px;
+  flex-basis: 200px;
+  height: 300px;
+  margin-top: 40px;
+  padding-top: 5px;
+  font-family: "Montserrat", sans-serif;
+>>>>>>> 148c2d0ed2260075354d132e24ac924f264fa3aa
 }
 
 #notes{
   border-radius: 15px;
   flex-basis: 200px;
+<<<<<<< HEAD
   margin-top: 10px;
   text-align: left;
   background-color: var(--second-color);
   border: 5px solid var(--second-color);
   font: 15px sans-serif;
+=======
+  margin-top: -10px;
+  text-align: left;
+  background-color: var(--second-color);
+  border: 5px solid var(--second-color);
+  font: 15px "Montserrat", sans-serif;
+>>>>>>> 148c2d0ed2260075354d132e24ac924f264fa3aa
   height: 190px;
   color: black;
   padding: 10px;
   align-items: center;
+<<<<<<< HEAD
   overflow: scroll;
+=======
+  overflow: auto;
+>>>>>>> 148c2d0ed2260075354d132e24ac924f264fa3aa
 }
 
 .daily ul{
   display: flex;
   flex-direction:column;
+<<<<<<< HEAD
   height: 100%;
+=======
+>>>>>>> 148c2d0ed2260075354d132e24ac924f264fa3aa
 }
 
 #datesHeader {
@@ -307,12 +373,13 @@ margin-left: 10px;
   border-radius: 50%;
   text-decoration: none;
   display: inline-block;
-  padding: 8px 12px;
+  font-size: 22px;
+  padding: 3px 11px;
   background-color: white;
   color: var(--fourth-color);
   border: var(--fourth-color);
   position: relative;
-  margin-left: 40%;
+  margin-left: 44%;
 }
 
 .previous {
@@ -325,11 +392,14 @@ margin-left: 10px;
   right: 20px;
 }
 
+/*** Set layout of daily log section ***/
+
 .bigDay {
   float: left;
   width: 30%;
-  margin-right: 20%;
-  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 14%;
+  margin-left: 10px;
 }
 
 .bigDayContent {
@@ -338,13 +408,12 @@ margin-left: 10px;
   background-color: var(--second-color);
   border: 5px solid var(--second-color);
   border-radius: 15px;
-  font: 15px sans-serif;
-  height: 500px;
-  width: 100%;
+  font: 15px "Montserrat", sans-serif;
+  height: 450px;
   color: black;
   padding: 10px;
   align-items: center;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .current {
@@ -353,7 +422,7 @@ margin-left: 10px;
   text-align: left;
   border: 5px solid var(--second-color);
   border-radius: 15px;
-  font: 15px sans-serif;
+  font: 15px "Montserrat", sans-serif;
   height: 250px;
   color: black;
   padding: 10px;

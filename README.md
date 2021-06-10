@@ -11,6 +11,10 @@ The core utilities of bullet journals are:
 - **collections** (organizing information by content)
 - **migration** (periodically updating lists to new lists)
 
+## BuJo
+
+Details on the features and functionality of our product can be found [here](admin/onboard.md)
+
 ## Local Development
 
 Install or update npm packages.
@@ -37,7 +41,7 @@ To deploy:
 firebase deploy
 ```
 
-Deployment will then be updated at https://team-24-gme-bujo.firebaseapp.com/
+Deployment will then be updated at https://team-24-gme-bujo.web.app/
 
 
 ## Linter

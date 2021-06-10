@@ -66,6 +66,8 @@ monthsArr.forEach((elem) => {
     dropDown.appendChild(item);
     dropDown.appendChild(myDropDown);
     let list = document.getElementById(elem).getElementsByTagName('ul')[0];
+    let year = document.querySelector('h1').innerHTML;
+    let yearNumber = year.match(/(\d+)/);
     if(lastEntryId == null){
       var endingNumber = 1;
     }else{
@@ -73,7 +75,8 @@ monthsArr.forEach((elem) => {
       let numberAdded = parseInt(number[0]);
       var endingNumber = numberAdded + 1;
     }
-    let monthName =document.getElementById(month).parentElement.parentElement.childNodes[1].innerHTML + endingNumber;
+    let monthName =document.getElementById(month).parentElement.parentElement.childNodes[1].innerHTML + yearNumber[0] + endingNumber;
+    console.log(monthName);
     dropDown.id = monthName;
     list.appendChild(dropDown);
     saveFutureBulletToLC(dropDown);

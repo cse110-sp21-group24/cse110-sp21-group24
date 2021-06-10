@@ -1,5 +1,6 @@
 /**
- * Update colors based on current color scheme
+ * Update colors based on current color scheme, update week header, 
+ * and get stickers when the page loads
  */
  window.addEventListener('load', () => {
   const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -32,6 +33,11 @@
   getCustomStickers();
   getSavedStickers();
   addBulletsOnStart();
+
+  day.innerHTML = "Sunday";
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sun"));
+  document.getElementById("sunCurr").classList.add("current");
+  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Sunday";
 });
 
 const daysArr = ["mon","tue","wed","thu","fri","sat","sun","goal","notes"];
@@ -81,6 +87,8 @@ window.onclick = function(event) {
     }
   }
   
+  /*** Show dropdown when bullet is selected ***/
+
   if(event.target.classList == 'task-list'){
     var dropDown = event.target.parentElement.childNodes[1];
     dropDown.classList.toggle('show');
@@ -100,6 +108,8 @@ window.onclick = function(event) {
     var dropDown = event.target.parentElement.childNodes[1];
     dropDown.classList.toggle('show');
   }
+
+  /*** Change bullet icon when one from dropdown is selected ***/
 
   if(event.target.classList == 'taskImage'){
     changeBulletIcon(event.target, 'task-list');
@@ -133,6 +143,7 @@ var days = document.getElementsByTagName('h2');
 
 var day = document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0];
 
+/* Function to remove the current day from the daily log section */
 function putBack(){
   if (day.innerHTML == "Monday") {
     document.getElementById("monContainer").appendChild(document.getElementById("mon"));
@@ -171,7 +182,9 @@ function putBack(){
   }
 }
 
-days[0].addEventListener('click', () => {
+/*** Make a day the focus of the main daily log on click ***/
+
+days[1].addEventListener('click', () => {
 
   putBack();
   document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("mon"));
@@ -179,7 +192,7 @@ days[0].addEventListener('click', () => {
   day.innerHTML = "Monday";
 });
 
-days[1].addEventListener('click', () => {
+days[2].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Tuesday";
@@ -188,7 +201,7 @@ days[1].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Tuesday";
 });
 
-days[2].addEventListener('click', () => {
+days[3].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Wednesday";
@@ -197,7 +210,7 @@ days[2].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Wednesday";
 });
 
-days[3].addEventListener('click', () => {
+days[4].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Thursday";
@@ -206,7 +219,7 @@ days[3].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Thursday";
 });
 
-days[4].addEventListener('click', () => {
+days[5].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Friday";
@@ -215,7 +228,7 @@ days[4].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Friday";
 });
 
-days[5].addEventListener('click', () => {
+days[6].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Saturday";
@@ -224,7 +237,7 @@ days[5].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Saturday";
 });
 
-days[6].addEventListener('click', () => {
+days[0].addEventListener('click', () => {
 
   putBack();
   day.innerHTML = "Sunday";

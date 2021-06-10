@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: features/futureLogBullets.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: features/futureLogBullets.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * This function saves the passed element to local storage 
+ * based on the months open on the future logs page
+ * @param {*} element 
+ */
+function saveFutureBulletToLC(element){
+  let pageName = document.querySelector('title').innerHTML;
+  let dayStorage = JSON.parse(localStorage.getItem(pageName));
+  if(dayStorage == null){
+    dayStorage = {};
+  }
+  let month = element.parentElement.parentElement.parentElement.childNodes[1].innerHTML
+  let year = document.querySelector('h1').innerHTML;
+  let yearNumber = year.match(/(\d+)/);
+  let monthYear = month + yearNumber[0];
+  console.log(monthYear);
+  let entryJSON = {
+    pageID: pageName,
+    month: monthYear,
+    id: element.id,
+    bulletType: element.childNodes[0].classList[0],
+    entry: element.childNodes[0].innerHTML
+  }
+  dayStorage[entryJSON.id] = entryJSON;
+  let key = pageName;
+  localStorage.setItem(key, JSON.stringify(dayStorage));
+}
+
+/**
+ * This function saves the element's changed icon using 
+ * saveFutureBulletToLC
+ * @param {*} element 
+ */
+function saveFutureBulletChangedIcon(element){
+  let divChanged = element.parentElement.parentElement;
+  saveFutureBulletToLC(divChanged);
+}
+
+/**
+ * This function adds all of the correct bullets based on 
+ * what months are on the future logs screen
+ */
+function addFutureBulletsOnStart(){
+  const monthsArr = ["first","second","third","fourth","fifth","sixth"];
+  var monthsToSection = {};
+  let year = document.querySelector('h1').innerHTML;
+  let yearNumber = year.match(/(\d+)/);
+  var currentMonths = getMonths();
+  monthsToSection[currentMonths[0]] = monthsArr[0];
+  monthsToSection[currentMonths[1]] = monthsArr[1];
+  monthsToSection[currentMonths[2]] = monthsArr[2];
+  monthsToSection[currentMonths[3]] = monthsArr[3];
+  monthsToSection[currentMonths[4]] = monthsArr[4];
+  monthsToSection[currentMonths[5]] = monthsArr[5];
+  //console.log(monthsToSection);
+  let id = document.querySelector('title').innerHTML;
+  let dayData = JSON.parse(localStorage.getItem(id));
+  //console.log(dayData);
+  let bullets = [];
+  if(dayData != null){
+    bullets = Object.keys(dayData).map(key => {
+      return dayData[key];
+    });
+  }
+  let currentMonth = currentMonths;
+  for(var i = 0; i &lt; currentMonths.length; i++){
+    currentMonth[i] = currentMonths[i] + yearNumber[0];
+  }
+  //console.log(bullets);
+  bullets.forEach(elem => {
+    let bullet = createDropDown();
+    let bulletDropDown = addDropDownImages();
+    let bulletItem = document.createElement('li');
+    bulletItem.contentEditable = "true";
+    bulletItem.innerHTML = elem.entry;
+    bulletItem.classList.add(elem.bulletType);
+    bullet.appendChild(bulletItem);
+    bullet.appendChild(bulletDropDown);
+    //console.log(elem.month);
+    let month = elem.month;
+    let sectionMonth = month.replace(/\d+/g,'');
+    let section = monthsToSection[sectionMonth];
+    console.log(yearNumber[0]);
+    
+    console.log(currentMonths);
+    console.log(elem.month);
+    if(currentMonths.includes(elem.month)){
+      let list = document.getElementById(section).getElementsByTagName('ul')[0];
+      bullet.id = elem.id;
+      list.appendChild(bullet);
+    }
+  });
+}
+
+/**
+ * This function deletes the passed element from the local storage
+ * @param {*} element 
+ */
+function deleteFutureBulletPoint(element){
+  let id = document.querySelector('title').innerHTML;
+  let dayData = JSON.parse(localStorage.getItem(id));
+  delete dayData[element.parentElement.parentElement.id];
+  localStorage.setItem(id, JSON.stringify(dayData));
+}
+
+/**
+ * This function gets the months showing on the page in order 
+ * from left to right
+ * @returns List of months on page
+ */
+function getMonths(){
+  let monthList = [];
+  let months = document.querySelectorAll('h2');
+  months.forEach((entry) => {
+    //console.log(entry.innerHTML);
+    monthList.push(entry.innerHTML);
+  });
+  //console.log(monthList);
+  return monthList;
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addBulletsOnStart">addBulletsOnStart</a></li><li><a href="global.html#addCollectionList">addCollectionList</a></li><li><a href="global.html#addDropDownImages">addDropDownImages</a></li><li><a href="global.html#addFutureBulletsOnStart">addFutureBulletsOnStart</a></li><li><a href="global.html#addOtherBulletsOnStart">addOtherBulletsOnStart</a></li><li><a href="global.html#calendarLink">calendarLink</a></li><li><a href="global.html#changeBulletIcon">changeBulletIcon</a></li><li><a href="global.html#clickableCollections">clickableCollections</a></li><li><a href="global.html#closeNav">closeNav</a></li><li><a href="global.html#collectionLink1">collectionLink1</a></li><li><a href="global.html#coverToIndex">coverToIndex</a></li><li><a href="global.html#createDropDown">createDropDown</a></li><li><a href="global.html#deleteAllBullets">deleteAllBullets</a></li><li><a href="global.html#deleteBulletIcon">deleteBulletIcon</a></li><li><a href="global.html#deleteBulletPoint">deleteBulletPoint</a></li><li><a href="global.html#deleteCollectionBulletPoint">deleteCollectionBulletPoint</a></li><li><a href="global.html#deleteFutureBulletPoint">deleteFutureBulletPoint</a></li><li><a href="global.html#deleteOtherBulletPoint">deleteOtherBulletPoint</a></li><li><a href="global.html#futureLink1">futureLink1</a></li><li><a href="global.html#getFuture">getFuture</a></li><li><a href="global.html#getMonths">getMonths</a></li><li><a href="global.html#getWeekOne">getWeekOne</a></li><li><a href="global.html#getWeekTwo">getWeekTwo</a></li><li><a href="global.html#openNav">openNav</a></li><li><a href="global.html#removeAllBullets">removeAllBullets</a></li><li><a href="global.html#saveBulletChangedIcon">saveBulletChangedIcon</a></li><li><a href="global.html#saveBulletToLC">saveBulletToLC</a></li><li><a href="global.html#saveChangedIcon">saveChangedIcon</a></li><li><a href="global.html#saveCollectionBulletToLC">saveCollectionBulletToLC</a></li><li><a href="global.html#saveFutureBulletChangedIcon">saveFutureBulletChangedIcon</a></li><li><a href="global.html#saveFutureBulletToLC">saveFutureBulletToLC</a></li><li><a href="global.html#saveToLC">saveToLC</a></li><li><a href="global.html#toggleDrop">toggleDrop</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Wed Jun 09 2021 23:15:10 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

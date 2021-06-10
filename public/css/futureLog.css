@@ -1,3 +1,5 @@
+/*** Import fonts ***/
+
 @font-face {
   font-family: 'Sansita One';
   src: url('fonts/SansitaOne.ttf');
@@ -6,11 +8,6 @@
 @font-face {
   font-family: 'Montserrat Medium';
   src: url('fonts/Montserrat-Medium.ttf');
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url('fonts/Roboto-Regular.ttf');
 }
 
 /* Changing color scheme */
@@ -37,6 +34,19 @@
   height: 450px;
   border-radius: 20px;
   padding: 10px;
+  border-radius: 15px;
+  flex-basis: 300px;
+  margin-top: 10px;
+  text-align: left;
+  background-color: var(--second-color);
+  border: 5px solid var(--second-color);
+  font: 15px sans-serif;
+  height: 500px;
+  color: black;
+  padding: 10px;
+  align-items: center;
+  overflow: auto;
+  font-family: "Montserrat";
 }
 
 @media screen and (max-width: 600px) {
@@ -47,6 +57,8 @@
     width: 100%;
   }
 }
+
+/*** Set general text and entry properties ***/
     
 h1 {
   color: var(--third-color);
@@ -100,6 +112,8 @@ h2 {
   right: 20px;
 }
 
+/*** Set properties of bullet dropdown bar ***/
+
 .dropbtn {
   background-color: var(--second-color);
   color: var(--second-color);
@@ -149,11 +163,17 @@ h2 {
   border-radius: 50%;
   text-decoration: none;
   display: inline-block;
+<<<<<<< HEAD
   padding: 8px 12px;
+=======
+  font-size: 22px;
+  padding: 3px 11px;
+>>>>>>> 148c2d0ed2260075354d132e24ac924f264fa3aa
   background-color: white;
   color: var(--fourth-color);
   border: var(--fourth-color);
   position: relative;
+<<<<<<< HEAD
   margin-left: 40%;
 }
 
@@ -170,6 +190,9 @@ h2 {
   padding: 10px;
   align-items: center;
   overflow: scroll;
+=======
+  margin-left: 42%;
+>>>>>>> 148c2d0ed2260075354d132e24ac924f264fa3aa
 }
 
 .column ul{

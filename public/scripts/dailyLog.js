@@ -17,7 +17,7 @@
   // if clicked from nav bar, display current week
   else {
     let curr = new Date;
-    let first = curr.getDate() - curr.getDay() + 1;
+    let first = curr.getDate() - curr.getDay();
     let firstDay = new Date(curr.setDate(first));
     let lastDay = new Date(curr.setDate(curr.getDate() + 6));
 
@@ -40,11 +40,7 @@
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Sunday";
 });
 
-/**
- * Create the layout for each day section, and goals and notes
- */
-
-const daysArr = ["mon","tue","wed","thu","fri","sat","sun","goal","notes"];
+const daysArr = ["sun","mon","tue","wed","thu","fri","sat","goal","notes"];
 
 daysArr.forEach((elem) => {
   let day = elem+"-add";
@@ -72,6 +68,7 @@ daysArr.forEach((elem) => {
       dropDown.id = elem + newNumberAdded;
     }
     list.appendChild(dropDown);
+    console.log("DAY: " + dropDown.parentElement.id);
     saveToLC(dropDown);
     //console.log(dropDown);
   });
@@ -193,12 +190,21 @@ function putBack(){
  * Make a day the focus of the main daily log on click
  */
 
+days[0].addEventListener('click', () => {
+
+  putBack();
+  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sun"));
+  document.getElementById("sunCurr").classList.add("current");
+  day.innerHTML = "Sunday";
+});
+
 days[1].addEventListener('click', () => {
 
   putBack();
+  day.innerHTML = "Monday";
   document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("mon"));
   document.getElementById("monCurr").classList.add("current");
-  day.innerHTML = "Monday";
+  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Monday";
 });
 
 days[2].addEventListener('click', () => {
@@ -244,13 +250,4 @@ days[6].addEventListener('click', () => {
   document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sat"));
   document.getElementById("satCurr").classList.add("current");
   document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Saturday";
-});
-
-days[0].addEventListener('click', () => {
-
-  putBack();
-  day.innerHTML = "Sunday";
-  document.querySelector("[class='bigDayContent']").appendChild(document.getElementById("sun"));
-  document.getElementById("sunCurr").classList.add("current");
-  document.querySelector("[class='bigDayContent']").getElementsByTagName('h1')[0].innerHTML = "Sunday";
 });

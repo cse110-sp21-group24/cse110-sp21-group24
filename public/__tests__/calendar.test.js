@@ -17,7 +17,7 @@ describe('Test calendar dates and months', () => {
     await page.click('.next');
     let month = await page.$('h1');
     let value = await page.evaluate(el => el.textContent, month);
-    expect(value).toBe("July");
+    expect(value).toBe("July 2021");
   }, 20000);
 
   // Navigate to previous month
@@ -26,7 +26,7 @@ describe('Test calendar dates and months', () => {
       document.querySelector('.prev').click();
       return document.querySelector('h1').textContent;
     });
-    expect(month).toBe("June");
+    expect(month).toBe("June 2021");
   }, 20000);
 
   afterAll(async() => {

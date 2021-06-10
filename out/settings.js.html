@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: features/collectionEntries.js</title>
+    <title>JSDoc: Source: settings.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: features/collectionEntries.js</h1>
+    <h1 class="page-title">Source: settings.js</h1>
 
     
 
@@ -26,126 +26,95 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * This function adds the created collections to the side of the collections page
+            <pre class="prettyprint source linenums"><code>import ColorThief from './features/colorthief/dist/color-thief.mjs'
+
+const colorThief = new ColorThief();
+
+/**
+ * Update colors based on current color scheme
  */
-function addCollectionList(){
-  let collectionList = JSON.parse(localStorage.getItem("Collections"));
-  let list = [];
-  if(collectionList != null){
-    list = Object.keys(collectionList).map(key => {
-      return collectionList[key];
-    });
-  }
-  list.forEach(elem => {
-    const collectionRow = document.createElement('p');
-    collectionRow.innerHTML = elem.name;
-    document.getElementById('collection-list').appendChild(collectionRow);
-  });
-  if(list.length != 0){
-    document.querySelector(".collection-title h1").innerHTML = list[0].name;
-  }
-  clickableCollections();
+window.addEventListener('load', () => {
+  getColors(); // retrieve color scheme
+});
+
+let input = document.querySelector("input");
+input.addEventListener('change', (event) => {
+  let image = document.getElementById('output');
+  image.src = URL.createObjectURL(event.target.files[0]);
+});
+
+let img = document.getElementById("output");
+img.addEventListener('load', () => {
+  const colors = colorThief.getPalette(img,4);
+
+  // set new palette colors in local storage
+  localStorage.setItem("color1", rgbToHex(colors[0][0], colors[0][1], colors[0][2]));
+  localStorage.setItem("color2", rgbToHex(colors[1][0], colors[1][1], colors[1][2]));
+  localStorage.setItem("color3", rgbToHex(colors[2][0], colors[2][1], colors[2][2]));
+  localStorage.setItem("color4", rgbToHex(colors[3][0], colors[3][1], colors[3][2]));
+  
+  // get new palette colors as variables
+  const color1 = localStorage.getItem("color1");
+  const color2 = localStorage.getItem("color2");
+  const color3 = localStorage.getItem("color3");
+  const color4 = localStorage.getItem("color4");
+
+  // set circles on Settings page to new palette
+  document.getElementById("color1").style = `background-color: ${color1}`
+  document.getElementById("color2").style = `background-color: ${color2}`
+  document.getElementById("color3").style = `background-color: ${color3}`
+  document.getElementById("color4").style = `background-color: ${color4}`
+
+  // change colors of Settings page
+  document.documentElement.style.setProperty('--first-color', color1);
+  document.documentElement.style.setProperty('--second-color', color2);
+  document.documentElement.style.setProperty('--third-color', color3);
+  document.documentElement.style.setProperty('--fourth-color', color4);
+});
+
+let reset = document.getElementById("resetBtn");
+reset.addEventListener('click', () => {
+  // set palette to default colors
+  localStorage.setItem("color1", "#9EB3C2");
+  localStorage.setItem("color2", "#9BD4F5");
+  localStorage.setItem("color3", "#1D8ECE");
+  localStorage.setItem("color4", "#2E77BB");
+
+  // remove uploaded picture
+  let image = document.getElementById('output');
+  image.removeAttribute("src");
+  
+  // set circles on Settings page to default palette
+  document.getElementById("color1").style = `background-color: ${localStorage.getItem("color1")}`
+  document.getElementById("color2").style = `background-color: ${localStorage.getItem("color2")}`
+  document.getElementById("color3").style = `background-color: ${localStorage.getItem("color3")}`
+  document.getElementById("color4").style = `background-color: ${localStorage.getItem("color4")}`
+
+  // change colors of Settings page
+  document.documentElement.style.setProperty('--first-color', localStorage.getItem("color1"));
+  document.documentElement.style.setProperty('--second-color', localStorage.getItem("color2"));
+  document.documentElement.style.setProperty('--third-color', localStorage.getItem("color3"));
+  document.documentElement.style.setProperty('--fourth-color', localStorage.getItem("color4"));
+})
+
+/**
+ * Convert an input number to hex
+ * @param { Integer } c color component
+ */
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
 }
 
 /**
- * This function makes the created collections clickable on side to load the bullet points
+ * Convert an rgb color to the corresponding hex representation
+ * @param { Integer } r red component
+ * @param { Integer } g green component
+ * @param { Integer } b blue component
  */
-function clickableCollections(){
-  var collectionList = document.querySelectorAll(".collection-list p");
-  for (let i = 0; i &lt; collectionList.length; i++) { 
-    collectionList[i].addEventListener("click", function() {
-      //collectionList[i].style.textDecoration = 'underline';
-      document.querySelector(".collection-title h1").innerHTML = collectionList[i].textContent;
-      deleteAllBullets();
-      addCollectionBulletsOnStart();
-    });
-  }
-}
-
-/**
- * This function saves the passed element to the local storage
- * based on the collection that is open
- * @param {*} element 
- */
-function saveCollectionBulletToLC(element){
-  let collectionList = document.getElementById('ctitle').innerHTML;
-  let collectionStorage = JSON.parse(localStorage.getItem("CollectionsList"));
-  if(collectionStorage == null){
-    collectionStorage = {};
-  }
-  let entryJSON = {
-    pageID: "Collections",
-    collectionName: collectionList,
-    id: element.id,
-    bulletType: element.childNodes[0].classList[0],
-    entry: element.childNodes[0].innerHTML
-  }
-  collectionStorage[entryJSON.id] = entryJSON;
-  let key = "CollectionsList";
-  localStorage.setItem(key, JSON.stringify(collectionStorage));
-}
-
-/**
- * Save a new bullet type when it is changed
- * @param {*} element
- */
-function saveCollectionBulletChangedIcon(element){
-  let divChanged = element.parentElement.parentElement;
-  saveCollectionBulletToLC(divChanged);
-}
-
-/**
- * Get stored information from local storage for the default collection
- */
-function addCollectionBulletsOnStart(){
-  let collectionList = document.getElementById('ctitle').innerHTML;
-  let collectionStorage = JSON.parse(localStorage.getItem("CollectionsList"));
-  let bullets = [];
-  if(collectionStorage != null){
-    bullets = Object.keys(collectionStorage).map(key => {
-      return collectionStorage[key];
-    });
-  }
-  bullets.forEach(elem => {
-    if(elem.id.startsWith(collectionList)){
-      let bullet = createDropDown();
-      let bulletDropDown = addDropDownImages();
-      let bulletItem = document.createElement('li');
-      bulletItem.contentEditable = "true";
-      bulletItem.innerHTML = elem.entry;
-      bulletItem.classList.add(elem.bulletType);
-      bullet.appendChild(bulletItem);
-      bullet.appendChild(bulletDropDown);
-      let list = document.getElementById("collectionListArea").getElementsByTagName('ul')[0];
-      bullet.id = elem.id;
-      list.appendChild(bullet);
-    }
-  });
-}
-
-/**
- * This function removes all of the bullets from the page
- */
-function deleteAllBullets(){
-  let list = document.getElementById("collectionListArea").childNodes[1].childNodes;
-  for(var i = list.length - 1; i > 0; i--){
-    list[i].remove();
-  }
-  console.log(list);
-}
-
-/**
- * This function deletes the passed element from the local storage
- * @param {*} element 
- */
-function deleteCollectionBulletPoint(element){
-  let collectionStorage = JSON.parse(localStorage.getItem("CollectionsList"));
-  let id = element.parentElement.parentElement.id;
-  delete collectionStorage[id];
-  localStorage.setItem("CollectionsList", JSON.stringify(collectionStorage));
-}
-</code></pre>
+function rgbToHex(r, g, b) {
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}</code></pre>
         </article>
     </section>
 

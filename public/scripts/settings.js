@@ -69,11 +69,21 @@ reset.addEventListener('click', () => {
   document.documentElement.style.setProperty('--fourth-color', localStorage.getItem("color4"));
 })
 
+/**
+ * Convert an input number to hex
+ * @param { Integer } c color component
+ */
 function componentToHex(c) {
   var hex = c.toString(16);
   return hex.length == 1 ? "0" + hex : hex;
 }
 
+/**
+ * Convert an rgb color to the corresponding hex representation
+ * @param { Integer } r red component
+ * @param { Integer } g green component
+ * @param { Integer } b blue component
+ */
 function rgbToHex(r, g, b) {
   return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }

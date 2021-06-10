@@ -28,7 +28,7 @@ Each page can also be customized with stickers! If the user opens the stickers p
 
 ![Daily Log Daily View](images/onboard/onboard-daily-log-view.PNG)
 
-In order to emphasize the current day, any day on the right section can be clicked and it will appear in the left side daily view.
+In order to make rapid logging quicker, any day on the right section can be clicked and it will appear in the left side daily view.
 
 ## Monthly Log
 

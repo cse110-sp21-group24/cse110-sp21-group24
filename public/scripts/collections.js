@@ -15,7 +15,12 @@
  * Add a new collection
  */
 function collectionAdd() {
-  document.getElementsById("cinput").style.display = "inline";
+  const x = document.getElementById("cinputline");
+  if (x.style.display == "block"){
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
 }
 
 /**
@@ -42,7 +47,6 @@ collectionInput.addEventListener("keyup", function(event) {
    event.preventDefault();
    document.getElementById("csubmit-button").click();
    document.getElementById("creset-button").click();
-   
   }
 });
 

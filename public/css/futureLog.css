@@ -1,21 +1,21 @@
 /*** Import fonts ***/
 
 @font-face {
-  font-family: 'Sansita One';
-  src: url('fonts/SansitaOne.ttf');
+  font-family: "Sansita One";
+  src: url("fonts/SansitaOne.ttf");
 }
 
 @font-face {
-  font-family: 'Montserrat Medium';
-  src: url('fonts/Montserrat-Medium.ttf');
+  font-family: "Montserrat Medium";
+  src: url("fonts/Montserrat-Medium.ttf");
 }
 
 /* Changing color scheme */
 :root {
-  --first-color: #9EB3C2;
-  --second-color: #9BD4F5;
-  --third-color: #1D8ECE;
-  --fourth-color: #2E77BB;
+  --first-color: #9eb3c2;
+  --second-color: #9bd4f5;
+  --third-color: #1d8ece;
+  --fourth-color: #2e77bb;
 }
 
 * {
@@ -59,13 +59,13 @@
 }
 
 /*** Set general text and entry properties ***/
-    
+
 h1 {
   color: var(--third-color);
   text-align: center;
   font-family: "Sansita One";
 }
-    
+
 h2 {
   color: var(--fourth-color);
   text-align: center;
@@ -77,7 +77,7 @@ h2 {
 .entry {
   margin: 15px;
 }
-    
+
 .material-icons {
   display: inline-flex;
   vertical-align: top;
@@ -123,7 +123,7 @@ h2 {
   padding: 0px;
   margin: 0px;
 }
-    
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -172,9 +172,9 @@ h2 {
   margin-left: 42%;
 }
 
-.column ul{
+.column ul {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   height: 85%;
   padding-left: 0px;
 }

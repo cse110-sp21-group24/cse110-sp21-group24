@@ -68,7 +68,7 @@ function addOtherBulletsOnStart(){
 }
 
 /**
- * This function deletes the passed element from local storage
+ * This function deletes the passed element from local storage for the montly logs page
  * @param {*} element 
  */
 function deleteOtherBulletPoint(element){

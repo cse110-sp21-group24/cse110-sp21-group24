@@ -97,7 +97,7 @@ function saveToLC(element){
   }
   let entryJSON = {
     pageID: pageID,
-    day: element.parentElement.parentElement.id,
+    day: element.parentElement.parentElement.parentElement.id,
     id: element.id,
     bulletType: element.childNodes[0].classList[0],
     entry: element.childNodes[0].innerHTML

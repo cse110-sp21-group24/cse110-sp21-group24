@@ -68,6 +68,7 @@ daysArr.forEach((elem) => {
       dropDown.id = elem + newNumberAdded;
     }
     list.appendChild(dropDown);
+    console.log("DAY: " + dropDown.parentElement.id);
     saveToLC(dropDown);
     //console.log(dropDown);
   });

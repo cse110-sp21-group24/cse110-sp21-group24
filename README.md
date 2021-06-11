@@ -27,6 +27,10 @@ The core utilities of bullet journals are:
 
 Our product, Toki Journal, took these core features and developed an application for students focused around the theme of personalization. Further details on the features and functionality of our product can be found [here](admin/onboard.md).
 
+You can also see more about our product and process here!  
+[Public Video](https://youtu.be/2hDC1_sDXZk)  
+[Private Video](https://youtu.be/zZewBgmfkIs)  
+
 ## Local Development
 
 Clone the repo with

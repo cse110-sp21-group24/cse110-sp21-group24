@@ -24,7 +24,7 @@ The daily log for each week has seven sections on the right that can be used to 
 
 ![Daily Log Stickers](images/onboard/onboard-daily-log-stickers.PNG)
 
-Each page can also be customized with stickers! If the user opens the stickers popup in the top right, they will be able to add existing stickers by dragging them anywhere onto the page. Additionally, the user can upload any custom stickers they want to add from their computer. 
+Each page can also be customized with stickers! If the user opens the stickers popup in the top right, they will be able to add existing stickers by dragging them anywhere onto the page. Additionally, the user can upload any custom stickers they want to add from their computer. They can be deleted by a right click if needed.
 
 ![Daily Log Daily View](images/onboard/onboard-daily-log-view.PNG)
 

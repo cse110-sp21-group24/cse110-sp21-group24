@@ -90,3 +90,5 @@ npx eslint yourfile.js
 Documentation of all code written can be found in the **\out** folder.  
 
 Internal team documentation can be found under **\admin** and **\specs**. **\admin** contains notes on team meetings (including sprint reviews and retrospectives), standups, and the CI/CD pipeline. **\specs** contains artifacts from brainstorming sessions, development of the design, and ADRs.
+
+[Documentation](/out/global.html)

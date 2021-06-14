@@ -221,7 +221,8 @@ h2 {
 
 .daily {
   background-color: white;
-  margin-left: 18em;
+  max-width: 85%;
+  margin: auto;
 }
 
 #dailyHeader {

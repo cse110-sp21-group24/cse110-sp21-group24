@@ -22,11 +22,18 @@
   box-sizing: border-box;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .column {
-  display: inline-block;
-  min-width: 16.45%;
   padding: 10px;
   height: 550px;
+  flex-basis: 300px;
+  flex-shrink: 0;
+  margin-bottom: 3em;
 }
 
 .content {

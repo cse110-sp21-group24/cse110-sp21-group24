@@ -1,6 +1,9 @@
 # Toki Journal
+<<<<<<< HEAD:admin/end-user-doc.md
 
 Users can get started with Toki Journal with this [link](https://team-24-gme-bujo.firebaseapp.com/). No download required!
+=======
+>>>>>>> f755cfe7ff806ff55c35201c95cdb3814150bbc6:admin/onboard.md
 
 ## Home Page
 
@@ -61,3 +64,5 @@ From the settings, the user can see their current color theme for the applicatio
 ![Daily Log Changed](images/onboard/onboard-daily-change.PNG)
 
 ![Monthly Log Changed](images/onboard/onboard-calendar-change.PNG)
+
+The user can upload an image to change the color palette of the entire application.

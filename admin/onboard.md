@@ -1,4 +1,4 @@
-# BuJo
+# Toki Journal
 
 ## Home Page
 

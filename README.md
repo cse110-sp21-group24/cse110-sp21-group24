@@ -13,6 +13,8 @@
 ## Overview
 
 [Team Page](./admin/team.md)
+[End User Doc](./admin/end-user-doc.md)
+[Onboarding Doc](./admin/onboarding.md)
 
 Bullet journaling organizes scheduling, reminders, to-do lists, brainstorming, and other organizational tasks into a single notebook.
 
@@ -25,7 +27,7 @@ The core utilities of bullet journals are:
 
 ## Toki Journal
 
-Our product, Toki Journal, took these core features and developed an application for students focused around the theme of personalization. Further details on the features and functionality of our product can be found [here](admin/onboard.md).
+Our product, Toki Journal, took these core features and developed an application for students focused around the theme of personalization. Further details on the features and functionality of our product can be found [here](./admin/end-user-doc.md).
 
 You can also see more about our product and process here!  
 [Public Video](https://youtu.be/2hDC1_sDXZk)  

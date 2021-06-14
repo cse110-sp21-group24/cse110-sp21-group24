@@ -203,6 +203,7 @@ h2 {
   flex-basis: 250px;
   color: var(--fourth-color);
   padding: 20px;
+  flex-grow: 1;
 }
 
 .dayContent {

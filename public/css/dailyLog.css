@@ -368,3 +368,9 @@ flex-wrap: wrap;
   padding: 10px;
   align-items: center;
 }
+
+/*** Changed Clickable Links When Hovered ***/
+.hover:hover{
+  color: var(--second-color);
+  cursor: pointer;
+}

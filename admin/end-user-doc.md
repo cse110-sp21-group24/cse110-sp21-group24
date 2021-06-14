@@ -1,4 +1,4 @@
-# BuJo
+# Toki Journal
 
 Users can get started with Toki Journal with this ![link](https://team-24-gme-bujo.firebaseapp.com/). No download required!
 

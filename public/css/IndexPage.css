@@ -46,6 +46,8 @@ h1 {
 /*** Changed Clickable Links When Hovered ***/
 .hover:hover{
   color: var(--second-color);
+  cursor: pointer;
+
 }
 
 /*** Styling of Hyper Links***/

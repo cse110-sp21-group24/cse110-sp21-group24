@@ -18,9 +18,9 @@ The core utilities of bullet journals are:
 
 ## Toki Journal
 
-[Team Page](./admin/team.md)
-[End User Doc](./admin/end-user-doc.md)
-[Onboarding Doc](./admin/onboarding.md)
+[Team Page](./admin/team.md)  
+[End User Doc](./admin/end-user-doc.md)  
+[Onboarding Doc](./admin/onboarding.md)  
 
 Our product, Toki Journal, took these core features and developed an application for students focused around the theme of personalization. Further details on the features and functionality of our product can be found in the End User Documentation linked right above.
 

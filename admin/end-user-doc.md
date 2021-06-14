@@ -1,4 +1,9 @@
 # Toki Journal
+<<<<<<< HEAD:admin/end-user-doc.md
+
+Users can get started with Toki Journal with this [link](https://team-24-gme-bujo.firebaseapp.com/). No download required!
+=======
+>>>>>>> f755cfe7ff806ff55c35201c95cdb3814150bbc6:admin/onboard.md
 
 ## Home Page
 
@@ -34,7 +39,7 @@ In order to make rapid logging quicker, any day on the right section can be clic
 
 ![Monthly Log View](images/onboard/onboard-calendar.PNG)
 
-Monthly logs allow the user to keep track of events ocurring on a monthly basis, as well as use the calendar to easily navigate to past daily logs
+Monthly logs allow the user to keep track of events ocurring on a monthly basis, as well as use the calendar to easily navigate to past daily logs. For example, clicking on June 30th on the calendar will redirect users to the weekly log of June 27 to July 3.
 
 ## Future Log
 
@@ -46,13 +51,13 @@ Future logs allow users to keep track of events coming up in the next 6 months.
 
 ![Collection](images/onboard/onboard-collection.PNG)
 
-Collections allow user to keep track of custom items. After clicking the pencil tool on the right, they can add their own collection and keep track of anything they would like to. For example, they might want to add a collection for fitness or sleep tracking.
+Collections allow user to keep track of custom items. After clicking the pencil tool on the right, type in the name of the new list on the shown line and press enter. They can add their own collection and keep track of anything they would like to. For example, they might want to add a collection for fitness or sleep tracking.
 
 ## Settings
 
 ![Settings](images/onboard/onboard-settings.PNG)
 
-From the settings, the user can see their current color theme for the application.
+From the settings, the user can see their current color theme for the application. The user can upload an image to change the color palette of the entire application.
 
 ![Settings Palette Changed](images/onboard/onboard-settings-change.PNG)
 

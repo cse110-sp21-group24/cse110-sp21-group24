@@ -1,9 +1,6 @@
 # Toki Journal
-<<<<<<< HEAD:admin/end-user-doc.md
 
 Users can get started with Toki Journal with this [link](https://team-24-gme-bujo.firebaseapp.com/). No download required!
-=======
->>>>>>> f755cfe7ff806ff55c35201c95cdb3814150bbc6:admin/onboard.md
 
 ## Home Page
 

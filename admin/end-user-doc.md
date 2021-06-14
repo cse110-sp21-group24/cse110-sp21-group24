@@ -48,7 +48,7 @@ Future logs allow users to keep track of events coming up in the next 6 months.
 
 ![Collection](images/onboard/onboard-collection.PNG)
 
-Collections allow user to keep track of custom items. After clicking the pencil tool on the right, they can add their own collection and keep track of anything they would like to. For example, they might want to add a collection for fitness or sleep tracking.
+Collections allow user to keep track of custom items. After clicking the pencil tool on the right, type in the name of the new list on the shown line and press enter. They can add their own collection and keep track of anything they would like to. For example, they might want to add a collection for fitness or sleep tracking.
 
 ## Settings
 
